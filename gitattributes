@@ -1,0 +1,4 @@
+.config/openbox/autostart.sh    merge=ours
+.config/openbox/rc.xml          merge=ours
+.config/tint2/tint2rc           merge=ours
+.conkyrc                        merge=ours

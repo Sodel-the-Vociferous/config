@@ -1,0 +1,13 @@
+## Mimic tmux
+
+# Set to escape key "C-b"
+escape ^bb
+
+# Set kill to C-b x
+bind x kill
+
+# Show the status bar
+hardstatus alwayslastline "%w"
+
+# Don't show the startup message
+startup_message off

@@ -1,0 +1,4 @@
+# Run this to make this file the git exclude file:
+# git config --global core.excludesfile ~/.gitexclude.global
+*.pyc
+*~
