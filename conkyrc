@@ -73,7 +73,7 @@ alignment top_right
 
 # Gap between borders of screen and text
 # same thing as passing -x at command line
-gap_x 1173
+gap_x 1493
 gap_y 20
 
 # Subtract file system buffers from used memory?
@@ -132,6 +132,8 @@ ${cpu cpu1}%; ${cpu cpu2}%; ${cpu cpu3}%; ${cpu cpu4}%
  ${cpugraph cpu1 20,45} ${cpugraph cpu2 20,45}
  ${cpugraph cpu3 20,45} ${cpugraph cpu4 20,45}
 ${stippled_hr}
+${color light blue}Chg:${color}${battery_time}
+ ${battery_bar 5, 90}
 ${color light blue}Wi-Fi:${color} ${wireless_link_qual wlan0}%
  in:  ${color light blue}${downspeed wlan0}/s ${color}
       ${color light blue}${totaldown wlan0}${color}
