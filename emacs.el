@@ -58,7 +58,7 @@
 
 (define-prefix-command 'user-map)
 (global-set-key (kbd "C-z") 'user-map)
-(define-key user-map (kbd "C-c C-SPC") 'ace-jump-mode)
+(define-key user-map (kbd "C-SPC") 'ace-jump-mode)
 (define-key user-map (kbd "C-\\") 'toggle-hiding)
 (define-key user-map (kbd "C--") 'toggle-selective-display)
 (define-key user-map (kbd "C-z") 'suspend-frame)
