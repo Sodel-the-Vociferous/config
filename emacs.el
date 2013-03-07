@@ -319,6 +319,14 @@
 ;;; Magit
 (require 'magit)
 
+;;; Git Gutter: show lines that have been added/removed/changed
+;;; compared to files as stored in git.
+(require 'git-gutter)
+(setq
+ git-gutter:always-show-gutter t
+ git-gutter:diff-option "-w")
+(global-git-gutter-mode t)
+
 ;;; Python mode
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
