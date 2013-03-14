@@ -4,3 +4,5 @@
     XF86AudioLowerVolume
 "pamixer --toggle-mute"
     XF86AudioMute
+"xfce4-terminal"
+    Menu
