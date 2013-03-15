@@ -16,7 +16,7 @@ xcompmgr &
 tint2 &
 conky -p 1 --daemonize &
 xscreensaver -no-splash &
-dropbox start &
+dropbox stop; dropbox start &
 
 # X keybindings
 xbindkeys
