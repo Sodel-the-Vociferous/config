@@ -46,3 +46,6 @@ eval $(keychain --eval --agents ssh 2> /dev/null)
 
 # Start emacs
 emacs --daemon &> /dev/null &
+
+# Start dropbox
+dropbox start &> /dev/null &
