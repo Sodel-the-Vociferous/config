@@ -37,6 +37,12 @@ export PYTHONDONTWRITEBYTECODE
 KLH10_HOME=~/emu/klh10-home/
 export KLH10_HOME
 
+
+## Start Programs/Daemons
+
 # Use keychain as an ssh agent only, sending debug output to
 # /dev/null instead of barfing on the login shell.
 eval $(keychain --eval --agents ssh 2> /dev/null)
+
+# Start emacs
+emacs --daemon &> /dev/null &
