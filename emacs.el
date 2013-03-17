@@ -202,7 +202,8 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
-(push 'asm-mode ac-modes)
+(add-to-list 'ac-modes 'asm-mode)
+(add-to-list 'ac-modes 'org-mode)
 (ac-config-default)
 
 ;;; ace-jump-mode
