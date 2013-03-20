@@ -8,3 +8,5 @@
     Menu
 "xfce4-terminal -e 'sudo -i'"
     Control + Menu
+"wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz"
+    Alt + F5
