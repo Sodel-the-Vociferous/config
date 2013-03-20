@@ -10,3 +10,7 @@
     Control + Menu
 "wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz"
     Alt + F5
+"~/config/bump-window.sh LEFT"
+    Control + Mod2 + Mod4 + Left
+"~/config/bump-window.sh RIGHT"
+    Control + Mod2 + Mod4 + Right
