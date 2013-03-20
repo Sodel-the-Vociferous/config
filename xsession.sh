@@ -21,3 +21,6 @@ dropbox stop; dropbox start &
 # X keybindings
 xbindkeys
 setxkbmap -option ctrl:nocaps
+
+# WM Settings
+wmctrl -n 5 # Workspaces
