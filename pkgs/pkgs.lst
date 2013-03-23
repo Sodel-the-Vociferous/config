@@ -158,6 +158,7 @@ xorg-fonts-type1
 xorg-xev
 xorg-xinit
 xorg-xkill
+xprop
 xscreensaver
 xsensors
 zenity
