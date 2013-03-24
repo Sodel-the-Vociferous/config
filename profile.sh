@@ -33,16 +33,13 @@ export WINEARCH
 PYTHONDONTWRITEBYTECODE=true
 export PYTHONDONTWRITEBYTECODE
 
-# PDP-10 emulator
-KLH10_HOME=~/emu/klh10-home/
-export KLH10_HOME
-
 
 ## Start Programs/Daemons
 
-# Use keychain as an ssh agent only, sending debug output to
-# /dev/null instead of barfing on the login shell.
-eval $(keychain --eval --agents ssh 2> /dev/null)
+# Use keychain as an ssh agent only, sending debug output to /dev/null
+# instead of barfing on the login shell. (Only do this if there isn't
+# already an SSH Agent accessible.)
+[ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh 2> /dev/null)
 
 # Start emacs
 emacs --daemon &> /dev/null &

@@ -24,16 +24,15 @@ synclient VertTwoFingerScroll=1 \
     TapButton3=3 \
     PalmMinWidth=10
 
-numlockx & # Turn num lock on
+already_running numlockx && numlockx # Turn num lock on
 
-xcompmgr &
-tint2 &
-conky -p 1 --daemonize &
-xscreensaver -no-splash &
+already_running tint2 || tint2 &
+already_running conky || conky -p 1 --daemonize &
+already_running xscreensaver || xscreensaver -no-splash &
 dropbox stop; dropbox start &
 
 # X keybindings
-xbindkeys
+already_running xbindkeys || xbindkeys
 setxkbmap -option ctrl:nocaps
 
 # WM Settings
