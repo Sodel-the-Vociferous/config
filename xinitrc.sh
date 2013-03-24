@@ -1,3 +1,5 @@
 #!/bin/sh
 
-exec openbox-session
+source ~/.bash_profile
+source ~/.xsession
+exec gnome-session

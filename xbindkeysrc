@@ -1,9 +1,3 @@
-"pamixer --increase 4"
-    XF86AudioRaiseVolume
-"pamixer --decrease 4"
-    XF86AudioLowerVolume
-"pamixer --toggle-mute"
-    XF86AudioMute
 "xfce4-terminal"
     Menu
 "xfce4-terminal -e 'sudo -i'"
@@ -14,3 +8,13 @@
     Control + Mod2 + Mod4 + Left
 "~/config/bin/bump-window.sh RIGHT"
     Control + Mod2 + Mod4 + Right
+"wmctrl -s 0"
+    Control + F1
+"wmctrl -s 1"
+    Control + F2
+"wmctrl -s 2"
+    Control + F3
+"wmctrl -s 3"
+    Control + F4
+"wmctrl -s 4"
+    Control + F5
