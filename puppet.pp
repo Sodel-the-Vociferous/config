@@ -130,3 +130,10 @@ file { "/home/${id}/.screenrc":
   ensure => link,
   target => "/home/${id}/config/screenrc"
 }
+
+# Application Definitions
+
+file { "/home/${id}/.local/share/applications/emacsclient.desktop":
+  ensure => link,
+  target => "/home/${id}/config/applications/emacsclient.desktop"
+}
