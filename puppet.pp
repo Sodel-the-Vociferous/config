@@ -130,6 +130,13 @@ file { "/home/${id}/.screenrc":
   ensure => link,
   target => "/home/${id}/config/screenrc"
 }
+file { "/home/${id}/.moc":
+  ensure => directory
+}
+file { "/home/${id}/.moc/config":
+  ensure => link,
+  target => "/home/${id}/config/moc/config"
+}
 
 # Application Definitions
 

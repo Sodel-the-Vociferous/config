@@ -1,0 +1,5 @@
+MusicDir = ${HOME}/music
+StartInMusicDir = yes
+Theme = nightly_theme
+ReadTags = yes
+Sort = FileName
