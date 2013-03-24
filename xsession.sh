@@ -2,6 +2,11 @@
 #
 # Executed at session startup
 
+already_running () {
+    pgrep -u $(whoami) $@
+    return $?
+}
+
 # Desktop wallpaper
 WALLPAPER_FILENAME=~/config/wallpaper
 [ -r $WALLPAPER_FILENAME ] && feh --bg-fill $WALLPAPER_FILENAME
