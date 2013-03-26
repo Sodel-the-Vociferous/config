@@ -6,6 +6,7 @@ then
     echo "WARNING: This script should probably be run as root."
 fi
 
+systemctl enable atd
 systemctl enable avahi-daemon
 systemctl enable cronie
 systemctl enable net-auto-wired
