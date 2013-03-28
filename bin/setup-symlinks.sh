@@ -39,7 +39,6 @@ ensure_symlink () {
     # Link already exists, and is pointing at the right place?
     [ -L "$lpath" ] &&
     [ "$(readlink "$lpath")" = "$target" ] &&
-    echo link "'$lpath'" is OK, skipping &&
     return 0
 
     if [ -d "$lpath" ]
