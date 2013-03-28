@@ -8,6 +8,7 @@ alsa-utils
 artwiz-fonts
 aspell
 aspell-en
+at
 atop
 bash
 bash-completion
@@ -96,6 +97,7 @@ openal
 openbox
 openssh
 openssl
+ossp
 p7zip
 parallel
 pavucontrol
@@ -115,6 +117,7 @@ python-pyserial
 python-scipy
 python-sqlalchemy
 python-virtualenv
+rpcbind
 rsync
 samba
 sbcl
@@ -130,6 +133,7 @@ sqlite2
 stone-soup
 sudo
 swftools
+syslog-ng
 tidyhtml
 tint2
 tix
