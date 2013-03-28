@@ -60,6 +60,7 @@ iotop
 iproute2
 ipython
 ipython2
+jdk7-openjdk
 k3b
 keychain
 libreoffice-base
@@ -72,7 +73,6 @@ liferea
 links
 lshw
 lsof
-mcrypt
 mencoder
 mercurial
 mesa
@@ -94,7 +94,6 @@ obconf
 obmenu
 openal
 openbox
-openjdk6
 openssh
 openssl
 p7zip
@@ -158,7 +157,7 @@ xorg-fonts-type1
 xorg-xev
 xorg-xinit
 xorg-xkill
-xprop
+xorg-xprop
 xscreensaver
 xsensors
 zenity
