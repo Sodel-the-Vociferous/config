@@ -140,4 +140,3 @@ ${color light blue}Disk Used:${color}
 ${fs_used_perc /}% of ${fs_size /}
  ${color}${fs_bar 5,90 /}
  ${diskiograph 20,90}
-${stippled_hr}
