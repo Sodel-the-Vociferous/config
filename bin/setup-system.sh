@@ -17,3 +17,5 @@ systemctl enable remote-fs.target
 systemctl enable rpcbind
 systemctl enable sshd
 systemctl enable syslog-ng
+
+cp -r ~/config/etc/* /etc
