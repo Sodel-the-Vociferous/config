@@ -34,7 +34,7 @@ wm_menu = 1
 panel_background_id = 1
 
 # Mccarthy panel size
-panel_size = 70% 115
+panel_size = 65% 115
 
 # Panel Autohide
 autohide = 0
