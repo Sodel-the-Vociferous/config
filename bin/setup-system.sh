@@ -1,5 +1,5 @@
 #!/bin/bash
-# Enable my systemd services
+# Setup my system-wide configuration
 
 if [ ! "$(whoami)" = "root" ]
 then
