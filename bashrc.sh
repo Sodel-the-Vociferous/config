@@ -11,6 +11,11 @@ shopt -s histappend
 export HISTSIZE=50000
 export HISTFILESIZE=$HISTSIZE
 
+if [[ $- = *i* ]]
+then
+    ~/config/bin/tmux-client.sh && exit
+fi
+
 ## Set up prompts
 # Show git branch in bash prompt
 parse_git_branch () {
