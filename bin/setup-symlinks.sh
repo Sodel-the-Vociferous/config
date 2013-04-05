@@ -72,6 +72,9 @@ ensure_symlink ~/config/bash_logout.sh ~/.bash_logout
 ensure_symlink ~/config/bash_profile.sh ~/.bash_profile
 ensure_symlink ~/config/profile.sh ~/.profile
 
+## Tmux Config
+ensure_symlink ~/config/tmux.conf ~/.tmux.conf
+
 ## X Config
 
 ensure_symlink ~/config/xbindkeysrc ~/.xbindkeysrc
