@@ -426,7 +426,7 @@
  erc-mode-line-format "%t %a"
  erc-kill-queries-on-quit t
  erc-kill-buffer-on-part t
- erc-track-exclude-types '("JOIN" "PART" 333 353))
+ erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
 (add-hook 'erc-hooks 'erc-track-mode)
 (defalias 'irc 'erc-tls)
