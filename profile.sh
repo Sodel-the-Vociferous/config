@@ -40,7 +40,7 @@ export PYTHONDONTWRITEBYTECODE
 # Use keychain as an ssh agent only, sending debug output to /dev/null
 # instead of barfing on the login shell. (Only do this if there isn't
 # already an SSH Agent accessible.)
-[ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh 2> /dev/null)
+[ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
 # Start emacs
 nohup emacs --daemon &> /dev/null &
