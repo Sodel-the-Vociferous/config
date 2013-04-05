@@ -1,21 +1,16 @@
 #!/bin/bash
 # Setup my system-wide configuration
 
-if [ ! "$(whoami)" = "root" ]
-then
-    echo "WARNING: This script should probably be run as root."
-fi
+sudo systemctl enable atd
+sudo systemctl enable avahi-daemon
+sudo systemctl enable cronie
+sudo systemctl enable net-auto-wired
+sudo systemctl enable net-auto-wireless
+sudo systemctl enable ntpd
+sudo systemctl enable osspd
+sudo systemctl enable remote-fs.target
+sudo systemctl enable rpcbind
+sudo systemctl enable sshd
+sudo systemctl enable syslog-ng
 
-systemctl enable atd
-systemctl enable avahi-daemon
-systemctl enable cronie
-systemctl enable net-auto-wired
-systemctl enable net-auto-wireless
-systemctl enable ntpd
-systemctl enable osspd
-systemctl enable remote-fs.target
-systemctl enable rpcbind
-systemctl enable sshd
-systemctl enable syslog-ng
-
-cp -r ~/config/etc/* /etc
+sudo cp -vr ~/config/etc/* /etc
