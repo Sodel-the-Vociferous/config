@@ -9,8 +9,6 @@ VISUAL=$EDITOR
 export VISUAL
 ALTERNATE_EDITOR=
 export ALTERNATE_EDITOR
-TERM=xterm-256color
-export TERM
 
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib"
