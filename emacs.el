@@ -139,6 +139,7 @@
 (add-hook 'fundamental-mode-hook 'flyspell-mode)
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
+(add-hook 'erc-mode-hook 'flyspell-mode)
 
 (add-hook 'asm-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
