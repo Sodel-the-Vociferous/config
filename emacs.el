@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ;;; Load packages
+(require 'package)
 (package-initialize)
 
 ;; Setup package archives
@@ -39,31 +40,22 @@
 
 ;;; Key Bindings
 (global-set-key (kbd "<C-return>") 'newline-and-indent)
-(global-set-key (kbd "<C-tab>") 'auto-complete)
 (global-set-key (kbd "<mouse-8>") 'previous-buffer)
 (global-set-key (kbd "<mouse-9>") 'next-buffer)
 (global-set-key (kbd "C-x C-M-k") 'kill-matching-buffers)
 
 (define-prefix-command 'user-map)
 (global-set-key (kbd "C-z") 'user-map)
-(define-key user-map (kbd "C-SPC") 'ace-jump-mode)
 (define-key user-map (kbd "C-\\") 'toggle-hiding)
 (define-key user-map (kbd "C--") 'toggle-selective-display)
 (define-key user-map (kbd "C-z") 'suspend-frame)
-(define-key user-map (kbd "M-k") 'kill-paragraph)
+(define-key user-map (kbd "p k") 'kill-paragraph)
 (define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
 (define-key user-map (kbd "r") 'rename-buffer)
 (define-key user-map (kbd "t") 'user/ansi-term)
-(define-key user-map (kbd "v") 'magit-status)
 
 (define-prefix-command 'user-chat-map)
 (define-key user-map (kbd "c") user-chat-map)
-(define-key user-chat-map (kbd "j") 'erc-track-switch-buffer)
-
-(define-key user-map (kbd "C-c C-d") 'inline-crypt-decrypt-region)
-(define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
-(define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
-(define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)
 
 ;; Org Key bindings
 (define-prefix-command 'user-org-outline-map)
@@ -210,12 +202,14 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
+(global-set-key (kbd "<C-tab>") 'auto-complete)
 (add-to-list 'ac-modes 'asm-mode)
 (add-to-list 'ac-modes 'org-mode)
 (ac-config-default)
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
+(define-key user-map (kbd "C-SPC") 'ace-jump-mode)
 
 ;;; Org
 (require 'org)
@@ -325,9 +319,14 @@
 
 ;;; Inline encryption
 (require 'inline-crypt)
+(define-key user-map (kbd "C-c C-d") 'inline-crypt-decrypt-region)
+(define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
+(define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
+(define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)
 
 ;;; Magit
 (require 'magit)
+(define-key user-map (kbd "v") 'magit-status)
 
 ;;; Git Gutter: show lines that have been added/removed/changed
 ;;; compared to files as stored in git.
@@ -428,6 +427,8 @@
 ;;; ERC IRC Client
 (require 'tls)
 (require 'erc)
+(define-key user-chat-map (kbd "j") 'erc-track-switch-buffer)
+
 (setq
  erc-port 6697
  erc-prompt-for-password t
