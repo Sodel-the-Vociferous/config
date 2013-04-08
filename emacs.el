@@ -1,3 +1,6 @@
+;;; Add site-lisp to my load path
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+
 ;;; Load packages
 (package-initialize)
 
@@ -6,9 +9,6 @@
                          ("MELPA" . "http://melpa.milkbox.net/packages/")
                          ("Marmalade" . "http://marmalade-repo.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
-
-;;; Add site-lisp to my load path
-(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ;;; Startup
 (setq inhibit-startup-screen t)
