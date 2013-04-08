@@ -102,13 +102,12 @@
 ;;; Setup saving/restoring list of installed emacs packages
 (require 'save-packages)
 (setq save-packages-file "~/config/pkgs/emacs-pkgs")
-(package-refresh-contents)
-(install-saved-packages save-packages-file)
+(defadvice install-saved-packages (before refresh-pkgs activate)
+  (package-refresh-contents))
 
 ;; Set transparency
 (require 'alpha)
 (add-to-list 'default-frame-alist '(alpha . 90))
-
 
 ;;; Workgroups, i.e. frame layouts; only load if my workgroups file
 ;;; exists and is readable.
