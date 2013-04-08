@@ -102,6 +102,7 @@
 ;;; Setup saving/restoring list of installed emacs packages
 (require 'save-packages)
 (setq save-packages-file "~/config/pkgs/emacs-pkgs")
+(package-refresh-contents)
 (install-saved-packages save-packages-file)
 
 ;; Set transparency
