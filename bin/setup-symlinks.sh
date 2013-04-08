@@ -40,7 +40,11 @@ ensure_symlink () {
     [ "$(readlink "$lpath")" = "$target" ] &&
     return 0
 
-    if [ -d "$lpath" ]
+    if [ ! -e "$target" ]
+    then
+        echo "ERROR: Skipping '$lpath': link target '$target' does not exist!"
+        return 1
+    elif [ -d "$lpath" ]
     then
         # Dir exists; delete it?
         confirm "WARNING: '$lpath' is a directory! Link it to '$target'?" \
