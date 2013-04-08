@@ -32,23 +32,10 @@
 ;; to my annoyance.
 (put 'set-fill-prefix 'disabled t)
 
-;; Set transparency
-(require 'alpha)
-(add-to-list 'default-frame-alist '(alpha . 90))
-
 ;;; Interface
 (xterm-mouse-mode t)
 (setq doc-view-continuous t)
 (show-paren-mode t)
-
-;;; Workgroups, i.e. frame layouts; only load if my workgroups file
-;;; exists and is readable.
-(require 'workgroups)
-(setq user/wg-file "~/.emacs-workgroups")
-(if (file-readable-p user/wg-file)
-    (progn (workgroups-mode t)
-           (wg-load user/wg-file))
-  nil)
 
 ;;; Key Bindings
 (global-set-key (kbd "<C-return>") 'newline-and-indent)
@@ -125,6 +112,20 @@
 (require 'save-packages)
 (setq save-packages-file "~/config/pkgs/emacs-pkgs")
 (install-saved-packages save-packages-file)
+
+;; Set transparency
+(require 'alpha)
+(add-to-list 'default-frame-alist '(alpha . 90))
+
+
+;;; Workgroups, i.e. frame layouts; only load if my workgroups file
+;;; exists and is readable.
+(require 'workgroups)
+(setq user/wg-file "~/.emacs-workgroups")
+(if (file-readable-p user/wg-file)
+    (progn (workgroups-mode t)
+           (wg-load user/wg-file))
+  nil)
 
 ;;; Don't quote regex special chars when yanking into isearch-regexp
 ;;; buffers. BLOODY ANNOYING, THAT.
