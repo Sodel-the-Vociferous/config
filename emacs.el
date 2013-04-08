@@ -121,6 +121,11 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;; Setup saving/restoring list of installed emacs packages
+(require 'save-packages)
+(setq save-packages-file "~/config/pkgs/emacs-pkgs")
+(install-saved-packages save-packages-file)
+
 ;;; Don't quote regex special chars when yanking into isearch-regexp
 ;;; buffers. BLOODY ANNOYING, THAT.
 (require 'isearch+)
