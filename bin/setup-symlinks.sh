@@ -31,7 +31,6 @@ confirm () {
     confirm_bool "$y_or_n"; return $?
 }
 
-
 ensure_symlink () {
     target=$1
     lpath=$2
@@ -58,7 +57,9 @@ ensure_symlink () {
         rm "$lpath"
     fi
 
-    # TODO: Create parent directories if needed
+    # Create parent directories for the link if needed
+    mkdir -p "$(dirname $lpath)"
+
     ln -s "$target" "$lpath" &&
     echo Linked "'$lpath'" to "'$target'"
 }
