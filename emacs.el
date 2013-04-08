@@ -55,7 +55,6 @@
 (define-key user-map (kbd "r") 'rename-buffer)
 (define-key user-map (kbd "t") 'user/ansi-term)
 (define-key user-map (kbd "v") 'magit-status)
-(define-key user-map (kbd "w") wg-map)
 
 (define-prefix-command 'user-chat-map)
 (define-key user-map (kbd "c") user-chat-map)
@@ -121,6 +120,8 @@
 ;;; Workgroups, i.e. frame layouts; only load if my workgroups file
 ;;; exists and is readable.
 (require 'workgroups)
+(define-key user-map (kbd "w") 'wg-map)
+
 (setq user/wg-file "~/.emacs-workgroups")
 (if (file-readable-p user/wg-file)
     (progn (workgroups-mode t)
