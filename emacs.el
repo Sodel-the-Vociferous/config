@@ -43,6 +43,7 @@
 
 ;;; Key Bindings
 (global-set-key (kbd "<C-return>") 'newline-and-indent)
+(global-set-key (kbd "<mouse-3>") 'mouse-popup-menubar)
 (global-set-key (kbd "<mouse-8>") 'previous-buffer)
 (global-set-key (kbd "<mouse-9>") 'next-buffer)
 (global-set-key (kbd "C-x C-M-k") 'kill-matching-buffers)
