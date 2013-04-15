@@ -3,12 +3,10 @@ ace-jump-mode
 aes
 alpha
 android-mode
-angry-police-ca
 ascii
 auto-compile
 auto-complete
 auto-complete-clang
-auto-complete-c
 auto-indent-mode
 backup-walker
 bash-completion
@@ -21,7 +19,6 @@ cm-mode
 cmake-mode
 color-theme
 color-theme-solarized
-color-theme-sol
 crontab-mode
 csharp-mode
 csv-mode
