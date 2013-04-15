@@ -1,0 +1,14 @@
+Description='A simple WPA encrypted wireless connection'
+Interface=wlan0
+Connection=wireless
+Security=wpa
+
+IP=dhcp
+
+ESSID='RalstonNet'
+# Prepend hexadecimal keys with \"
+# If your key starts with ", write it as '""<key>"'
+# See also: the section on special quoting rules in netctl.profile(5)
+Key='8BCB9PPWGT65T76T90OI8JU7Y6'
+# Uncomment this if your ssid is hidden
+#Hidden=yes
