@@ -41,7 +41,7 @@ export PYTHONDONTWRITEBYTECODE
 [ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
 # Start emacs
-nohup emacs --daemon &> /dev/null &
+[ -e /tmp/emacs$(id -u)/server ] || nohup emacs --daemon &> /dev/null &
 
 # Start dropbox
 nohup dropbox start &> /dev/null &
