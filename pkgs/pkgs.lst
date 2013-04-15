@@ -91,10 +91,7 @@ ntfs-3g
 ntfsprogs
 ntp
 numlockx
-obconf
-obmenu
 openal
-openbox
 openssh
 openssl
 ossp
@@ -158,10 +155,12 @@ xfce4-terminal
 xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-fonts-type1
+xorg-setxkbmap
 xorg-xev
 xorg-xinit
 xorg-xkill
 xorg-xprop
+xorg-xwininfo
 xscreensaver
 xsensors
 zenity
