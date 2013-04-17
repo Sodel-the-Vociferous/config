@@ -13,9 +13,12 @@ no_tmux_clients () {
 new_tmux_client () {
     if no_tmux_clients
     then
-        exec tmux new-session -t TMUX_MASTER
+        exec tmux new-session -t TMUX_MASTER \; \
+            set -q destroy-unattached on
     else
-        exec tmux new-session -t TMUX_MASTER \; new-window -c $(pwd)
+        exec tmux new-session -t TMUX_MASTER \; \
+            new-window -c $(pwd) \; \
+            set -q destroy-unattached on
     fi
 }
 
