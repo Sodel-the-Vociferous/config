@@ -84,6 +84,9 @@
 (define-key term-raw-map (kbd "<C-right>") 'user/term-send-next-word)
 (define-key term-raw-escape-map (kbd "C-z") 'user-map)
 
+;; Terminals in emacs should be able to run tmux, regardless of
+;; whether or not emacs was started within tmux.
+(setenv "TMUX" "")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
