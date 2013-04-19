@@ -8,3 +8,4 @@ gsettings set org.gnome.desktop.background picture-uri "file://$BACKGROUND_REAL_
 # resumes from suspension
 which synclient &&
 gsettings set org.gnome.settings-daemon.plugins.mouse active false
+gsettings set org.gnome.settings-daemon.plugins.power lid-close-battery-action blank
