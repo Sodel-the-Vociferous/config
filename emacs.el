@@ -339,7 +339,7 @@
 ;;; compared to files as stored in git.
 (require 'git-gutter)
 (setq
- git-gutter:always-show-gutter t
+ git-gutter:always-show-gutter nil
  git-gutter:diff-option "-w")
 (global-git-gutter-mode t)
 
