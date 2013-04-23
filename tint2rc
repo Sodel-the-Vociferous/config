@@ -32,7 +32,7 @@ wm_menu = 1
 #panel_layer = normal #top
 #panel_layer = bottom
 panel_background_id = 1
-panel_size = 60% 115
+panel_size = 55% 115
 
 # Panel Autohide
 autohide = 0
