@@ -7,7 +7,7 @@ not_in_tmux_or_screen () {
 }
 
 no_tmux_clients () {
-    [[ ! "$(tmux -2 list-sessions | egrep -i 'attached.$')" ]]
+    [[ ! "$(tmux list-sessions -t TMUX_MASTER| egrep -i 'attached.$')" ]]
 }
 
 new_tmux_client () {
