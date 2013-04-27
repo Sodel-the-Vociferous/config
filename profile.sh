@@ -54,4 +54,4 @@ E_D_PID=$(netstat -l -p -A unix 2>/dev/null |
 # Start dropbox
 nohup dropbox start &> /dev/null &
 
-[[ $SHELL = /bin/bash ]] && disown -a
+[[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
