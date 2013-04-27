@@ -22,6 +22,8 @@ new_tmux_client () {
     fi
 }
 
-not_in_tmux_or_screen &&
+( [ "$1" = "force" ] || not_in_tmux_or_screen ) &&
+unset TMUX &&
+export TMUX &&
 tmux -2 new-session -A -s TMUX_MASTER \; detach &&
 new_tmux_client
