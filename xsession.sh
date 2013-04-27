@@ -35,3 +35,6 @@ setxkbmap -option ctrl:nocaps
 
 # WM Settings
 wmctrl -n 5 # Workspaces
+
+# Workaround gdm's buggered up placement of .Xauthority
+xhost +si:localuser:`id -un`

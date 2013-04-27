@@ -157,6 +157,7 @@ xorg-fonts-75dpi
 xorg-fonts-type1
 xorg-setxkbmap
 xorg-xev
+xorg-xhost
 xorg-xinit
 xorg-xkill
 xorg-xprop
