@@ -41,7 +41,15 @@ export PYTHONDONTWRITEBYTECODE
 [ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
 # Start emacs
-[ -e /tmp/emacs$(id -u)/server ] || nohup emacs --daemon &> /dev/null &
+E_D_F="/tmp/emacs$(id -u)/server"
+
+# Check if my emacs daemon is already running
+E_D_PID=$(netstat -l -p -A unix 2>/dev/null |
+    grep "$E_S_F" |
+    egrep -o "([0-9]+)/emacs" |
+    cut -d/ -f1)
+
+[ ! "$E_D_PID" ] && nohup emacs --daemon &> /dev/null &
 
 # Start dropbox
 nohup dropbox start &> /dev/null &
