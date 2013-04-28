@@ -7,7 +7,16 @@ not_in_tmux_or_screen () {
 }
 
 no_tmux_clients () {
-    [[ ! "$(tmux list-sessions -t TMUX_MASTER| egrep -i 'attached.$')" ]]
+    MASTER_GROUP=$(tmux list-sessions |
+        grep "TMUX_MASTER:" |
+        egrep -o "group [0-9]+")
+
+    NUM_ATTACHED=$(tmux list-sessions |
+        grep "$MASTER_GROUP" |
+        grep attached |
+        wc -l)
+
+    [ $NUM_ATTACHED -eq 0 ]
 }
 
 new_tmux_client () {
