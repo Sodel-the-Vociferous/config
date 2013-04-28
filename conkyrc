@@ -136,7 +136,7 @@ ${color light blue}Wi-Fi:${color} ${wireless_link_qual wlan0}%
  in:  ${color light blue}${downspeed wlan0}/s ${color}
       ${color light blue}${totaldown wlan0}${color}
  out: ${color light blue}${upspeed wlan0}/s ${color}
-${color light blue}Disk Used:${color}
-${fs_used_perc /}% of ${fs_size /}
- ${color}${fs_bar 5,90 /}
+${color light blue}Use:${color} /home
+${fs_used_perc /home}% of ${fs_size /home}
+ ${color}${fs_bar 5,90 /home}
  ${diskiograph 20,90}
