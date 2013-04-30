@@ -151,6 +151,7 @@
 
 (add-hook 'asm-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
+(add-hook 'rust-mode-hook 'flyspell-prog-mode)
 (add-hook 'py-mode-hook 'flyspell-prog-mode)
 (add-hook 'c-mode-hook 'flyspell-prog-mode)
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
