@@ -11,6 +11,11 @@ no_tmux_clients () {
         grep "TMUX_MASTER:" |
         egrep -o "group [0-9]+")
 
+    if [ -z "$MASTER_GROUP" ]
+    then
+        return 0
+    fi
+
     NUM_ATTACHED=$(tmux list-sessions |
         grep "$MASTER_GROUP" |
         grep attached |
