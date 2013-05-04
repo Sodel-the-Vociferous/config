@@ -347,6 +347,11 @@
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
 
+(require 'pylint)
+(setq
+ pylint-command "pylint2"
+ pylint-options '("-E" "--reports=n" "--output-format=parseable"))
+
 ;;; Erlang Mode
 (setq erlang-root-dir "/usr/lib/erlang")
 (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
