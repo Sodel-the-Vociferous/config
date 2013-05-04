@@ -11,6 +11,8 @@ shopt -s histappend
 export HISTSIZE=50000
 export HISTFILESIZE=$HISTSIZE
 
+shopt -s checkwinsize
+
 if [[ $- = *i* ]]
 then
     ~/config/bin/tmux-client.sh && exit
