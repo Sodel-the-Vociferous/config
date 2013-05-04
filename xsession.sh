@@ -25,7 +25,7 @@ synclient VertTwoFingerScroll=1 \
 
 already_running numlockx && numlockx # Turn num lock on
 
-already_running tint2 || tint2 &
+#already_running tint2 || tint2 &
 already_running conky || conky -p 1 --daemonize &
 dropbox stop; dropbox start &
 
