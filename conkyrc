@@ -131,6 +131,7 @@ ${color light blue}CPU:${color} ${freq} MHz
 ${cpu cpu1}%; ${cpu cpu2}%; ${cpu cpu3}%; ${cpu cpu4}%
  ${cpugraph cpu1 20,45} ${cpugraph cpu2 20,45}
  ${cpugraph cpu3 20,45} ${cpugraph cpu4 20,45}
+${color light blue}Temp:${color} ${acpitemp}C
 ${stippled_hr}
 ${color light blue}Chg:${color}${battery_time}
  ${battery_bar 5, 90}
