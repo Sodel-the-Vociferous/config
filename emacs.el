@@ -15,7 +15,9 @@
 
 
 ;;; Startup
-(setq inhibit-startup-screen t)
+(setq
+ inhibit-startup-screen t
+ initial-scratch-message "")
 
 ;;; Shutdown
 (setq confirm-kill-emacs 'y-or-n-p)
