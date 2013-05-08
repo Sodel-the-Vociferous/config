@@ -4,7 +4,7 @@ alias ls='ls -h --color=auto'
 alias ..='cd ..'
 alias potrace='potrace -s'
 alias hello='ping 192.168.1.1'
-alias startx='TMUX= exec startx'
+alias startx='TMUX= exec $(which startx)'
 alias tmuxc='~/config/bin/tmux-client.sh'
 
 alias MPLAB='cd ~/.wine/drive_c/Program\ Files/Microchip/MPLAB\ IDE/Core/; wine MPLAB.exe'
