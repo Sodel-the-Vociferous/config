@@ -7,6 +7,11 @@ export PROMPT_COMMAND='history -a;'
 export HISTCONTROL=ignoreboth
 shopt -s histappend
 
+# Don't expand "!" to a line in bash history. I never use this
+# feature, and not being able to use unescaped bangs in double-quoted
+# strings is annoying.
+set +o histexpand
+
 # Store lots of history
 export HISTSIZE=50000
 export HISTFILESIZE=$HISTSIZE
