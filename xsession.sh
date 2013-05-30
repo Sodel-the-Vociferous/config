@@ -10,10 +10,10 @@ already_running () {
 # Desktop wallpaper
 WALLPAPER_FILENAME=~/config/wallpaper
 
-# Disable touchpad "tap" gestures while typing.
-# Idle time: 1.5s; ignore modifier keys
 already_running syndaemon && killall syndaemon
 
+# Disable touchpad "tap" gestures while typing.
+# Idle time: 1.5s; ignore modifier keys
 which syndaemon &&
 syndaemon -i 1.5 -t -k -d &&
 synclient VertTwoFingerScroll=1 \
