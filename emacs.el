@@ -116,7 +116,7 @@
 
 ;; Set transparency
 (require 'alpha)
-(add-to-list 'default-frame-alist '(alpha . 90))
+(add-to-list 'default-frame-alist '(alpha . 100))
 
 ;;; Workgroups, i.e. frame layouts; only load if my workgroups file
 ;;; exists and is readable.
