@@ -125,7 +125,7 @@ ${color light blue}Uptime:${color}
 ${color light blue}Top Process:${color}
  ${top name 1}
 ${color light blue}RAM:${color} $memmax
- $mem ($memperc%)
+ $memperc%/$mem
  ${membar 5,90}
 ${color light blue}CPU:${color} ${freq} MHz
 ${cpu cpu1}%; ${cpu cpu2}%; ${cpu cpu3}%; ${cpu cpu4}%
