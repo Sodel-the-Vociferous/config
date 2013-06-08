@@ -322,7 +322,8 @@
  org-clock-report-include-clocking-task t
  org-edit-timestamp-down-means-later nil
  org-log-done 'time
- org-log-into-drawer t)
+ org-log-into-drawer t
+ org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
 ;;; Version Control
 (setq vc-follow-symlinks t)
