@@ -257,8 +257,6 @@
       ;; agenda files.
       '((" " "Agenda Tasks"
          ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
-          (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
-                            (org-tags-match-list-sublevels nil)))
           (tags-todo "/+STARTED" ((org-agenda-overriding-header "Tasks In Progress")
                                   (org-agenda-todo-ignore-deadlines t)
                                   (org-tags-match-list-sublevels t)))
@@ -271,6 +269,8 @@
           (tags-todo "/WAITING" ((org-agenda-overriding-header "Waiting Tasks")
                                  (org-agenda-todo-ignore-scheduled t)
                                  (org-agenda-todo-ignore-deadlines nil)))
+          (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
+                            (org-tags-match-list-sublevels nil)))
           (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
                                 (org-agenda-todo-ignore-scheduled t)
                                 (org-agenda-todo-ignore-deadlines t)))
