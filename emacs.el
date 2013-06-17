@@ -339,6 +339,7 @@
 ;;; Magit
 (require 'magit)
 (define-key user-map (kbd "v") 'magit-status)
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 ;;; Git Gutter: show lines that have been added/removed/changed
 ;;; compared to files as stored in git.
