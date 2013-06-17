@@ -231,7 +231,7 @@
  org-pretty-entities t
  ;; Don't render subscripts/superscripts in-buffer
  org-pretty-entities-include-sub-superscripts nil
- org-columns-default-format "%36ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}")
+ org-columns-default-format "%45ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}")
 
 ;;; Org Capture
 (setq
@@ -245,7 +245,7 @@
  org-agenda-start-with-log-mode t
  org-agenda-skip-additional-timestamps-same-entry t
  org-agenda-dim-blocked-tasks nil
- org-agenda-overriding-columns-format "%CATEGORY %40ITEM(Task) %8Effort{:} %5CLOCKSUM(Time){:}"
+ org-agenda-overriding-columns-format "%CATEGORY %45ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}"
  org-agenda-remove-tags 'prefix
  org-agenda-sorting-strategy '((agenda time-up priority-down habit-down category-up)
                                (todo priority-down category-up todo-state-up)
