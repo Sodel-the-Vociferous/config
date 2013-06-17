@@ -251,7 +251,8 @@
                                (todo priority-down category-up todo-state-up)
                                (tags priority-down category-up todo-state-up)
                                (search priority-down category-up todo-state-up)))
-(setq org-agenda-custom-commands
+(setq org-agenda-window-setup 'same-window
+      org-agenda-custom-commands
       ;; Make "C-c a <space>" display an overview of all tasks in my
       ;; agenda files.
       '((" " "Agenda Tasks"
