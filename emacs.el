@@ -241,7 +241,7 @@
 ;;; Org Agenda
 (setq
  org-agenda-start-on-weekday nil
- org-agenda-start-with-clockreport-mode t
+ org-agenda-start-with-clockreport-mode nil
  org-agenda-start-with-log-mode t
  org-agenda-skip-additional-timestamps-same-entry t
  org-agenda-dim-blocked-tasks nil
