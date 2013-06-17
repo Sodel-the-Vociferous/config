@@ -97,7 +97,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
  '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes (quote ("f61972772958e166cda8aaf0eba700aad4faa0b4101cee319e894e7a747645c9" "3f9424f67db40808f7c4ac3cf5e08333df69aa426e05dbd99036ce659d680ebd" "a18dd0a954ac63a80e62c8cb1b550ffcf5d8461189c7c672555faadf2facfcf3" "4dacec7215677e4a258e4529fac06e0231f7cdd54e981d013d0d0ae0af63b0c8" "405c5240a912732cac2b373354729594c56d6edee0962d5a848429a4e4e3edef" "84c93dd294de8d877259fe2a4ab6540aaadbba3fbeb466692187f7a265c41203" "1df4f61bb50f58d78e88ea75fb8ce27bac04aef1032d4ea6dafe4667ef39eb41" "4e72cb2841e4801ba202a120c1cffdf88f5512536e557d03b3626d890b52f201" "f5e56ac232ff858afb08294fc3a519652ce8a165272e3c65165c42d6fe0262a0" "36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "0bac11bd6a3866c6dee5204f76908ec3bdef1e52f3c247d5ceca82860cccfa9d" "27470eddcaeb3507eca2760710cc7c43f1b53854372592a3afa008268bcf7a75" default)))
+ '(custom-safe-themes t)
  '(fci-rule-color "#383838")
  '(font-lock-maximum-decoration (quote ((org-mode) (tex-mode) (t . t)))))
 
