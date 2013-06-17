@@ -345,8 +345,7 @@
 ;;; compared to files as stored in git.
 (require 'git-gutter)
 (setq
- git-gutter:always-show-gutter t
- git-gutter:diff-option "-w")
+ git-gutter:always-show-gutter nil)
 (global-git-gutter-mode t)
 
 ;;; Python mode
