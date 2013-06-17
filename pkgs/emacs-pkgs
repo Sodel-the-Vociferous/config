@@ -1,5 +1,6 @@
 (ac-dabbrev
 ace-jump-mode
+adaptive-wrap
 aes
 alpha
 android-mode
@@ -11,8 +12,8 @@ auto-indent-mode
 backup-walker
 bash-completion
 browse-kill-ring
-cl-lib
 cl-format
+cl-lib
 clojure-mode
 cmake-mode
 cm-mode
@@ -26,6 +27,10 @@ csv-nav
 ctags
 ctags-update
 dash
+dired+
+dired-dups
+dired-efap
+dired-single
 eieio
 erlang
 esxml
@@ -33,6 +38,7 @@ etags-select
 etags-table
 flymake
 flyspell-lazy
+flycheck
 font-utils
 fringe-helper
 furl
@@ -40,9 +46,7 @@ fuzzy
 ghc
 git-blame
 git-commit-mode
-gitconfig-mode
 git-gutter
-git-gutter-fringe
 gitconfig-mode
 gitignore-mode
 go-mode
