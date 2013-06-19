@@ -280,6 +280,7 @@
  ;; When prompting for an org-mode path, construct the path
  ;; incrementally.
  org-outline-path-complete-in-steps nil
+ org-refile-use-outline-path 'file
  ;; When refiling to a parent node that doesn't exist, prompt to
  ;; create it.
  org-refile-allow-creating-parent-nodes 'confirm
