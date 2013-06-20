@@ -274,7 +274,8 @@
      (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
                            (org-agenda-todo-ignore-scheduled t)
                            (org-agenda-todo-ignore-deadlines t)))
-     (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive")))) nil)))
+     (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
+    nil)))
 
 (setq
  ;; When prompting for an org-mode path, construct the path
