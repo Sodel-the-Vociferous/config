@@ -250,31 +250,31 @@
  org-agenda-sorting-strategy '((agenda time-up priority-down habit-down category-up)
                                (todo priority-down category-up todo-state-up)
                                (tags priority-down category-up todo-state-up)
-                               (search priority-down category-up todo-state-up)))
-(setq org-agenda-window-setup 'same-window
-      org-agenda-custom-commands
-      ;; Make "C-c a <space>" display an overview of all tasks in my
-      ;; agenda files.
-      '((" " "Agenda Tasks"
-         ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
-          (tags-todo "/+STARTED" ((org-agenda-overriding-header "Tasks In Progress")
-                                  (org-agenda-todo-ignore-deadlines t)
-                                  (org-tags-match-list-sublevels t)))
-          (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
-                                   (org-agenda-todo-ignore-deadlines t)
-                                   (org-tags-match-list-sublevels t)))
-          (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
-                               (org-agenda-todo-ignore-scheduled t)
-                               (org-agenda-todo-ignore-deadlines nil)))
-          (tags-todo "/WAITING" ((org-agenda-overriding-header "Waiting Tasks")
-                                 (org-agenda-todo-ignore-scheduled t)
-                                 (org-agenda-todo-ignore-deadlines nil)))
-          (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
-                            (org-tags-match-list-sublevels nil)))
-          (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
-                                (org-agenda-todo-ignore-scheduled t)
-                                (org-agenda-todo-ignore-deadlines t)))
-          (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive")))) nil)))
+                               (search priority-down category-up todo-state-up))
+ org-agenda-window-setup 'same-window
+ org-agenda-custom-commands
+ ;; Make "C-c a <RET>" display an overview of all tasks in my
+ ;; agenda files.
+ '(("" "Agenda Tasks"
+    ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
+     (tags-todo "/+STARTED" ((org-agenda-overriding-header "Tasks In Progress")
+                             (org-agenda-todo-ignore-deadlines t)
+                             (org-tags-match-list-sublevels t)))
+     (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
+                              (org-agenda-todo-ignore-deadlines t)
+                              (org-tags-match-list-sublevels t)))
+     (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
+                          (org-agenda-todo-ignore-scheduled t)
+                          (org-agenda-todo-ignore-deadlines nil)))
+     (tags-todo "/WAITING" ((org-agenda-overriding-header "Waiting Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines nil)))
+     (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
+                       (org-tags-match-list-sublevels nil)))
+     (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
+                           (org-agenda-todo-ignore-scheduled t)
+                           (org-agenda-todo-ignore-deadlines t)))
+     (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive")))) nil)))
 
 (setq
  ;; When prompting for an org-mode path, construct the path
