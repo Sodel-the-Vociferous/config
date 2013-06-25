@@ -2,3 +2,7 @@
 # git config --global core.excludesfile ~/.gitexclude.global
 *.pyc
 *~
+*.zip
+*.tar
+*.tgz
+*.tbz
