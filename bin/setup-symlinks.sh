@@ -47,7 +47,6 @@ ensure_symlink ~/config/emacs-site-lisp ~/.emacs.d/site-lisp
 
 ensure_symlink ~/config/gitattributes ~/.gitattributes
 ensure_symlink ~/config/gitconfig.conf ~/.gitconfig
-ensure_symlink ~/config/gitignore ~/.gitignore
 ensure_symlink ~/config/gitignore.global ~/.gitignore.global
 
 ## Other Dev Tool Config
