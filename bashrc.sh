@@ -16,7 +16,14 @@ set +o histexpand
 export HISTSIZE=50000
 export HISTFILESIZE=$HISTSIZE
 
+# Actively check the terminal size.
 shopt -s checkwinsize
+
+# Disable annoying Ctl-S/Ctl-Q
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff
 
 if [[ $- = *i* ]]
 then
