@@ -69,13 +69,20 @@
 (define-key user-org-outline-map (kbd "]") 'outline-next-heading)
 (define-key user-org-outline-map (kbd "[") 'outline-previous-heading)
 (define-key user-org-outline-map (kbd "a") 'org-agenda)
-(define-key user-org-outline-map (kbd "b") 'org-iswitchb)
+(define-key user-org-outline-map (kbd "b") 'user/org-iswitchb-agenda-only)
 (define-key user-org-outline-map (kbd "c") 'org-capture)
 (define-key user-org-outline-map (kbd "j") 'org-clock-goto)
 (define-key user-org-outline-map (kbd "l") 'org-store-link)
 (define-key user-org-outline-map (kbd "o") 'org-clock-out)
 (define-key user-org-outline-map (kbd "<C-right>") 'org-demote-subtree)
 (define-key user-org-outline-map (kbd "<C-left>") 'org-promote-subtree)
+
+(defun user/org-iswitchb-agenda-only ()
+"Call `org-iswitchb' with two prefix args, restricting selection
+to agenda files."
+  (interactive)
+  (let ((current-prefix-arg '(16)))
+    (call-interactively 'org-iswitchb t)))
 
 ;; Terminal Config
 (require 'term)
