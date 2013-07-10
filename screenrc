@@ -1,7 +1,7 @@
 ## Mimic tmux
 
 # Set to escape key "C-j"
-escape ^j
+escape ^jj
 
 # Set kill to C-j x
 bind x kill
