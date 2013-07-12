@@ -2,6 +2,12 @@
 #
 # Login (i.e. once-per-session) generic shell config.
 
+## Language
+LC_COLLATE=C
+export LC_COLLATE
+LANG=en_CA.UTF-8
+export LANG
+
 ## Environment Variables ##
 EDITOR=emacsclient
 export EDITOR
