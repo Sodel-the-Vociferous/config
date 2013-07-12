@@ -27,7 +27,7 @@ GCONV_PATH=/opt/lib32/usr/lib/gconv
 export GCONV_PATH
 GDK_PIXBUF_MODULE_FILE="/opt/lib32/config/gdk/gdk-pixbuf.loaders"
 export GDK_PIXBUF_MODULE_FILE
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/games"
 export PATH
 
 # Make Wine emulate 32-bit Windows.
