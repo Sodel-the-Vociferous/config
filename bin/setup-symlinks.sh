@@ -33,11 +33,6 @@ ensure_symlink ~/config/conkyrc ~/.conkyrc
 ensure_symlink ~/config/terminalrc.conf ~/.config/xfce4/terminal/terminalrc
 ensure_symlink ~/config/tint2rc ~/.config/tint2/tint2rc
 
-# Openbox
-ensure_symlink ~/config/openbox/autostart.sh ~/.config/openbox/autostart.sh
-ensure_symlink ~/config/openbox/menu.xml ~/.config/openbox/menu.xml
-ensure_symlink ~/config/openbox/rc.xml ~/.config/openbox/rc.xml
-
 ## Emacs Config
 
 ensure_symlink ~/config/emacs.el ~/.emacs
