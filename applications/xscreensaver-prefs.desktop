@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Xscreensaver Preferences
+GenericName=Screensaver
+Comment=Configure Xscreensaver
+Exec=xscreensaver-command -prefs
+Icon=preferences-desktop-screensaver
+Type=Application
+Terminal=false
+Categories=Settings;System

@@ -61,3 +61,4 @@ ensure_symlink ~/config/moc/config ~/.moc/config
 # Application Definitions
 
 ensure_symlink ~/config/applications/emacsclient.desktop ~/.local/share/applications/emacsclient.desktop
+ensure_symlink ~/config/applications/xscreensaver-prefs.desktop ~/.local/share/applications/xscreensaver-prefs
