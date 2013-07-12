@@ -30,8 +30,8 @@ total_run_times 0
 double_buffer yes
 
 # Minimum size of text area
-minimum_size 100 0
-maximum_width 100
+minimum_size 120 0
+maximum_width 120
 
 # Draw shades?
 draw_shades no
@@ -125,13 +125,12 @@ ${color light blue}Uptime:${color}
 ${color light blue}Top Process:${color}
  ${top name 1}
 ${color light blue}RAM:${color} $memmax
- $memperc%/$mem
+ $mem ($memperc%)
  ${membar 5,90}
 ${color light blue}CPU:${color} ${freq} MHz
-${cpu cpu1}%; ${cpu cpu2}%; ${cpu cpu3}%; ${cpu cpu4}%
  ${cpugraph cpu1 20,45} ${cpugraph cpu2 20,45}
  ${cpugraph cpu3 20,45} ${cpugraph cpu4 20,45}
-${stippled_hr}
+${stippled_hr 100 1}
 ${color light blue}Wi-Fi:${color} ${wireless_link_qual wlan0}%
  in:  ${color light blue}${downspeed wlan0}/s ${color}
       ${color light blue}${totaldown wlan0}${color}
