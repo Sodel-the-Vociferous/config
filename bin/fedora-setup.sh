@@ -12,4 +12,4 @@ sudo systemctl enable syslog-ng
 
 sudo netctl enable RalstonNet
 
-sudo cp -vr ~/config/etc/* /etc
+sudo cp -v --no-preserve=mode,ownership -r ~/config/etc/* /etc
