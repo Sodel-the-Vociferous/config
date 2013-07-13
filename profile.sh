@@ -2,6 +2,12 @@
 #
 # Login (i.e. once-per-session) generic shell config.
 
+## Language
+LC_COLLATE=C
+export LC_COLLATE
+LANG=en_CA.UTF-8
+export LANG
+
 ## Environment Variables ##
 EDITOR=emacsclient
 export EDITOR
@@ -21,8 +27,10 @@ GCONV_PATH=/opt/lib32/usr/lib/gconv
 export GCONV_PATH
 GDK_PIXBUF_MODULE_FILE="/opt/lib32/config/gdk/gdk-pixbuf.loaders"
 export GDK_PIXBUF_MODULE_FILE
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/games"
 export PATH
+STOW_DIR="/usr/local/stow"
+export STOW_DIR
 
 # Make Wine emulate 32-bit Windows.
 WINEARCH=win32
@@ -35,21 +43,16 @@ export PYTHONDONTWRITEBYTECODE
 
 ## Start Programs/Daemons
 
-# Use keychain as an ssh agent only, sending debug output to /dev/null
-# instead of barfing on the login shell. (Only do this if there isn't
-# already an SSH Agent accessible.)
+# Use keychain as a GPG and SSH agent, sending debug output to
+# /dev/null instead of barfing on the login shell. (Only do this if
+# there isn't already a GPG/SSH Agent accessible.)
 [ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
-# Start emacs
-E_D_F="/tmp/emacs$(id -u)/server"
-
-# Check if my emacs daemon is already running
-E_D_PID=$(netstat -l -p -A unix 2>/dev/null |
-    grep "$E_S_F" |
-    egrep -o "([0-9]+)/emacs" |
-    cut -d/ -f1)
-
-[ ! "$E_D_PID" ] && nohup emacs --daemon &> /dev/null &
+# Start emacs daemon if one isn't already running
+if pgrep ^emacs$ | xargs ps -fp | tail -n +2 | grep -ve --daemon > /dev/null
+then
+    nohup emacs --daemon &> /dev/null &
+fi
 
 # Start dropbox
 nohup dropbox start &> /dev/null &
