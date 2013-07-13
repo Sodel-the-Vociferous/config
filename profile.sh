@@ -49,7 +49,10 @@ export PYTHONDONTWRITEBYTECODE
 [ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
 # Start emacs daemon if one isn't already running
-if pgrep ^emacs$ | xargs ps -fp | tail -n +2 | grep -ve --daemon > /dev/null
+if pgrep ^emacs$ |
+    xargs --no-run-if-empty ps -fp |
+    tail -n +2 |
+    grep -ve --daemon > /dev/null
 then
     nohup emacs --daemon &> /dev/null &
 fi
