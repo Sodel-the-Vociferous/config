@@ -131,10 +131,10 @@ ${color light blue}CPU:${color} ${freq} MHz
  ${cpugraph cpu1 20,45} ${cpugraph cpu2 20,45}
  ${cpugraph cpu3 20,45} ${cpugraph cpu4 20,45}
 ${stippled_hr 100 1}
-${color light blue}Wi-Fi:${color} ${wireless_link_qual wlan0}%
- in:  ${color light blue}${downspeed wlan0}/s ${color}
-      ${color light blue}${totaldown wlan0}${color}
- out: ${color light blue}${upspeed wlan0}/s ${color}
+${color light blue}Wi-Fi:${color} ${wireless_link_qual wlp0s22f2u1}%
+ in:  ${color light blue}${downspeed wlp0s22f2u1}/s ${color}
+      ${color light blue}${totaldown wlp0s22f2u1}${color}
+ out: ${color light blue}${upspeed wlp0s22f2u1}/s ${color}
 ${color light blue}Use:${color} /home
 ${fs_used_perc /home}%/${fs_size /home}
  ${color}${fs_bar 5,90 /home}
