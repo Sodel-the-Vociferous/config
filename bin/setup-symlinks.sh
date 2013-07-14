@@ -32,6 +32,7 @@ ensure_symlink ~/config/Xdefaults ~/.Xdefaults
 ensure_symlink ~/config/conkyrc ~/.conkyrc
 ensure_symlink ~/config/terminalrc.conf ~/.config/xfce4/terminal/terminalrc
 ensure_symlink ~/config/tint2rc ~/.config/tint2/tint2rc
+ensure_symlink ~/config/xscreensaver ~/.xscreensaver
 
 ## Emacs Config
 
