@@ -1,9 +1,3 @@
-"pamixer --increase 4"
-    XF86AudioRaiseVolume
-"pamixer --decrease 4"
-    XF86AudioLowerVolume
-"pamixer --toggle-mute"
-    XF86AudioMute
 "dmenu_run"
     Alt + F2
 "xfce4-terminal"
