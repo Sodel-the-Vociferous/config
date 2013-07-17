@@ -2,6 +2,8 @@
 #
 # Executed at session startup
 
+cd ~;
+
 already_running () {
     pgrep -u $(whoami) $@
     return $?
