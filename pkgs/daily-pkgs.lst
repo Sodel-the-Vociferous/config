@@ -20,6 +20,7 @@ setxkbmap
 swftools
 tmux
 unzip
+wget
 wmctrl
 xarchiver
 xbindkeys
