@@ -353,7 +353,7 @@ to agenda files."
 
 (require 'pylint)
 (setq
- pylint-command "pylint2"
+ pylint-command "pylint"
  pylint-options '("-E" "--reports=n" "--output-format=parseable"))
 
 ;;; Erlang Mode
