@@ -18,6 +18,7 @@ flac
 flac-libs
 flashplugin
 gcc
+gcc-c++
 gdb
 gimp
 gksu
