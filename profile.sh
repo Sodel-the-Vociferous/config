@@ -56,6 +56,6 @@ grep -e --daemon > /dev/null ||
 nohup emacs --daemon &> /dev/null &
 
 # Start dropbox
-nohup dropbox start &> /dev/null &
+#nohup dropbox start &> /dev/null &
 
 [[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
