@@ -5,7 +5,7 @@
 cd ~;
 
 already_running () {
-    pgrep -u $(whoami) $@
+    pgrep -u $(whoami) ^$@$
     return $?
 }
 
