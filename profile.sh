@@ -58,4 +58,7 @@ nohup emacs --daemon &> /dev/null &
 # Start dropbox
 #nohup dropbox start &> /dev/null &
 
+# Start pulseaudio
+pulseaudio --start &> /dev/null &
+
 [[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
