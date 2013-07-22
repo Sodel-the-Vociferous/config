@@ -50,7 +50,7 @@ export PS1='\u@\h[$(parse_git_branch)\W]\$ '
 source ~/.bash_aliases;
 
 ## Set up bach completion
-if [ -f "/etc/bash_completion" ]
+if [ -f "/usr/share/bash-completion/bash_completion" ]
 then
-    source /etc/bash_completion
+    source /usr/share/bash-completion/bash_completion
 fi
