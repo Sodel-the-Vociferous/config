@@ -17,7 +17,7 @@ ALTERNATE_EDITOR=
 export ALTERNATE_EDITOR
 
 # Set up paths
-LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib"
+LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
 export LD_LIBRARY_PATH
 GTK_PATH=/opt/lib32/usr/lib/gtk-2.0/
 export GTK_PATH
