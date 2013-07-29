@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH="$HOME/src/tmux:$PATH"
+
 not_in_tmux_or_screen () {
     [[ -z $TMUX ]] &&
     [[ $TERM != screen ]] &&
