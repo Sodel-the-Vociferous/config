@@ -264,7 +264,7 @@ to agenda files."
  ;; agenda files.
  '(("" "Agenda Tasks"
     ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
-     (tags-todo "/+STARTED" ((org-agenda-overriding-header "Tasks In Progress")
+     (tags-todo "/+WIP" ((org-agenda-overriding-header "Tasks In Progress")
                              (org-agenda-todo-ignore-deadlines t)
                              (org-tags-match-list-sublevels t)))
      (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
@@ -272,7 +272,7 @@ to agenda files."
      (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
                           (org-agenda-skip-function '(org-agenda-skip-entry-if
                                                       'scheduled 'deadline))))
-     (tags-todo "/WAITING" ((org-agenda-overriding-header "Waiting Tasks")))
+     (tags-todo "/ON-HOLD" ((org-agenda-overriding-header "Tasks On Hold")))
      (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
                        (org-tags-match-list-sublevels nil)))
      (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
@@ -301,7 +301,7 @@ to agenda files."
 ;;; Org State Workflow
 (setq org-todo-keywords
       '(;; Work Statuses
-        (sequence "FUTURE(f)" "WAITING(w@/!)" "TODO(t@)" "NEXT(n@)" "STARTED(s@)" "|" "DONE(d@)")
+        (sequence "FUTURE(f)" "ON-HOLD(h@/!)" "TODO(t@)" "NEXT(n@)" "WIP(w@)" "|" "DONE(d@)")
         ;; Extraordinary Statuses
         (sequence "|" "CANCELLED(c@)")))
 
