@@ -272,7 +272,7 @@ to agenda files."
      (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
                           (org-agenda-skip-function '(org-agenda-skip-entry-if
                                                       'scheduled 'deadline))))
-     (tags-todo "/ON-HOLD" ((org-agenda-overriding-header "Tasks On Hold")))
+     (tags-todo "/+OnHOLD" ((org-agenda-overriding-header "Tasks On Hold")))
      (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
                        (org-tags-match-list-sublevels nil)))
      (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
@@ -301,7 +301,7 @@ to agenda files."
 ;;; Org State Workflow
 (setq org-todo-keywords
       '(;; Work Statuses
-        (sequence "FUTURE(f)" "ON-HOLD(h@/!)" "TODO(t@)" "NEXT(n@)" "WIP(w@)" "|" "DONE(d@)")
+        (sequence "FUTURE(f)" "OnHOLD(h@/!)" "TODO(t@)" "NEXT(n@)" "WIP(w@)" "|" "DONE(d@)")
         ;; Extraordinary Statuses
         (sequence "|" "CANCELLED(c@)")))
 
