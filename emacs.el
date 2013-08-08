@@ -456,6 +456,13 @@ to agenda files."
 (add-hook 'erc-hooks 'erc-track-mode)
 (defalias 'irc 'erc-tls)
 
+;;; Evil
+(setq evil-toggle-key "C-`")
+(require 'evil)
+
 ;;; Load Private Emacs Config
 (when (file-exists-p "~/personal/personal.el")
   (load "~/personal/personal.el"))
+
+(evil-mode)
+(global-surround-mode 1)

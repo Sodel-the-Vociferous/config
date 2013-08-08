@@ -36,6 +36,7 @@ erlang
 esxml
 etags-select
 etags-table
+evil-mode
 flymake
 flyspell-lazy
 flycheck
@@ -101,6 +102,7 @@ shell-command
 slime
 sr-speedbar
 ssh-config-mode
+surround
 tidy
 tron-theme
 ucs-utils
