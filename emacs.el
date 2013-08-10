@@ -269,10 +269,10 @@ to agenda files."
                              (org-tags-match-list-sublevels t)))
      (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
                               (org-tags-match-list-sublevels t)))
+     (tags-todo "/+OnHOLD" ((org-agenda-overriding-header "Tasks On Hold")))
      (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
                           (org-agenda-skip-function '(org-agenda-skip-entry-if
                                                       'scheduled 'deadline))))
-     (tags-todo "/+OnHOLD" ((org-agenda-overriding-header "Tasks On Hold")))
      (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
                        (org-tags-match-list-sublevels nil)))
      (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
