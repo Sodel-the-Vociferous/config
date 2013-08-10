@@ -466,3 +466,4 @@ to agenda files."
 
 (evil-mode)
 (global-surround-mode 1)
+(add-hook 'org-capture-mode-hook 'evil-insert-state)
