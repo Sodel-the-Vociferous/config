@@ -273,11 +273,11 @@ to agenda files."
      (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
                           (org-agenda-skip-function '(org-agenda-skip-entry-if
                                                       'scheduled 'deadline))))
-     (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
-                       (org-tags-match-list-sublevels nil)))
      (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
                            (org-agenda-todo-ignore-scheduled t)
                            (org-agenda-todo-ignore-deadlines t)))
+     (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
+                       (org-tags-match-list-sublevels nil)))
      (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
     nil)))
 
