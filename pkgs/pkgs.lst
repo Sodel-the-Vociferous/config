@@ -21,6 +21,7 @@ e2fsprogs
 erlang
 evince
 feh
+ffmpeg
 filezilla
 findutils
 firefox
@@ -51,6 +52,7 @@ lshw
 lsof
 make
 matplotlib
+mencoder
 mercurial
 minicom
 nasm
