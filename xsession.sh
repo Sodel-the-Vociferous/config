@@ -25,8 +25,6 @@ synclient VertTwoFingerScroll=1 \
     TapButton3=3 \
     PalmMinWidth=10
 
-already_running numlockx && numlockx # Turn num lock on
-
 xcompmgr &
 #already_running tint2 || tint2 &
 already_running conky || conky -p 1 --daemonize &
