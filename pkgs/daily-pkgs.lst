@@ -18,6 +18,7 @@ mr
 numlockx
 offlineimap
 pavucontrol
+redshift
 setxkbmap
 swftools
 tmux
@@ -32,9 +33,9 @@ xdg-utils
 xev
 xfce4-terminal
 xhost
+xkill
 xorg-x11-xinit
 xorg-x11-xinit-session
-xkill
 xprop
 xscreensaver
 xwininfo
