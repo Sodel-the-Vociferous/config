@@ -90,6 +90,7 @@
         <value type="string" value="seapplet"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="dropbox"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="abrt"/>
         <value type="string" value="opera"/>
       </property>
@@ -137,7 +138,7 @@
       <property name="style" type="uint" value="3"/>
     </property>
     <property name="plugin-24" type="string" value="mixer">
-      <property name="sound-card" type="string" value="XonarDSAlsamixer"/>
+      <property name="sound-card" type="string" value="HDAIntelAlsamixer"/>
       <property name="track" type="string" value="Master"/>
       <property name="command" type="string" value="xfce4-mixer"/>
     </property>
