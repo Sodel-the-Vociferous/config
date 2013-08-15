@@ -34,6 +34,12 @@ ensure_symlink ~/config/terminalrc.conf ~/.config/xfce4/terminal/terminalrc
 ensure_symlink ~/config/tint2rc ~/.config/tint2/tint2rc
 ensure_symlink ~/config/xscreensaver ~/.xscreensaver
 
+ensure_symlink ~/config/xfce/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+ensure_symlink ~/config/xfce/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+ensure_symlink ~/config/xfce/xfce4-session.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+ensure_symlink ~/config/xfce/xsettings.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+ensure_symlink ~/config/xfce/panel ~/.config/xfce4/panel
+
 ## Emacs Config
 
 ensure_symlink ~/config/emacs.el ~/.emacs
