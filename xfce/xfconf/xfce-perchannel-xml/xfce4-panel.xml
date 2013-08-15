@@ -17,8 +17,10 @@
         <value type="int" value="5"/>
         <value type="int" value="20"/>
         <value type="int" value="19"/>
+        <value type="int" value="14"/>
         <value type="int" value="6"/>
         <value type="int" value="24"/>
+        <value type="int" value="13"/>
         <value type="int" value="11"/>
         <value type="int" value="2"/>
       </property>
@@ -148,5 +150,7 @@
       <property name="show-recent-clear" type="bool" value="true"/>
       <property name="show-recent" type="bool" value="false"/>
     </property>
+    <property name="plugin-13" type="string" value="xfce4-cpufreq-plugin"/>
+    <property name="plugin-14" type="string" value="xfce4-sensors-plugin"/>
   </property>
 </channel>
