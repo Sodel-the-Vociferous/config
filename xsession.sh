@@ -25,7 +25,7 @@ synclient VertTwoFingerScroll=1 \
     TapButton3=3 \
     PalmMinWidth=10
 
-#xcompmgr &
+xcompmgr &
 #already_running tint2 || tint2 &
 already_running conky || conky -p 1 --daemonize &
 #dropbox stop; dropbox start &
