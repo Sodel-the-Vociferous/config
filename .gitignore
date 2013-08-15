@@ -1,2 +1,10 @@
 /emacs-site-lisp/*/*
 /background
+/xfce/xfconf/xfce-perchannel-xml/keyboards.xml
+/xfce/xfconf/xfce-perchannel-xml/ristretto.xml
+/xfce/xfconf/xfce-perchannel-xml/thunar.xml
+/xfce/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml
+/xfce/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+/xfce/xfconf/xfce-perchannel-xml/xfce4-mime-settings.xml
+/xfce/xfconf/xfce-perchannel-xml/xfcethemer.xml
+/xfce/xfconf/xfce-perchannel-xml/xfwm4.xml
