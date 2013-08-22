@@ -467,5 +467,7 @@ to agenda files."
 (evil-mode)
 (global-surround-mode 1)
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
+(add-hook 'magit-log-edit-mode-map 'evil-insert-state)
+(add-hook 'git-commit-mode-hook 'evil-insert-state)
 (add-hook 'epa-key-list-mode-hook (lambda () (evil-local-mode -1)))
 (global-set-key (kbd "TAB") 'evil-indent)
