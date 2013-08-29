@@ -278,7 +278,7 @@ to agenda files."
                            (org-agenda-todo-ignore-deadlines t)))
      (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
                        (org-tags-match-list-sublevels nil)))
-     (tags "-archived/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
+     (tags "-archived-event/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
     nil)))
 
 (setq
