@@ -11,6 +11,7 @@ calibre
 ccrypt
 clang
 cmake
+convmv
 cppcheck
 dejavu-sans-fonts
 dejavu-sans-mono-fonts
@@ -47,6 +48,7 @@ ipython
 ipython2
 java-1.8.0-openjdk
 k3b
+libpng12
 libreoffice
 links
 lshw
