@@ -1,6 +1,7 @@
 alias aliases='$EDITOR ~/.bash_aliases'
 alias l='ls -lhF --color=auto'
 alias ls='ls -h --color=auto'
+alias lsd='ls -d */'
 alias ..='cd ..'
 alias potrace='potrace -s'
 alias hello='ping 192.168.1.1'
