@@ -1,4 +1,3 @@
-ack
 atop
 autoconf
 autogen
@@ -76,6 +75,7 @@ p7zip-plugins
 parallel
 patch
 pinentry
+powertop
 pylint
 pyserial
 rpcbind
