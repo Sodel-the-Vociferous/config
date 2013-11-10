@@ -1,3 +1,4 @@
+ack
 aspell
 aspell-en
 at
@@ -48,5 +49,6 @@ xorg-x11-xinit-session
 xprop
 xscreensaver
 xwininfo
+yum-utils
 zenity
 zip
