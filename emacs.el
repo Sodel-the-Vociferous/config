@@ -469,4 +469,7 @@ to agenda files."
 (add-hook 'magit-log-edit-mode-map 'evil-insert-state)
 (add-hook 'git-commit-mode-hook 'evil-insert-state)
 (add-hook 'epa-key-list-mode-hook (lambda () (evil-local-mode -1)))
+(add-hook 'git-commit-mode-hook 'evil-insert-state)
+(add-hook 'term-mode-hook 'evil-emacs-state)
+(add-hook 'git-rebase-mode-hook 'evil-emacs-state)
 (global-set-key (kbd "TAB") 'evil-indent)
