@@ -18,6 +18,7 @@ gnome-system-monitor
 greybird-gtk2-theme
 greybird-xfwm4-theme
 keychain
+lm_sensors
 mg
 mr
 numlockx
@@ -41,6 +42,7 @@ xclip
 xcompmgr
 xdg-utils
 xev
+xfce4-sensors-plugin
 xfce4-terminal
 xhost
 xkill
