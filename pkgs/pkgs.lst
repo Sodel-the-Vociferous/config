@@ -75,11 +75,12 @@ p7zip-plugins
 parallel
 patch
 pinentry
-python-pip
-python3-pip
 powertop
+prboom-plus
 pylint
 pyserial
+python-pip
+python3-pip
 rpcbind
 samba
 sbcl
