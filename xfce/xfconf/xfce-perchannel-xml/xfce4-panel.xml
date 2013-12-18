@@ -17,6 +17,7 @@
         <value type="int" value="5"/>
         <value type="int" value="20"/>
         <value type="int" value="19"/>
+        <value type="int" value="13"/>
         <value type="int" value="6"/>
         <value type="int" value="24"/>
         <value type="int" value="11"/>
@@ -87,8 +88,11 @@
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="task manager"/>
         <value type="string" value="wicd-client.py"/>
+        <value type="string" value="steam"/>
         <value type="string" value="seapplet"/>
+        <value type="string" value="quamachi.pyw"/>
         <value type="string" value="blueman-applet"/>
+        <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
         <value type="string" value="abrt"/>
         <value type="string" value="opera"/>
@@ -147,5 +151,6 @@
       <property name="show-recent-clear" type="bool" value="true"/>
       <property name="show-recent" type="bool" value="false"/>
     </property>
+    <property name="plugin-13" type="string" value="xfce4-sensors-plugin"/>
   </property>
 </channel>
