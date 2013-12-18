@@ -221,6 +221,7 @@ to agenda files."
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 (add-to-list 'ac-modes 'asm-mode)
 (add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'web-mode)
 (ac-config-default)
 
 ;;; ace-jump-mode
@@ -407,6 +408,17 @@ to agenda files."
 ;; complains about XML being "malformed HTML".
  tidy-shell-command "/usr/bin/tidy -xml")
 
+;;; Web-Mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;;; CSV Mode
 (require 'csv-mode)
 
@@ -458,6 +470,8 @@ to agenda files."
 ;;; Evil
 (setq evil-toggle-key "C-`")
 (require 'evil)
+(require 'evil-matchit)
+(global-evil-matchit-mode 1)
 
 ;;; Load Private Emacs Config
 (when (file-exists-p "~/personal/personal.el")
