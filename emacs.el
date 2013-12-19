@@ -410,6 +410,7 @@ to agenda files."
 
 ;;; Web-Mode
 (require 'web-mode)
+(setq web-mode-disable-auto-pairing nil)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
