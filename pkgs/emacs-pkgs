@@ -37,6 +37,7 @@ esxml
 etags-select
 etags-table
 evil
+evil-matchit
 flymake
 flyspell-lazy
 flycheck
@@ -48,6 +49,7 @@ ghc
 git-blame
 git-commit-mode
 git-gutter
+git-rebase-mode
 gitconfig-mode
 gitignore-mode
 go-mode
@@ -69,7 +71,6 @@ jtags-extras
 kv
 list-utils
 magit
-magithub
 makefile-runner
 markdown-mode
 markdown-mode+
@@ -111,6 +112,7 @@ unfill
 unicode-fonts
 unicode-whitespace
 wc-mode
+web-mode
 workgroups
 wrap-region
 xclip
