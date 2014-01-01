@@ -90,8 +90,8 @@
         <value type="string" value="wicd-client.py"/>
         <value type="string" value="steam"/>
         <value type="string" value="seapplet"/>
-        <value type="string" value="glade"/>
         <value type="string" value="quamachi.pyw"/>
+        <value type="string" value="glade"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
