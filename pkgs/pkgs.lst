@@ -83,6 +83,7 @@ pylint
 pyserial
 python-pip
 python3-pip
+rdiff-backup
 rpcbind
 samba
 sbcl
