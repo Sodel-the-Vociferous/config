@@ -164,6 +164,9 @@ to agenda files."
 (add-hook 'sh-mode-hook 'flyspell-prog-mode)
 (add-hook 'erlang-mode-hook 'flyspell-prog-mode)
 
+;;; Electric Indent Mode
+(electric-indent-mode 1)
+
 ;;; CEDET
 (load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
 (require 'cedet)
