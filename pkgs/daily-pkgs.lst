@@ -4,6 +4,7 @@ aspell-en
 at
 conky
 ctags
+ctags-etags
 dmenu
 dovecot
 dropbox
@@ -49,6 +50,7 @@ xhost
 xkill
 xorg-x11-xinit
 xorg-x11-xinit-session
+xpdf
 xprop
 xscreensaver
 xwininfo
