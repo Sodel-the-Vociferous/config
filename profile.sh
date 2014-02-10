@@ -31,6 +31,8 @@ PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/games"
 export PATH
 STOW_DIR="/usr/local/stow"
 export STOW_DIR
+GOPATH=~/src/go
+export GOPATH
 
 # Make Wine emulate 32-bit Windows.
 WINEARCH=win32
