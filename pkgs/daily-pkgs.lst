@@ -16,6 +16,8 @@ flash-plugin
 gdm
 git
 gitk
+git-annex
+git-annex-docs
 gnome-system-monitor
 greybird-gtk2-theme
 greybird-xfwm4-theme
