@@ -500,3 +500,10 @@ to agenda files."
 (add-hook 'term-mode-hook 'evil-emacs-state)
 (add-hook 'git-rebase-mode-hook 'evil-emacs-state)
 (global-set-key (kbd "TAB") 'evil-indent)
+
+;;; LaTeX
+(require 'tex)
+(require 'tex-site)
+(require 'preview)
+(require 'auctex-latexmk)
+(add-hook 'LaTeX-mode-hook 'outline-minor-mode)
