@@ -5,8 +5,11 @@ aes
 alpha
 android-mode
 ascii
+auctex
+auctex-latexmk
 auto-compile
 auto-complete
+auto-complete-auctex
 auto-complete-clang
 auto-indent-mode
 backup-walker
@@ -32,6 +35,7 @@ dired-dups
 dired-efap
 dired-single
 eieio
+epl
 erlang
 esxml
 etags-select
@@ -40,7 +44,9 @@ evil
 evil-matchit
 flymake
 flyspell-lazy
+f
 flycheck
+flyspell-lazy
 font-utils
 fringe-helper
 furl
@@ -53,6 +59,8 @@ git-rebase-mode
 gitconfig-mode
 gitignore-mode
 go-mode
+goto-chg
+goto-last-change
 gtags
 hackernews
 haskell-mode
@@ -66,6 +74,7 @@ isearch+
 jira
 js2-mode
 json-mode
+json-reformat
 jtags
 jtags-extras
 kv
@@ -77,12 +86,15 @@ markdown-mode+
 marmalade
 melpa
 mode-compile
+nimrod-mode
 org
+outline-magic
 packed
 pcache
 pep8
 persistent-soft
 pg
+pkg-info
 popup
 prolog
 puppet-mode
