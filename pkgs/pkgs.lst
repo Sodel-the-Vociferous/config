@@ -24,12 +24,14 @@ evince
 expect
 feh
 ffmpeg
+fedup
 filezilla
 findutils
 firefox
 flac
 flac-libs
 flex
+fortune
 gcc
 gcc-c++
 gdb
