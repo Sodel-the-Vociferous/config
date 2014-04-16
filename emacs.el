@@ -342,8 +342,8 @@ to agenda files."
 (define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
 (define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
 (define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
-(define-key outline-minor-mode-map (kbd "<M-right") 'outline-demote)
-(define-key outline-minor-mode-map (kbd "<C-Tab>") 'outline-cycle)
+(define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
+(define-key outline-minor-mode-map (kbd "<C-tab>") 'outline-cycle)
 
 
 ;;; Version Control
