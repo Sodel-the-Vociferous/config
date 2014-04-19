@@ -83,6 +83,7 @@ ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
 
 # Directories On My Big Ext Drive
+ensure_symlink /media/big-ext/dralston/Mail ~/Mail
 ensure_symlink /media/big-ext/dralston/backups ~/backups
 ensure_symlink /media/big-ext/dralston/emu ~/emu
 ensure_symlink /media/big-ext/dralston/lit ~/lit
