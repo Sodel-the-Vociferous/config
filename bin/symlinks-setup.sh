@@ -75,6 +75,13 @@ ensure_symlink ~/config/autostart/Profile.desktop ~/.config/autostart/Profile.de
 ensure_symlink ~/config/applications/emacsclient.desktop ~/.local/share/applications/emacsclient.desktop
 ensure_symlink ~/config/applications/xscreensaver-prefs.desktop ~/.local/share/applications/xscreensaver-prefs
 
+# DM Directory Aliases
+ensure_symlink ~/doc ~/Documents
+ensure_symlink ~/tmp ~/Downloads
+ensure_symlink ~/music ~/Music
+ensure_symlink ~/images ~/Pictures
+ensure_symlink ~/vid ~/Videos
+
 # Directories On My Big Ext Drive
 ensure_symlink /media/big-ext/dralston/local-share-Steam ~/.local/share/Steam
 ensure_symlink /media/big-ext/dralston/backups ~/backups
