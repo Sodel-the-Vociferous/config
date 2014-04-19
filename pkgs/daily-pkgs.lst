@@ -48,7 +48,10 @@ xclip
 xcompmgr
 xdg-utils
 xev
+xfce4-cpugraph-plugin
+xfce4-mixer
 xfce4-sensors-plugin
+xfce4-taskmanager
 xfce4-terminal
 xhost
 xkill
