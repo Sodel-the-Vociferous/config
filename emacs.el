@@ -407,12 +407,12 @@ to agenda files."
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
-;;; Slime
-(require 'slime)
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(slime-setup)
-;; Key bindings
-(define-key slime-mode-map (kbd "RET") 'newline-and-indent)
+;; ;;; Slime
+;; (require 'slime)
+;; (setq inferior-lisp-program "/usr/bin/sbcl")
+;; (slime-setup)
+;; ;; Key bindings
+;; (define-key slime-mode-map (kbd "RET") 'newline-and-indent)
 
 ;;; XML Stuff
 (setq

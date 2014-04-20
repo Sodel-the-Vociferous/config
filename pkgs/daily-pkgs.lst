@@ -1,3 +1,4 @@
+ConsoleKit
 ack
 aspell
 aspell-en
@@ -10,14 +11,14 @@ dovecot
 dropbox
 emacs
 emacs-el
-faenza-icon-theme
+faience-icon-theme
 firefox
 flash-plugin
 gdm
 git
-gitk
 git-annex
 git-annex-docs
+gitk
 gnome-system-monitor
 greybird-gtk2-theme
 greybird-xfwm4-theme
@@ -34,6 +35,7 @@ renameutils
 setxkbmap
 speedcrunch
 stow
+sudo
 swftools
 tig
 tmux
@@ -46,7 +48,10 @@ xclip
 xcompmgr
 xdg-utils
 xev
+xfce4-cpugraph-plugin
+xfce4-mixer
 xfce4-sensors-plugin
+xfce4-taskmanager
 xfce4-terminal
 xhost
 xkill
