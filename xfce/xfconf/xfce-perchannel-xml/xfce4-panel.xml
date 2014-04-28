@@ -18,8 +18,8 @@
         <value type="int" value="20"/>
         <value type="int" value="19"/>
         <value type="int" value="13"/>
-        <value type="int" value="11"/>
         <value type="int" value="6"/>
+        <value type="int" value="11"/>
         <value type="int" value="17"/>
         <value type="int" value="2"/>
       </property>
@@ -95,6 +95,7 @@
         <value type="string" value="blueman-applet"/>
         <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
+        <value type="string" value="liferea"/>
         <value type="string" value="abrt"/>
         <value type="string" value="opera"/>
       </property>
