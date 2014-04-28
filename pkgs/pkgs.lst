@@ -1,3 +1,4 @@
+anki
 atop
 autoconf
 autogen
@@ -24,9 +25,9 @@ e2fsprogs
 erlang
 evince
 expect
+fedup
 feh
 ffmpeg
-fedup
 filezilla
 findutils
 firefox
@@ -110,12 +111,14 @@ socat
 splint
 sqlite2
 swftools
+texlive-scheme-medium
 tidy
 tix
 tkinter
 unrar
 usbview
 vim
+vorbis-tools
 wine
 youtube-dl
 zsnes
