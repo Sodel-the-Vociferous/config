@@ -1,3 +1,4 @@
+anki
 atop
 autoconf
 autogen
@@ -24,9 +25,9 @@ e2fsprogs
 erlang
 evince
 expect
+fedup
 feh
 ffmpeg
-fedup
 filezilla
 findutils
 firefox
@@ -56,6 +57,7 @@ iotop
 iproute
 java-1.8.0-openjdk
 k3b
+latexmk
 libpng12
 libreoffice
 links
@@ -110,12 +112,15 @@ socat
 splint
 sqlite2
 swftools
+texlive-scheme-medium
+texlive-wrapfig
 tidy
 tix
 tkinter
 unrar
 usbview
 vim
+vorbis-tools
 wine
 youtube-dl
 zsnes
