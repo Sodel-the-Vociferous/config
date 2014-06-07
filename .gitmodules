@@ -1,0 +1,6 @@
+[submodule "emacs-site-lisp/ESS"]
+	path = emacs-site-lisp/ESS
+	url = https://github.com/emacs-ess/ESS
+[submodule "emacs-site-lisp/julia"]
+	path = emacs-site-lisp/julia
+	url = https://github.com/JuliaLang/julia/
