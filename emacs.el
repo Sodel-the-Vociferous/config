@@ -370,6 +370,10 @@ to agenda files."
  pylint-command "pylint"
  pylint-options '("-E" "--reports=n" "--output-format=parseable"))
 
+;;; IPython
+(require 'ein)
+(setq ein:use-auto-complete-superpack t)
+
 ;;; Erlang Mode
 (setq erlang-root-dir "/usr/lib/erlang")
 (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
