@@ -506,6 +506,16 @@ to agenda files."
 (add-hook 'julia-post-run-hook 'evil-insert-state)
 
 (global-set-key (kbd "TAB") 'evil-indent)
+(define-key evil-normal-state-map (kbd "q") nil)
+
+(define-key evil-insert-state-map (kbd "C-e") nil)
+(define-key evil-insert-state-map (kbd "C-d") nil)
+(define-key evil-insert-state-map (kbd "C-k") nil)
+(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
+
+(define-key evil-motion-state-map (kbd "C-e") nil)
+(define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 ;;; LaTeX
 (require 'tex)
