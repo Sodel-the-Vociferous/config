@@ -362,7 +362,7 @@ to agenda files."
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 ;;; Python mode
-(require 'python-mode)
+(require 'python)
 (add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
 
 (require 'pylint)
