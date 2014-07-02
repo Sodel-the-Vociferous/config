@@ -503,6 +503,8 @@ to agenda files."
 (add-hook 'git-commit-mode-hook 'evil-insert-state)
 (add-hook 'term-mode-hook 'evil-emacs-state)
 (add-hook 'git-rebase-mode-hook 'evil-emacs-state)
+(add-hook 'julia-post-run-hook 'evil-insert-state)
+
 (global-set-key (kbd "TAB") 'evil-indent)
 
 ;;; LaTeX
@@ -511,3 +513,11 @@ to agenda files."
 (require 'preview)
 (require 'auctex-latexmk)
 (add-hook 'LaTeX-mode-hook 'outline-minor-mode)
+
+(require 'julia-mode)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/ESS/lisp")
+(require 'ess-site)
+(require 'ess)
+(setq ess-ask-for-ess-directory nil)
+
+(setq ess-directory "~/.ess/")
