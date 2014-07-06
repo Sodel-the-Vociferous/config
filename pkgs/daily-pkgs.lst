@@ -28,6 +28,7 @@ mg
 mr
 numlockx
 offlineimap
+okular
 openssh
 pavucontrol
 redshift
@@ -57,7 +58,6 @@ xhost
 xkill
 xorg-x11-xinit
 xorg-x11-xinit-session
-xpdf
 xprop
 xscreensaver
 xwininfo

@@ -24,6 +24,7 @@ dosfstools
 e2fsprogs
 erlang
 evince
+exfat-utils
 expect
 fedup
 feh
@@ -35,6 +36,7 @@ flac
 flac-libs
 flex
 fortune-mod
+fuse-exfat
 gcc
 gcc-c++
 gdb
