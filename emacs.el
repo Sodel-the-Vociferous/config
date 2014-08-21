@@ -313,7 +313,7 @@ to agenda files."
 
 ;;; Org Export
 (setq
- org-latex-pdf-process '("latexmk -bibtex -pdf %f")
+ org-latex-pdf-process '("latexmk -bibtex -pdf %f && latexmk -c")
  org-export-creator-info nil
  org-export-with-sub-superscripts nil
  ;; When exporting to ODT, convert it to a PDF, too
