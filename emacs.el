@@ -248,6 +248,9 @@ to agenda files."
  org-default-notes-file "~/personal/refile.org"
  org-cycle-separator-lines 2)
 
+;;; Org Journal
+(setq org-journal-dir "~/org/journal/")
+
 ;;; Org Agenda
 (setq
  org-agenda-start-on-weekday nil
