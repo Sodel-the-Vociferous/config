@@ -103,7 +103,6 @@ to agenda files."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
- '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes t)
  '(fci-rule-color "#383838")
  '(font-lock-maximum-decoration (quote ((org-mode) (tex-mode) (t . t)))))
@@ -114,6 +113,12 @@ to agenda files."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;;; Theme
+;; Zenburn
+;; Tronesque
+(load-theme 'zenburn)
+(enable-theme 'zenburn)
 
 ;;; Setup saving/restoring list of installed emacs packages
 (require 'save-packages)
