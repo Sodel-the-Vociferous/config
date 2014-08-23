@@ -539,3 +539,11 @@ to agenda files."
 (setq ess-ask-for-ess-directory nil)
 
 (setq ess-directory "~/.ess/")
+
+;;; Markdown-Mode
+(require 'markdown-mode)
+;; Electric-indent buggers indentation up in markdown-mode
+(add-hook 'markdown-mode-hook
+          (lambda ()
+             (add-hook 'electric-indent-functions
+                            (lambda () 'no-indent) nil 'local)))
