@@ -546,5 +546,5 @@ to agenda files."
 ;; Electric-indent buggers indentation up in markdown-mode
 (add-hook 'markdown-mode-hook
           (lambda ()
-             (add-hook 'electric-indent-functions
-                            (lambda () 'no-indent) nil 'local)))
+            (add-hook 'electric-indent-functions
+                      (lambda (_unused) 'no-indent) nil 'local)))
