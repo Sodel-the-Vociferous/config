@@ -542,6 +542,7 @@ to agenda files."
 
 ;;; Markdown-Mode
 (require 'markdown-mode)
+(setq markdown-enable-math t) ; LaTeX math
 ;; Electric-indent buggers indentation up in markdown-mode
 (add-hook 'markdown-mode-hook
           (lambda ()
