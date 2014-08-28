@@ -239,7 +239,7 @@ to agenda files."
 
 ;;; Org
 (require 'org)
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ;;; Org Appearance
 (setq
