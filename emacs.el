@@ -245,8 +245,7 @@ to agenda files."
 (setq
  ;; Render special formatting in buffer
  org-pretty-entities t
- ;; Don't render subscripts/superscripts in-buffer
- org-pretty-entities-include-sub-superscripts nil
+ org-pretty-entities-include-sub-superscripts t
  org-columns-default-format "%45ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}")
 
 ;;; Org Capture
@@ -321,7 +320,7 @@ to agenda files."
 (setq
  org-latex-pdf-process '("latexmk -bibtex -pdf %f && latexmk -c")
  org-export-creator-info nil
- org-export-with-sub-superscripts nil
+ org-export-with-sub-superscripts t
  ;; When exporting to ODT, convert it to a PDF, too
  org-export-odt-preferred-output-format "pdf"
  ;; Remove logfiles after exporting a PDF
