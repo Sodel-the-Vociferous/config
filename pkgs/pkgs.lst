@@ -60,7 +60,6 @@ iotop
 iproute
 java-1.8.0-openjdk
 k3b
-latexmk
 libpng12
 librecad
 libreoffice
@@ -119,8 +118,6 @@ splint
 sqlite2
 subversion
 swftools
-texlive-scheme-medium
-texlive-wrapfig
 tidy
 tix
 tkinter
