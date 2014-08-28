@@ -156,6 +156,7 @@ to agenda files."
 
 ;;; Flyspell mode hooks
 (add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'fundamental-mode-hook 'flyspell-mode)
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
