@@ -490,6 +490,9 @@ to agenda files."
  erc-mode-line-format "%t %a"
  erc-kill-queries-on-quit t
  erc-kill-buffer-on-part t
+ erc-enable-logging t
+ erc-log-write-after-insert t
+ erc-log-channels-directory "~/org/chats/irc/"
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
 (add-hook 'erc-hooks 'erc-track-mode)
