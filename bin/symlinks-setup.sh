@@ -62,6 +62,7 @@ ensure_symlink ~/config/gpg.conf ~/.gnupg/gpg.conf
 ## Other Config
 
 ensure_symlink ~/config/keysnail.js ~/.keysnail.js
+ensure_symlink ~/config/minirc.dfl ~/.minirc.dfl
 ensure_symlink ~/config/mplayer ~/.mplayer/config
 ensure_symlink ~/config/nethackrc ~/.nethackrc
 ensure_symlink ~/config/newsbeuter.conf ~/.newsbeuter/config
