@@ -243,6 +243,10 @@ to agenda files."
                        ))
 (real-global-auto-complete-mode t)
 
+;;; Auto-Complete Ispell
+(require 'ac-ispell)
+(ac-ispell-setup)
+
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
 (define-key user-map (kbd "j") 'ace-jump-mode)
