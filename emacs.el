@@ -188,32 +188,6 @@ to agenda files."
 (setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
                                     (nil "\\`root\\'" "/ssh:%h:")))
 
-;;; Ido-Mode
-(require 'ido)
-(setq
- ido-ignore-buffers '(".*Completion" "^\*Ido" "^\*trace")
- ido-case-fold t
- ido-use-filename-at-point nil
- ido-use-url-at-point nil
- ido-enable-flex-matching nil
- ido-max-prospects 8
- confirm-nonexistent-file-or-buffer nil
- ;; Don't search through my history, just this directory. Jumping to a
- ;; completely different dir is ANNOYING.
- ido-enable-last-directory-history nil
- ido-record-commands nil
- ido-max-work-directory-list 0
- ido-max-work-file-list 0)
-(ido-mode 'both)
-
-;;; Idomenu (imenu integration, for jumping to symbols)
-(require 'icomplete+)
-(icomplete-mode 1)
-
-;;; Ctags
-(require 'ctags)
-(require 'ctags-update)
-
 ;; Hooks
 (add-hook 'python-mode-hook     'ctags-auto-update-mode)
 (add-hook 'py-mode-hook         'ctags-auto-update-mode)
