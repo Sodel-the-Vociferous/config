@@ -233,7 +233,7 @@ to agenda files."
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
-(define-key user-map (kbd "C-SPC") 'ace-jump-mode)
+(define-key user-map (kbd "j") 'ace-jump-mode)
 
 ;;; Org
 (require 'org)
