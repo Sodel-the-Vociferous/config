@@ -524,6 +524,10 @@ to agenda files."
 (require 'helm-config)
 (helm-mode 1)
 
+(define-key helm-map (kbd "<Tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
@@ -535,9 +539,6 @@ to agenda files."
 
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "x") 'helm-register)
-(define-key helm-command-map (kbd "<Tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
-(define-key helm-command-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-command-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 ;; (require 'ac-helm)
 ;; (global-set-key (kbd "<C-tab>") 'ac-complete-with-helm)
