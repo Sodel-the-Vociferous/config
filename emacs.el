@@ -578,12 +578,12 @@ to agenda files."
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c h o") 'helm-occur)
-(global-set-key (kbd "C-h a") 'helm-apropo)
+(global-set-key (kbd "C-h a") 'helm-apropos)
 (define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
 
-(define-key helm-map (kbd "x") 'helm-register)
-(define-key helm-map (kbd "<Tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+(define-key helm-command-map (kbd "o") 'helm-occur)
+(define-key helm-command-map (kbd "x") 'helm-register)
+(define-key helm-command-map (kbd "<Tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+(define-key helm-command-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+(define-key helm-command-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
