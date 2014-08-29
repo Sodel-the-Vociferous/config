@@ -141,11 +141,6 @@ to agenda files."
            (wg-load user/wg-file))
   nil)
 
-;;; Don't quote regex special chars when yanking into isearch-regexp
-;;; buffers. BLOODY ANNOYING, THAT.
-(require 'isearch+)
-(setq isearchp-regexp-quote-yank-flag nil)
-
 ;;; Don't use Lisp's regex syntax for interactive regexes; too many
 ;;; backslashes.
 (setq reb-re-syntax 'string)
@@ -554,6 +549,8 @@ to agenda files."
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-h a") 'helm-apropos)
 (define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
+(define-key user-map (kbd "r") 'helm-regexp)
+(define-key user-map (kbd "o") 'helm-occur)
 
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "x") 'helm-register)
