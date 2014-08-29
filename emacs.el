@@ -491,6 +491,8 @@ to agenda files."
 
 (global-set-key (kbd "TAB") 'evil-indent)
 (define-key evil-normal-state-map (kbd "q") nil)
+(define-key evil-normal-state-map (kbd "M-.") nil)
+(define-key evil-visual-state-map (kbd "M-.") nil)
 
 (define-key evil-insert-state-map (kbd "C-e") nil)
 (define-key evil-insert-state-map (kbd "C-d") nil)
@@ -572,3 +574,10 @@ to agenda files."
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'java-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+(define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-rtag)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
