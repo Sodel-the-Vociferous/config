@@ -197,15 +197,6 @@ to agenda files."
 (setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
                                     (nil "\\`root\\'" "/ssh:%h:")))
 
-;; Hooks
-(add-hook 'python-mode-hook     'ctags-auto-update-mode)
-(add-hook 'py-mode-hook         'ctags-auto-update-mode)
-(add-hook 'c-mode-common-hook   'ctags-auto-update-mode)
-(add-hook 'emacs-lisp-mode-hook 'ctags-auto-update-mode)
-(add-hook 'lisp-mode-hook       'ctags-auto-update-mode)
-(add-hook 'sh-mode-hook         'ctags-auto-update-mode)
-(add-hook 'asm-mode-hook        'ctags-auto-update-mode)
-
 ;;; Company Mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -561,6 +552,14 @@ to agenda files."
 
 ;;; Helm Gtags
 (require 'helm-gtags)
+(require 'ctags-auto-update-mode)
+(add-hook 'python-mode-hook     'ctags-auto-update-mode)
+(add-hook 'py-mode-hook         'ctags-auto-update-mode)
+(add-hook 'c-mode-common-hook   'ctags-auto-update-mode)
+(add-hook 'emacs-lisp-mode-hook 'ctags-auto-update-mode)
+(add-hook 'lisp-mode-hook       'ctags-auto-update-mode)
+(add-hook 'sh-mode-hook         'ctags-auto-update-mode)
+(add-hook 'asm-mode-hook        'ctags-auto-update-mode)
 
 (setq
  helm-gtags-ignore-case t
