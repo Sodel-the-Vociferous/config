@@ -233,7 +233,7 @@ to agenda files."
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'web-mode)
 
-(ac-config-default t)
+(ac-config-default)
 
 ;; Dirty fix to get AC everywhere
 (define-globalized-minor-mode real-global-auto-complete-mode
