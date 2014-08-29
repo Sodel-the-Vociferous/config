@@ -495,6 +495,7 @@ to agenda files."
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
 (add-hook 'erc-hooks 'erc-track-mode)
+(add-to-list 'erc-modules 'notifications)
 
 ;;; Evil
 (setq evil-toggle-key "C-`")
