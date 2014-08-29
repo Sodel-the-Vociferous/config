@@ -179,9 +179,16 @@ to agenda files."
 (require 'semantic-ia)
 (require 'semantic-clang)
 
+(semantic-load-enable-minimum-features)
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
-(semantic-mode 1)
+
+;; Senator
+(require 'senator)
+
+;; EDE
+(require 'ede)
+(global-ede-mode 1)
 
 ;;; Tramp
 (require 'tramp)
