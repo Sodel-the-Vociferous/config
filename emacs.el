@@ -172,10 +172,16 @@ to agenda files."
 ;;; CEDET
 (load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
 (require 'cedet)
+
+;; Semantic
+(require 'cc-mode)
 (require 'semantic)
 (require 'semantic-ia)
-(require 'semantic-gcc)
-(semantic-load-enable-code-helpers)
+(require 'semantic-clang)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(semantic-mode 1)
 
 ;;; Tramp
 (require 'tramp)
