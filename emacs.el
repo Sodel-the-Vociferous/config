@@ -569,7 +569,8 @@ to agenda files."
                       (lambda (_unused) 'no-indent) nil 'local)))
 
 ;;; Helm
-(setq helm-command-prefix "C-z h")
+(require 'helm)
+(setq helm-command-prefix-key "C-z h")
 (require 'helm-config)
 (helm-mode 1)
 
