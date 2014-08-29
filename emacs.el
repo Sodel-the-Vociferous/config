@@ -192,29 +192,10 @@ to agenda files."
 (add-hook 'sh-mode-hook         'ctags-auto-update-mode)
 (add-hook 'asm-mode-hook        'ctags-auto-update-mode)
 
-;;; Auto-Complete
-(require 'auto-complete)
-(require 'auto-complete-config)
-
-(setq ac-auto-show-menu nil)
-
-(add-to-list 'ac-modes 'asm-mode)
-(add-to-list 'ac-modes 'org-mode)
-(add-to-list 'ac-modes 'web-mode)
-
-(ac-config-default)
-
-;; Dirty fix to get AC everywhere
-(define-globalized-minor-mode real-global-auto-complete-mode
-  auto-complete-mode (lambda ()
-                       (if (not (minibufferp (current-buffer)))
-                         (auto-complete-mode 1))
-                       ))
-(real-global-auto-complete-mode t)
-
-;;; Auto-Complete Ispell
-(require 'ac-ispell)
-(ac-ispell-setup)
+;;; Company Mode
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-frontends '(company-echo-metadata-frontend company-preview-frontend))
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
@@ -558,8 +539,11 @@ to agenda files."
 (define-key helm-command-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
 (define-key helm-command-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
-(require 'ac-helm)
-(global-set-key (kbd "<C-tab>") 'ac-complete-with-helm)
+;; (require 'ac-helm)
+;; (global-set-key (kbd "<C-tab>") 'ac-complete-with-helm)
+
+(require 'helm-company)
+(global-set-key (kbd "<C-tab>") 'helm-company)
 
 ;;; Helm Gtags
 (require 'helm-gtags)
