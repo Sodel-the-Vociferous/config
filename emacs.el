@@ -556,9 +556,6 @@ to agenda files."
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "x") 'helm-register)
 
-;; (require 'ac-helm)
-;; (global-set-key (kbd "<C-tab>") 'ac-complete-with-helm)
-
 (require 'helm-company)
 (global-set-key (kbd "<C-tab>") 'helm-company)
 
