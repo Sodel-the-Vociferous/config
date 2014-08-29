@@ -227,6 +227,8 @@ to agenda files."
 (require 'auto-complete)
 (require 'auto-complete-config)
 
+(setq ac-auto-show-menu nil)
+
 (add-to-list 'ac-modes 'asm-mode)
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'web-mode)
