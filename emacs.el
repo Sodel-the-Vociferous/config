@@ -228,10 +228,8 @@ to agenda files."
 (require 'auto-complete-config)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
-(add-to-list 'ac-modes 'asm-mode)
-(add-to-list 'ac-modes 'org-mode)
-(add-to-list 'ac-modes 'web-mode)
 (ac-config-default)
+(global-auto-complete-mode)
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
