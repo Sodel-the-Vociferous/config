@@ -57,15 +57,16 @@
 (define-key user-map (kbd "C-z") 'suspend-frame)
 (define-key user-map (kbd "p k") 'kill-paragraph)
 (define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
-(define-key user-map (kbd "r") 'rename-buffer)
+(define-key user-map (kbd "C-r") 'rename-buffer)
 (define-key user-map (kbd "t") 'user/ansi-term)
+(define-key user-map (kbd "e") 'eval-region)
 
 (define-prefix-command 'user-chat-map)
 (define-key user-map (kbd "c") user-chat-map)
 
 ;; Org Key bindings
 (define-prefix-command 'user-org-outline-map)
-(define-key user-map (kbd "o") user-org-outline-map)
+(define-key user-map (kbd "C-o") user-org-outline-map)
 (define-key user-org-outline-map (kbd "]") 'outline-next-heading)
 (define-key user-org-outline-map (kbd "[") 'outline-previous-heading)
 (define-key user-org-outline-map (kbd "a") 'org-agenda)
