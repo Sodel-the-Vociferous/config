@@ -44,6 +44,7 @@ gdb
 gdb-doc
 gimp
 gksu
+global
 gnumeric
 gnupg
 golang
@@ -118,6 +119,7 @@ splint
 sqlite2
 subversion
 swftools
+texinfo
 tidy
 tix
 tkinter
