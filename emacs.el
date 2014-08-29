@@ -227,9 +227,19 @@ to agenda files."
 (require 'auto-complete)
 (require 'auto-complete-config)
 
-(global-set-key (kbd "<C-tab>") 'auto-complete)
-(ac-config-default)
-(global-auto-complete-mode)
+(add-to-list 'ac-modes 'asm-mode)
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'web-mode)
+
+(ac-config-default t)
+
+;; Dirty fix to get AC everywhere
+(define-globalized-minor-mode real-global-auto-complete-mode
+  auto-complete-mode (lambda ()
+                       (if (not (minibufferp (current-buffer)))
+                         (auto-complete-mode 1))
+                       ))
+(real-global-auto-complete-mode t)
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
