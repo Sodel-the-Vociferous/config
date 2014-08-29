@@ -479,6 +479,7 @@ to agenda files."
 ;;; ERC IRC Client
 (require 'tls)
 (require 'erc)
+(defalias 'irc 'erc-tls)
 (define-key user-chat-map (kbd "j") 'erc-track-switch-buffer)
 
 (setq
@@ -489,11 +490,11 @@ to agenda files."
  erc-kill-buffer-on-part t
  erc-enable-logging t
  erc-log-write-after-insert t
+ erc-log-write-after-send t
  erc-log-channels-directory "~/org/chats/irc/"
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
 (add-hook 'erc-hooks 'erc-track-mode)
-(defalias 'irc 'erc-tls)
 
 ;;; Evil
 (setq evil-toggle-key "C-`")
