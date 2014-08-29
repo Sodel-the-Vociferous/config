@@ -9,6 +9,8 @@ LANG=en_CA.UTF-8
 export LANG
 
 ## Environment Variables ##
+
+# Editors
 EDITOR=emacsclient
 export EDITOR
 VISUAL=$EDITOR
@@ -42,6 +44,11 @@ export WINEARCH
 PYTHONDONTWRITEBYTECODE=true
 export PYTHONDONTWRITEBYTECODE
 
+# Setup gtags w/ exuberant ctags
+GTAGSCONF=$HOME/.globalrc
+export GTAGSCONF
+GTAGSLABEL=ctags
+export GTAGSLABEL
 
 ## Start Programs/Daemons
 
