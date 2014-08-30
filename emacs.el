@@ -106,7 +106,8 @@ to agenda files."
  '(ansi-color-names-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
  '(custom-safe-themes t)
  '(fci-rule-color "#383838")
- '(font-lock-maximum-decoration (quote ((org-mode) (tex-mode) (t . t)))))
+ '(font-lock-maximum-decoration (quote ((org-mode) (tex-mode) (t . t))))
+ '(safe-local-variable-values (quote ((company-clang-arguments "-I/home/dralston/src/navsim/RG5/bootloader/include/")))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
