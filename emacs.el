@@ -210,6 +210,9 @@ to agenda files."
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
+(define-key org-mode-map (kbd "<C-tab>") nil)
+(define-key org-mode-map (kbd "<C-M-tab>") 'org-force-cycle-archived)
+
 ;;; Org Appearance
 (setq
  ;; Render special formatting in buffer
@@ -320,7 +323,7 @@ to agenda files."
 (define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
 (define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
 (define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
-(define-key outline-minor-mode-map (kbd "<C-tab>") 'outline-cycle)
+(define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)
 
 
 ;;; Version Control
