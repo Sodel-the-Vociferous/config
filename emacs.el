@@ -200,7 +200,12 @@ to agenda files."
 ;;; Company Mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-frontends '(company-echo-metadata-frontend company-preview-frontend))
+(setq
+ company-frontends (delete
+                    'company-pseudo-tooltip-unless-just-one-frontend
+                    company-frontends)
+ company-idle-delay 0
+ company-backends (delete 'company-semantic company-backends))
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
