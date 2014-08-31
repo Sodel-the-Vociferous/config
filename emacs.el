@@ -581,7 +581,6 @@ to agenda files."
 (add-hook 'py-mode-hook         'enable-helm-gtags-auto-update-mode)
 (add-hook 'c-mode-hook          'enable-helm-gtags-auto-update-mode)
 (add-hook 'c++-mode-hook        'enable-helm-gtags-auto-update-mode)
-(add-hook 'emacs-lisp-mode-hook 'enable-helm-gtags-auto-update-mode)
 (add-hook 'lisp-mode-hook       'enable-helm-gtags-auto-update-mode)
 (add-hook 'sh-mode-hook         'enable-helm-gtags-auto-update-mode)
 (add-hook 'asm-mode-hook        'enable-helm-gtags-auto-update-mode)
