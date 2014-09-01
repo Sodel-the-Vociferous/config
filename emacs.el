@@ -199,7 +199,9 @@ to agenda files."
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
-(define-key user-map (kbd "j") 'ace-jump-mode)
+(define-key user-map (kbd "j") 'ace-jump-char-mode)
+(define-key user-map (kbd "l") 'ace-jump-line-mode)
+(define-key user-map (kbd "w") 'ace-jump-word-mode)
 
 ;;; Org
 (require 'org)
