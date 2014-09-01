@@ -131,17 +131,6 @@ to agenda files."
 (require 'alpha)
 (add-to-list 'default-frame-alist '(alpha . 100))
 
-;;; Workgroups, i.e. frame layouts; only load if my workgroups file
-;;; exists and is readable.
-(require 'workgroups)
-(define-key user-map (kbd "w") 'wg-map)
-
-(setq user/wg-file "~/.emacs-workgroups")
-(if (file-readable-p user/wg-file)
-    (progn (workgroups-mode t)
-           (wg-load user/wg-file))
-  nil)
-
 ;;; Don't use Lisp's regex syntax for interactive regexes; too many
 ;;; backslashes.
 (setq reb-re-syntax 'string)
