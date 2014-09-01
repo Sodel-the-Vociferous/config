@@ -194,8 +194,7 @@ to agenda files."
                     'company-pseudo-tooltip-unless-just-one-frontend
                     company-frontends)
  company-idle-delay 0
- company-backends (delete 'company-semantic company-backends)
- company-backends (delete 'company-ropemacs company-backends))
+ company-backends (delete 'company-semantic company-backends))
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
@@ -341,6 +340,15 @@ to agenda files."
 ;;; Python mode
 (require 'python)
 (add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+
+(setq ropemacs-local-prefix "C-z p")
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
 
 (require 'pylint)
 (setq
@@ -350,12 +358,6 @@ to agenda files."
 ;;; IPython
 (require 'ein)
 (setq ein:use-auto-complete-superpack t)
-
-;;; Anaconda
-(require 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
-(require 'company-anaconda)
-(add-to-list 'company-backends 'company-anaconda)
 
 ;;; Erlang Mode
 (setq erlang-root-dir "/usr/lib/erlang")
