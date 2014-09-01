@@ -55,7 +55,6 @@
 (define-key user-map (kbd "C-\\") 'toggle-hiding)
 (define-key user-map (kbd "C--") 'toggle-selective-display)
 (define-key user-map (kbd "C-z") 'suspend-frame)
-(define-key user-map (kbd "p k") 'kill-paragraph)
 (define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
 (define-key user-map (kbd "C-r") 'rename-buffer)
 (define-key user-map (kbd "t") 'user/ansi-term)
