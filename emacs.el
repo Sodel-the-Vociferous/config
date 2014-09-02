@@ -1,26 +1,39 @@
-;;; Add site-lisp to my load path
-(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
-;;; Packages
-(require 'package)
+;;;; Key Bindings ;;;;
+(global-set-key (kbd "<C-return>") 'newline-and-indent)
+(global-set-key (kbd "<mouse-3>") 'mouse-popup-menubar)
+(global-set-key (kbd "<mouse-8>") 'previous-buffer)
+(global-set-key (kbd "<mouse-9>") 'next-buffer)
+(global-set-key (kbd "C-x C-M-k") 'kill-matching-buffers)
+(global-set-key (kbd "C-h C-M-f") 'find-function)
 
-;; Setup package archives
-(setq package-archives '(("org" . "http://orgmode.org/elpa/")
-                         ("MELPA" . "http://melpa.milkbox.net/packages/")
-                         ("Marmalade" . "http://marmalade-repo.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
+(define-prefix-command 'user-map)
+(global-set-key (kbd "C-z") 'user-map)
+(define-key user-map (kbd "C-\\") 'toggle-hiding)
+(define-key user-map (kbd "C--") 'toggle-selective-display)
+(define-key user-map (kbd "C-z") 'suspend-frame)
+(define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
+(define-key user-map (kbd "C-r") 'rename-buffer)
+(define-key user-map (kbd "e") 'eval-region)
 
-;; Load packages
-(package-initialize)
+;; Outline-mode
+(require 'outline)
+(define-key outline-minor-mode-map (kbd "<C-down>") 'outline-next-visible-heading)
+(define-key outline-minor-mode-map (kbd "<C-up>") 'outline-previous-visible-heading)
+(define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
+(define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
+(define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
+(define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
+(define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)
 
 
-;;; Startup
+;;;; Configure Vanilla Emacs ;;;;
+
+;;; Startup & Shutdown
 (setq
  inhibit-startup-screen t
- initial-scratch-message "")
-
-;;; Shutdown
-(setq confirm-kill-emacs 'y-or-n-p)
+ initial-scratch-message ""
+ confirm-kill-emacs 'y-or-n-p)
 
 ;;; Appearance
 (column-number-mode t)
@@ -43,59 +56,601 @@
 (setq doc-view-continuous t)
 (show-paren-mode t)
 
-;;; Key Bindings
-(global-set-key (kbd "<C-return>") 'newline-and-indent)
-(global-set-key (kbd "<mouse-3>") 'mouse-popup-menubar)
-(global-set-key (kbd "<mouse-8>") 'previous-buffer)
-(global-set-key (kbd "<mouse-9>") 'next-buffer)
-(global-set-key (kbd "C-x C-M-k") 'kill-matching-buffers)
+;;; Don't use Lisp's regex syntax for interactive regexes; too many
+;;; backslashes.
+(setq reb-re-syntax 'string)
 
-(define-prefix-command 'user-map)
-(global-set-key (kbd "C-z") 'user-map)
-(define-key user-map (kbd "C-\\") 'toggle-hiding)
-(define-key user-map (kbd "C--") 'toggle-selective-display)
-(define-key user-map (kbd "C-z") 'suspend-frame)
-(define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
-(define-key user-map (kbd "C-r") 'rename-buffer)
-(define-key user-map (kbd "t") 'user/ansi-term)
-(define-key user-map (kbd "e") 'eval-region)
+;;; If a file changes on disk, and there are no changes in the buffer,
+;;; automatically revert the file.
+(global-auto-revert-mode t)
 
-(define-prefix-command 'user-chat-map)
-(define-key user-map (kbd "c") user-chat-map)
+;; delete-trailing-whitespace before saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Org Key bindings
-(define-prefix-command 'user-org-outline-map)
-(define-key user-map (kbd "C-o") user-org-outline-map)
-(define-key user-org-outline-map (kbd "]") 'outline-next-heading)
-(define-key user-org-outline-map (kbd "[") 'outline-previous-heading)
-(define-key user-org-outline-map (kbd "a") 'org-agenda)
-(define-key user-org-outline-map (kbd "b") 'user/org-iswitchb-agenda-only)
-(define-key user-org-outline-map (kbd "c") 'org-capture)
-(define-key user-org-outline-map (kbd "j") 'org-clock-goto)
-(define-key user-org-outline-map (kbd "l") 'org-store-link)
-(define-key user-org-outline-map (kbd "o") 'org-clock-out)
-(define-key user-org-outline-map (kbd "<C-right>") 'org-demote-subtree)
-(define-key user-org-outline-map (kbd "<C-left>") 'org-promote-subtree)
+;;; Asm Mode
+(add-hook 'asm-mode-hook
+          ;; Make comments work better w/ fill-paragraph
+          (lambda () (set (make-local-variable 'paragraph-start)
+                          "^\\s-*;+.*$")))
 
-(defun user/org-iswitchb-agenda-only ()
-"Call `org-iswitchb' with two prefix args, restricting selection
-to agenda files."
-  (interactive)
-  (let ((current-prefix-arg '(16)))
-    (call-interactively 'org-iswitchb t)))
+;;; C Mode
+(setq c-default-style "K&R")
+(setq c-basic-offset 8)
+(setq tab-width 8)
+(setq indent-tabs-mode nil)
 
-;; Terminal Config
+;;; Python mode
+(setq ropemacs-local-prefix "C-z p")
+(autoload 'python-mode "python" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
+
+;;; Term config
 (require 'term)
-(defun user/ansi-term () (interactive) (progn (ansi-term "/bin/bash" "shell")))
-(defun user/term-send-prev-word () (interactive) (term-send-raw-string "\eb"))
-(defun user/term-send-next-word () (interactive) (term-send-raw-string "\ef"))
-(define-key term-raw-map (kbd "<C-left>") 'user/term-send-prev-word)
-(define-key term-raw-map (kbd "<C-right>") 'user/term-send-next-word)
+(define-key user-map (kbd "t")
+  (defun user/ansi-term ()
+    (interactive)
+    (progn (ansi-term "/bin/bash" "shell"))))
 (define-key term-raw-escape-map (kbd "C-z") 'user-map)
-
+(define-key term-raw-map (kbd "<C-left>")
+  (defun user/term-send-prev-word ()
+    (interactive)
+    (term-send-raw-string "\eb")))
+(define-key term-raw-map (kbd "<C-right>")
+  (defun user/term-send-next-word ()
+    (interactive)
+    (term-send-raw-string "\ef")))
 ;; Terminals in emacs should be able to run tmux, regardless of
 ;; whether or not emacs was started within tmux.
 (setenv "TMUX" "")
+
+;;; Version Control
+(setq vc-follow-symlinks t)
+
+;;; Electric Indent Mode
+(electric-indent-mode 1)
+
+;;; Tramp
+(require 'tramp)
+;; Theoretically, make TRAMP handle /sudo:root@host: paths by logging
+;; in via the regular TRAMP ssh method, and then `sudo` to root.
+(setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
+                                    (nil "\\`root\\'" "/ssh:%h:")))
+
+;;; XML
+(setq
+ ;; Indent children by 2 spaces
+ nxml-child-indent 2)
+
+
+;;;; Configure Package.el And El-Get ;;;;
+
+;;; Packages
+(require 'package)
+
+;; Setup package archives
+(setq package-archives '(("org" . "http://orgmode.org/elpa/")
+                         ("MELPA" . "http://melpa.milkbox.net/packages/")
+                         ("Marmalade" . "http://marmalade-repo.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
+
+;; Load packages
+(package-initialize)
+
+;;; Setup El-Get
+(unless (require 'el-get nil t)
+  (package-refresh-contents)
+  (package-install 'el-get)
+  (require 'el-get))
+
+(require 'el-get-custom)
+
+(let ((dir (file-name-directory el-get-status-file)))
+  (unless (file-exists-p dir)
+    (make-directory dir)))
+
+(setq
+ el-get-sources
+ '((:name ace-jump-mode
+          :after (progn
+                   (define-key user-map (kbd "j") 'ace-jump-char-mode)
+                   (define-key user-map (kbd "l") 'ace-jump-line-mode)
+                   (define-key user-map (kbd "w") 'ace-jump-word-mode)))
+   (:name adaptive-wrap)
+   (:name aes :type elpa)
+   (:name alpha
+          :type elpa
+          :after (progn
+                   (add-to-list 'default-frame-alist '(alpha . 100))))
+   (:name ascii :type elpa)
+   (:name async :type elpa)
+   (:name auctex
+          :features (tex tex-site preview)
+          :after (add-hook 'LaTeX-mode-hook 'outline-minor-mode))
+   (:name auctex-latexmk :type elpa)
+   (:name cedet
+          :after (progn
+                   ;; (require 'semantic-autoload
+                   ;; (require 'senator)
+                   ;; (require 'ede)
+
+
+                   ;; ;; Semantic
+                   ;; (semantic-load-enable-minimum-features)
+                   ;; (global-semanticdb-minor-mode 1)
+                   ;; (global-semantic-idle-scheduler-mode 1)
+
+                   ;; EDE
+                   (global-ede-mode 1)))
+   (:name auto-compile)
+   (:name bash-completion)
+   (:name browse-kill-ring)
+   (:name charmap :type elpa)
+   (:name cl-format :type elpa)
+   (:name cl-lib)
+   (:name color-theme)
+   (:name zenburn-theme :type elpa)
+   (:name company-mode
+          :features company
+          :after (progn
+                   ;; Company Mode
+                   (add-hook 'after-init-hook 'global-company-mode)
+                   (setq
+                    ;; Get rid of company menu. I'll use helm.
+                    company-frontends (delete
+                                       'company-pseudo-tooltip-unless-just-one-frontend
+                                       company-frontends)
+                    ;; Helm-company usually pukes if company
+                    ;; autocompletion starts after helm-company is
+                    ;; called.
+                    company-idle-delay 0
+                    ;; I want to use helm-gtags instead.
+                    company-backends (delete 'company-semantic company-backends))))
+   (:name concurrent :type elpa)
+   (:name crontab-mode)
+   (:name csv-mode)
+   (:name ctable)
+   (:name dash)
+   (:name deferred)
+   (:name dired+)
+   (:name dired-efap)
+   (:name dired-single)
+   (:name ebib)
+   (:name ecb)
+   (:name ein
+          :after (setq ein:use-auto-complete-superpack t))
+   (:name epl)
+   (:name erc
+          :features (erc tls)
+          :after (progn
+                   (defalias 'irc 'erc-tls)
+                   (define-key user-map (kbd "c j") 'erc-track-switch-buffer)
+
+                   (setq
+                    erc-port 6697
+                    erc-prompt-for-password t
+                    erc-mode-line-format "%t %a"
+                    erc-kill-queries-on-quit t
+                    erc-kill-buffer-on-part t
+                    erc-enable-logging t
+                    erc-log-write-after-insert t
+                    erc-log-write-after-send t
+                    erc-log-channels-directory "~/org/chats/irc/"
+                    erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
+
+                   (add-hook 'erc-hooks 'erc-track-mode)
+                   (add-to-list 'erc-modules 'notifications)))
+   (:name erlang-mode
+          :before (progn
+                    (setq
+                     erlang-root-dir "/usr/lib/erlang"
+                     exec-path (cons "/usr/lib/erlang/bin" exec-path))))
+   (:name ess
+          :type elpa
+          :features ess-site
+          :after (progn
+                   (setq
+                    ess-directory "~/.ess/"
+                    ess-ask-for-ess-directory nil)))
+   (:name evil
+          :type elpa
+          :before (setq evil-toggle-key "C-`")
+          :features evil
+          :after (progn
+                   (require 'evil)
+                   (add-hook 'org-capture-mode-hook 'evil-insert-state)
+                   (add-hook 'epa-key-list-mode-hook (lambda () (evil-local-mode -1)))
+                   (add-hook 'git-commit-mode-hook 'evil-insert-state)
+                   (add-hook 'term-mode-hook 'evil-emacs-state)
+                   (add-hook 'git-rebase-mode-hook 'evil-emacs-state)
+                   (add-hook 'julia-post-run-hook 'evil-insert-state)
+
+                   (global-set-key (kbd "TAB") 'evil-indent)
+                   (define-key evil-normal-state-map (kbd "q") nil)
+
+
+                   (define-key evil-insert-state-map (kbd "C-e") nil)
+                   (define-key evil-insert-state-map (kbd "C-d") nil)
+                   (define-key evil-insert-state-map (kbd "C-k") nil)
+                   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+                   (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
+
+                   (define-key evil-motion-state-map (kbd "C-e") nil)
+                   (define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
+
+                   ;; For gtags
+                   (define-key evil-normal-state-map (kbd "M-.") nil)
+                   (define-key evil-visual-state-map (kbd "M-.") nil)
+
+                   ;; For helm
+                   (define-key evil-motion-state-map (kbd "C-y") nil)
+                   (define-key evil-insert-state-map (kbd "C-y") nil)))
+   (:name evil-matchit
+          :type elpa)
+   (:name evil-nerd-commenter :type elpa)
+   (:name evil-surround)
+   (:name f)
+   (:name flycheck)
+   (:name flyspell
+          :after (progn
+                   (add-hook 'org-mode-hook 'flyspell-mode)
+                   (add-hook 'markdown-mode-hook 'flyspell-mode)
+                   (add-hook 'fundamental-mode-hook 'flyspell-mode)
+                   (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
+                   (add-hook 'git-commit-mode-hook 'flyspell-mode)
+
+                   (add-hook 'asm-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'python-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'rust-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'py-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'c-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'scala-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'sh-mode-hook 'flyspell-prog-mode)
+                   (add-hook 'erlang-mode-hook 'flyspell-prog-mode)))
+   (:name function-args)
+   (:name furl :type elpa)
+   (:name fuzzy)
+   (:name ghc :type elpa)
+   (:name git-blame)
+   (:name git-commit-mode)
+   (:name git-rebase-mode)
+   (:name gitconfig-mode :type elpa)
+   (:name gitignore-mode :type elpa)
+   (:name go-mode)
+   (:name gtags)
+   (:name julia-mode)
+   (:name haskell-mode
+          :after (progn
+                   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+                   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+                   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+                   (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
+   (:name helm
+          :type elpa
+          :before (setq helm-command-prefix-key "C-z h")
+          :features (helm helm-config)
+          :after (progn
+
+                   (require 'helm)
+                   (require 'helm-config)
+                   ;; Swap Tab and C-z in helm-mode, so Tab executes
+                   ;; persistent actions, and C-z opens the actions
+                   ;; menu.
+                   (define-key helm-map (kbd "<Tab>") 'helm-execute-persistent-action)
+                   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+                   (define-key helm-map (kbd "C-z")  'helm-select-action)
+
+                   (global-set-key (kbd "M-x") 'helm-M-x)
+                   (global-set-key (kbd "C-y") 'helm-show-kill-ring)
+                   (global-set-key (kbd "C-x b") 'helm-mini)
+                   (global-set-key (kbd "C-x C-f") 'helm-find-files)
+                   (global-set-key (kbd "C-h a") 'helm-apropos)
+                   (define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
+                   (define-key user-map (kbd "r") 'helm-regexp)
+                   (define-key user-map (kbd "o") 'helm-occur)
+
+                   (define-key helm-command-map (kbd "o") 'helm-occur)
+                   (define-key helm-command-map (kbd "x") 'helm-register)))
+   (:name helm-company
+          :type elpa
+          :after (global-set-key (kbd "<C-tab>") 'helm-company))
+   (:name helm-gtags
+          :features helm-gtags
+          :after (progn
+                   (define-minor-mode helm-gtags-auto-update-mode
+                     "Auto update GTAGS when a file in this mode is saved."
+                     :init-value nil
+                     :group 'gtags-update
+                     (if helm-gtags-auto-update-mode
+                         (progn
+                           (add-hook 'after-save-hook 'helm-gtags-update-tags nil t))
+                       (remove-hook 'after-save-hook 'helm-gtags-update-tags t)))
+
+                   (defun enable-helm-gtags-auto-update-mode()
+                     "Turn on `helm-gtags-auto-update-mode'."
+                     (interactive)
+                     (helm-gtags-auto-update-mode 1))
+
+                   (add-hook 'python-mode-hook     'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'py-mode-hook         'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'c-mode-hook          'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'c++-mode-hook        'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'lisp-mode-hook       'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'sh-mode-hook         'enable-helm-gtags-auto-update-mode)
+                   (add-hook 'asm-mode-hook        'enable-helm-gtags-auto-update-mode)
+
+                   (setq
+                    helm-gtags-ignore-case t
+                    helm-gtags-auto-update t
+                    helm-gtags-use-input-at-cursor t
+                    helm-gtags-pulse-at-cursor t
+                    helm-gtags-suggested-key-mapping t)
+
+                   ;; Enable helm-gtags-mode in Dired so you can jump to any tag
+                   ;; when navigate project tree with Dired
+                   (add-hook 'dired-mode-hook 'helm-gtags-mode)
+
+                   ;; Enable helm-gtags-mode in languages that GNU Global supports
+                   (add-hook 'c-mode-hook 'helm-gtags-mode)
+                   (add-hook 'c++-mode-hook 'helm-gtags-mode)
+                   (add-hook 'java-mode-hook 'helm-gtags-mode)
+                   (add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+                   (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-select)
+                   (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+                   (define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-rtag)
+                   (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+                   (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+                   (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)))
+   (:name helm-package :type elpa)
+   (:name ht)
+   (:name inline-crypt
+          :type elpa
+          :after (progn
+                   (define-key user-map (kbd "C-c C-d") 'inline-crypt-decrypt-region)
+                   (define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
+                   (define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
+                   (define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)))
+   (:name ipython :type elpa)
+   (:name js2-mode)
+   (:name json-mode)
+   (:name json-reformat)
+   (:name list-packages-ext :type elpa)
+   (:name list-processes+)
+   (:name list-utils)
+   (:name log4e)
+   (:name magit
+          :type elpa
+          :after (progn
+                   (define-key user-map (kbd "v") 'magit-status)
+                   (setq magit-status-buffer-switch-function 'switch-to-buffer)))
+   (:name makefile-runner :type elpa)
+   (:name markdown-mode
+          :features markdown-mode+
+          :after (progn
+                   (setq markdown-enable-math t) ; LaTeX math
+                   ;; Electric-indent buggers indentation up in markdown-mode
+                   (add-hook 'markdown-mode-hook
+                             (lambda ()
+                               (add-hook 'electric-indent-functions
+                                         (lambda (_unused) 'no-indent) nil 'local)))))
+   (:name markdown-mode+ :type elpa)
+   (:name marmalade :type elpa)
+   (:name notmuch :type elpa)
+   (:name notmuch-labeler :type elpa)
+   (:name org-mode
+          :type elpa
+          :features org
+          :after (progn
+
+                   ;; Keybindings
+
+                   ;; Default binding for <C-tab> is dumb. I want
+                   ;; helm-company, dammit!
+                   (define-key org-mode-map (kbd "<C-tab>") nil)
+                   (define-key org-mode-map (kbd "<C-M-tab>") 'org-force-cycle-archived)
+
+                   (define-key user-map (kbd "C-o ]") 'outline-next-heading)
+                   (define-key user-map (kbd "C-o [") 'outline-previous-heading)
+                   (define-key user-map (kbd "C-o a") 'org-agenda)
+                   (define-key user-map (kbd "C-o b")
+                     (lambda ()
+                       "Call `org-iswitchb' with two prefix args, restricting selection
+                        to agenda files."
+                       (interactive)
+                       (org-iswitchb 14)))
+                   (define-key user-map (kbd "C-o c") 'org-capture)
+                   (define-key user-map (kbd "C-o j") 'org-clock-goto)
+                   (define-key user-map (kbd "C-o l") 'org-store-link)
+                   (define-key user-map (kbd "C-o o") 'org-clock-out)
+                   (define-key user-map (kbd "C-o <C-right>") 'org-demote-subtree)
+                   (define-key user-map (kbd "C-o <C-left>") 'org-promote-subtree)
+
+                   ;; Make "C-z C-o a <RET>" display an overview of all tasks in my
+                   ;; agenda files.
+                   (setq
+                    org-agenda-custom-commands
+                    '(("" "Agenda Tasks"
+                       ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
+                        (tags-todo "/+WIP" ((org-agenda-overriding-header "Tasks In Progress")
+                                            (org-agenda-todo-ignore-deadlines t)
+                                            (org-tags-match-list-sublevels t)))
+                        (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
+                                                 (org-tags-match-list-sublevels t)))
+                        (tags-todo "/+OnHOLD" ((org-agenda-overriding-header "Tasks On Hold")))
+                        (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
+                                             (org-agenda-skip-function '(org-agenda-skip-entry-if
+                                                                         'scheduled 'deadline))))
+                        (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
+                                              (org-agenda-todo-ignore-scheduled t)
+                                              (org-agenda-todo-ignore-deadlines t)))
+                        (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
+                                          (org-tags-match-list-sublevels nil)))
+                        (tags "-archived-event/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
+                       nil)))
+
+                   (setq
+
+                    ;; Render special formatting in buffer
+                    org-pretty-entities t
+                    org-pretty-entities-include-sub-superscripts t
+                    org-columns-default-format (concat "%45ITEM "
+                                                       "%TODO "
+                                                       "%3PRIORITY "
+                                                       "%6Effort(Effort){:} "
+                                                       "%6CLOCKSUM(Time){:}")
+
+                    ;; Org Capture
+                    org-default-notes-file "~/personal/refile.org"
+                    org-cycle-separator-lines 2
+
+                    ;; Org Journal
+                    org-journal-dir "~/org/journal/"
+
+                    ;; Org Agenda
+                    org-agenda-start-on-weekday nil
+                    org-agenda-start-with-clockreport-mode nil
+                    org-agenda-start-with-log-mode t
+                    org-agenda-skip-additional-timestamps-same-entry t
+                    org-agenda-dim-blocked-tasks nil
+                    org-agenda-overriding-columns-format (concat "%CATEGORY "
+                                                                 "%45ITEM "
+                                                                 "%TODO "
+                                                                 "%3PRIORITY "
+                                                                 "%6Effort(Effort){:} "
+                                                                 "%6CLOCKSUM(Time){:}")
+                    org-agenda-remove-tags 'prefix
+                    org-agenda-sorting-strategy '((agenda time-up priority-down habit-down category-up)
+                                                  (todo priority-down category-up todo-state-up)
+                                                  (tags priority-down category-up todo-state-up)
+                                                  (search priority-down category-up todo-state-up))
+                    org-agenda-window-setup 'same-window
+
+                    ;; When prompting for an org-mode path, construct the path
+                    ;; incrementally.
+                    org-outline-path-complete-in-steps nil
+                    org-refile-use-outline-path 'file
+                    ;; When refiling to a parent node that doesn't exist, prompt to
+                    ;; create it.
+                    org-refile-allow-creating-parent-nodes 'confirm
+                    org-completion-use-ido t
+                    ido-everywhere t
+                    ido-max-directory-size 100000
+
+                    ;; Tags
+
+                    ;; Don't make children inherit "prj" tag from parent items
+                    org-tags-exclude-from-inheritance '("prj")
+
+                    ;; State Workflow
+                    org-todo-keywords '(;; Work Statuses
+                                        (sequence "FUTURE(f)"
+                                                  "OnHOLD(h@/!)"
+                                                  "TODO(t@)"
+                                                  "NEXT(n@)"
+                                                  "WIP(w@)"
+                                                  "|"
+                                                  "DONE(d@)")
+                                        ;; Extraordinary Statuses
+                                        (sequence "|" "CANCELLED(c@)"))
+
+                    ;; Export
+
+                    org-latex-pdf-process '("latexmk -bibtex -pdf %f && latexmk --bibtex -c")
+                    org-export-creator-info nil
+                    org-export-with-sub-superscripts t
+                    ;; When exporting to ODT, convert it to a PDF, too
+                    org-export-odt-preferred-output-format "pdf"
+                    ;; Remove logfiles after exporting a PDF
+                    org-export-pdf-remove-logfiles t
+
+                    ;; Time/Clocking
+
+                    ;; Don't prompt for a note when clocking out
+                    org-log-note-clock-out nil
+                    org-clock-clocktable-default-properties '(:maxlevel 4 :scope file)
+                    ;; Don't always default to dates in the future
+                    org-read-date-prefer-future nil
+                    org-clock-out-remove-zero-time-clocks t
+                    org-clock-persist t
+                    ;; Do not prompt to resume an active clock
+                    org-clock-persist-query-resume nil
+                    ;; Include current clock task in clock reports
+                    org-clock-report-include-clocking-task t
+                    org-edit-timestamp-down-means-later nil
+                    org-log-done 'time
+                    org-log-into-drawer t
+                    org-time-clocksum-format (list :hours "%d"
+                                                   :require-hours t
+                                                   :minutes ":%02d"
+                                                   :require-minutes t))))
+   (:name org-journal :type elpa)
+   (:name org-toc :type elpa)
+   (:name outline-magic)
+   (:name package+ :type elpa)
+   (:name packed)
+   (:name pandoc-mode)
+   (:name pcache)
+   (:name persistent-soft)
+   (:name pg)
+   (:name pkg-info)
+   (:name popup)
+   (:name pyflakes :type elpa)
+   (:name pylint
+          :type elpa
+          :after (progn
+                   (setq
+                    pylint-command "pylint"
+                    pylint-options '("-E" "--reports=n" "--output-format=parseable"))))
+   (:name pymacs
+          :after
+          (progn
+            (autoload 'pymacs-load "pymacs" nil t)
+            (autoload 'pymacs-eval "pymacs" nil t)
+            (autoload 'pymacs-exec "pymacs" nil t)
+            (autoload 'pymacs-call "pymacs")
+            (autoload 'pymacs-apply "pymacs")
+            (pymacs-load "ropemacs" "rope-")))
+   (:name python-pep8)
+   (:name regex-dsl :type elpa)
+   (:name request)
+   (:name rust-mode)
+   (:name s)
+   (:name scala-mode
+          :type elpa
+          :after (progn
+                   (add-hook 'scala-mode-hook
+                             'scala-mode-feature-electric-mode)))
+   (:name scala-mode2)
+   (:name shell-command :type elpa)
+   (:name slime
+          :after (progn
+                   (setq inferior-lisp-program "/usr/bin/sbcl")
+                   (slime-setup (cons 'company-slime slime-contribs))
+                   ;; Key bindings
+                   (define-key slime-mode-map (kbd "RET") 'newline-and-indent)))
+   (:name slime-company :type elpa)
+   (:name ssh-config-mode :type elpa)
+   (:name tidy
+          :type elpa
+          ;; Tell the tidy command to tidy up XML files; by default,
+          ;; it complains about XML being "malformed HTML".
+          :after (setq tidy-shell-command "/usr/bin/tidy -xml"))
+   (:name tron-theme :type elpa)
+   (:name tronesque-theme :type elpa)
+   (:name ucs-utils)
+   (:name undo-tree)
+   (:name unfill :type elpa)
+   (:name unicode-fonts)
+   (:name unicode-whitespace)
+   (:name wc-mode)
+   (:name web-beautify :type elpa)
+   (:name web-mode
+          :after (progn
+                   (setq web-mode-disable-auto-pairing nil)))
+   (:name workgroups)
+   (:name wrap-region)
+   (:name xclip)
+   (:name yasnippet)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -115,305 +670,19 @@ to agenda files."
  ;; If there is more than one, they won't work right.
  )
 
-;;; Theme
-;; Zenburn
-;; Tronesque
-(load-theme 'zenburn)
-(enable-theme 'zenburn)
 
-;;; Setup saving/restoring list of installed emacs packages
-(require 'save-packages)
-(setq save-packages-file "~/config/pkgs/emacs-pkgs")
-(defadvice install-saved-packages (before refresh-pkgs activate)
-  (package-refresh-contents))
+;;; Sync Packages
+(setq user:el-get-packages nil)
+(setq user:el-get-packages
+      (mapcar 'el-get-source-name el-get-sources))
+(ignore-errors
+  (el-get 'sync user:el-get-packages))
 
-;; Set transparency
-(require 'alpha)
-(add-to-list 'default-frame-alist '(alpha . 100))
 
-;;; Don't use Lisp's regex syntax for interactive regexes; too many
-;;; backslashes.
-(setq reb-re-syntax 'string)
-
-;;; If a file changes on disk, and there are no changes in the buffer,
-;;; automatically revert the file.
-(global-auto-revert-mode t)
-
-;;; Flyspell mode hooks
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'markdown-mode-hook 'flyspell-mode)
-(add-hook 'fundamental-mode-hook 'flyspell-mode)
-(add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
-(add-hook 'git-commit-mode-hook 'flyspell-mode)
-
-(add-hook 'asm-mode-hook 'flyspell-prog-mode)
-(add-hook 'python-mode-hook 'flyspell-prog-mode)
-(add-hook 'rust-mode-hook 'flyspell-prog-mode)
-(add-hook 'py-mode-hook 'flyspell-prog-mode)
-(add-hook 'c-mode-hook 'flyspell-prog-mode)
-(add-hook 'scala-mode-hook 'flyspell-prog-mode)
-(add-hook 'sh-mode-hook 'flyspell-prog-mode)
-(add-hook 'erlang-mode-hook 'flyspell-prog-mode)
-
-;;; Electric Indent Mode
-(electric-indent-mode 1)
-
-;;; CEDET
-(load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
-(require 'cedet)
-
-;; Semantic
-(require 'cc-mode)
-(require 'semantic)
-(require 'semantic-ia)
-(require 'semantic-clang)
-
-(semantic-load-enable-minimum-features)
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-
-;; Senator
-(require 'senator)
-
-;; EDE
-(require 'ede)
-(global-ede-mode 1)
-
-;;; Tramp
-(require 'tramp)
-;; Theoretically, make TRAMP handle /sudo:root@host: paths by logging
-;; in via the regular TRAMP ssh method, and then `sudo` to root.
-(setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
-                                    (nil "\\`root\\'" "/ssh:%h:")))
-
-;;; Company Mode
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(setq
- company-frontends (delete
-                    'company-pseudo-tooltip-unless-just-one-frontend
-                    company-frontends)
- company-idle-delay 0
- company-backends (delete 'company-semantic company-backends))
-
-;;; ace-jump-mode
-(require 'ace-jump-mode)
-(define-key user-map (kbd "j") 'ace-jump-char-mode)
-(define-key user-map (kbd "l") 'ace-jump-line-mode)
-(define-key user-map (kbd "w") 'ace-jump-word-mode)
-
-;;; Org
-(require 'org)
+;;; Enable Global Modes and Settings
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
-
-(define-key org-mode-map (kbd "<C-tab>") nil)
-(define-key org-mode-map (kbd "<C-M-tab>") 'org-force-cycle-archived)
-
-;;; Org Appearance
-(setq
- ;; Render special formatting in buffer
- org-pretty-entities t
- org-pretty-entities-include-sub-superscripts t
- org-columns-default-format "%45ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}")
-
-;;; Org Capture
-(setq
- org-default-notes-file "~/personal/refile.org"
- org-cycle-separator-lines 2)
-
-;;; Org Journal
-(setq org-journal-dir "~/org/journal/")
-
-;;; Org Agenda
-(setq
- org-agenda-start-on-weekday nil
- org-agenda-start-with-clockreport-mode nil
- org-agenda-start-with-log-mode t
- org-agenda-skip-additional-timestamps-same-entry t
- org-agenda-dim-blocked-tasks nil
- org-agenda-overriding-columns-format "%CATEGORY %45ITEM %TODO %3PRIORITY %6Effort(Effort){:} %6CLOCKSUM(Time){:}"
- org-agenda-remove-tags 'prefix
- org-agenda-sorting-strategy '((agenda time-up priority-down habit-down category-up)
-                               (todo priority-down category-up todo-state-up)
-                               (tags priority-down category-up todo-state-up)
-                               (search priority-down category-up todo-state-up))
- org-agenda-window-setup 'same-window
- org-agenda-custom-commands
- ;; Make "C-c a <RET>" display an overview of all tasks in my
- ;; agenda files.
- '(("" "Agenda Tasks"
-    ((agenda "" ((org-agenda-overriding-header "== Agenda ==")))
-     (tags-todo "/+WIP" ((org-agenda-overriding-header "Tasks In Progress")
-                             (org-agenda-todo-ignore-deadlines t)
-                             (org-tags-match-list-sublevels t)))
-     (tags-todo "-meta/NEXT" ((org-agenda-overriding-header "Next Tasks")
-                              (org-tags-match-list-sublevels t)))
-     (tags-todo "/+OnHOLD" ((org-agenda-overriding-header "Tasks On Hold")))
-     (tags-todo "/+TODO" ((org-agenda-overriding-header "Tasks")
-                          (org-agenda-skip-function '(org-agenda-skip-entry-if
-                                                      'scheduled 'deadline))))
-     (tags-todo "/FUTURE" ((org-agenda-overriding-header "Future Tasks")
-                           (org-agenda-todo-ignore-scheduled t)
-                           (org-agenda-todo-ignore-deadlines t)))
-     (tags "+REFILE/" ((org-agenda-overriding-header "Tasks to Refile")
-                       (org-tags-match-list-sublevels nil)))
-     (tags "-archived-event/DONE|CANCELLED" ((org-agenda-overriding-header "Tasks to Archive"))))
-    nil)))
-
-(setq
- ;; When prompting for an org-mode path, construct the path
- ;; incrementally.
- org-outline-path-complete-in-steps nil
- org-refile-use-outline-path 'file
- ;; When refiling to a parent node that doesn't exist, prompt to
- ;; create it.
- org-refile-allow-creating-parent-nodes 'confirm
- org-completion-use-ido t
- ido-everywhere t
- ido-max-directory-size 100000)
-
-;;; Org Tags
-(setq
-;; Don't make children inherit "prj" tag from parent items
- org-tags-exclude-from-inheritance '("prj"))
-
-;;; Org State Workflow
-(setq org-todo-keywords
-      '(;; Work Statuses
-        (sequence "FUTURE(f)" "OnHOLD(h@/!)" "TODO(t@)" "NEXT(n@)" "WIP(w@)" "|" "DONE(d@)")
-        ;; Extraordinary Statuses
-        (sequence "|" "CANCELLED(c@)")))
-
-;;; Org Export
-(setq
- org-latex-pdf-process '("latexmk -bibtex -pdf %f && latexmk --bibtex -c")
- org-export-creator-info nil
- org-export-with-sub-superscripts t
- ;; When exporting to ODT, convert it to a PDF, too
- org-export-odt-preferred-output-format "pdf"
- ;; Remove logfiles after exporting a PDF
- org-export-pdf-remove-logfiles t)
-
-;;; Org Time/Clocking
-(setq
- ;; Don't prompt for a note when clocking out
- org-log-note-clock-out nil
- org-clock-clocktable-default-properties '(:maxlevel 4 :scope file)
- ;; Don't always default to dates in the future
- org-read-date-prefer-future nil
- org-clock-out-remove-zero-time-clocks t
- org-clock-persist t
- ;; Do not prompt to resume an active clock
- org-clock-persist-query-resume nil
- ;; Include current clock task in clock reports
- org-clock-report-include-clocking-task t
- org-edit-timestamp-down-means-later nil
- org-log-done 'time
- org-log-into-drawer t
- org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
-
-;;; Outline
-(define-key outline-minor-mode-map (kbd "<C-down>") 'outline-next-visible-heading)
-(define-key outline-minor-mode-map (kbd "<C-up>") 'outline-previous-visible-heading)
-(define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
-(define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
-(define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
-(define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
-(define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)
-
-
-;;; Version Control
-(setq vc-follow-symlinks t)
-
-;;; Inline encryption
-(require 'inline-crypt)
-(define-key user-map (kbd "C-c C-d") 'inline-crypt-decrypt-region)
-(define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
-(define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
-(define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)
-
-;;; Magit
-(require 'magit)
-(define-key user-map (kbd "v") 'magit-status)
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
-
-;;; Python mode
-(require 'python)
-(add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-
-(setq ropemacs-local-prefix "C-z p")
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-
-(require 'pylint)
-(setq
- pylint-command "pylint"
- pylint-options '("-E" "--reports=n" "--output-format=parseable"))
-
-;;; IPython
-(require 'ein)
-(setq ein:use-auto-complete-superpack t)
-
-;;; Erlang Mode
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang)
 (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
-
-;;; C Mode
-(setq c-default-style "K&R")
-(setq c-basic-offset 8)
-(setq tab-width 8)
-(setq indent-tabs-mode nil)
-
-;;; Scala Mode
-(require 'scala-mode-auto)
-(add-hook 'scala-mode-hook
-          '(lambda ()
-             (scala-mode-feature-electric-mode)))
-(require 'scala-mode)
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
-
-;;; Asm Mode
-(add-hook 'asm-mode-hook
-          ;; Make comments work better w/ fill-paragraph
-          (lambda () (set (make-local-variable 'paragraph-start)
-                          "^\\s-*;+.*$")))
-
-;;; C# Mode
-(require 'csharp-mode)
-(require 'flymake)
-(setq csharp-want-flymake-fixup nil)
-
-;;; Haskell Mode
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-
-;;; Slime
-(require 'slime)
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(slime-setup (cons 'slime-company slime-contribs))
-;; Key bindings
-(define-key slime-mode-map (kbd "RET") 'newline-and-indent)
-
-;;; XML Stuff
-(setq
-;; Indent children by 2 spaces
- nxml-child-indent 2
-;; Tell the tidy command to tidy up XML files; by default, it
-;; complains about XML being "malformed HTML".
- tidy-shell-command "/usr/bin/tidy -xml")
-
-;;; Web-Mode
-(require 'web-mode)
-(setq web-mode-disable-auto-pairing nil)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
@@ -423,189 +692,27 @@ to agenda files."
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-;;; CSV Mode
-(require 'csv-mode)
+(load-theme 'zenburn)
 
-;;; Misc.
-;; delete-trailing-whitespace before saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(require 'company)
+(global-company-mode 1)
 
-;;; Hide-Show Mode
-(defun toggle-selective-display (column)
-  (interactive "P")
-  (set-selective-display
-   (or column
-       (unless selective-display
-         (1+ (current-column))))))
+(require 'helm)
+(require 'helm-company)
+(helm-mode 1)
 
-(defun toggle-hiding (column)
-      (interactive "P")
-      (if hs-minor-mode
-          (if (condition-case nil
-                  (hs-toggle-hiding)
-                (error t))
-              (hs-show-all))
-        (toggle-selective-display column)))
-
-(add-hook 'c-mode-common-hook   'hs-minor-mode)
-(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-(add-hook 'lisp-mode-hook       'hs-minor-mode)
-(add-hook 'python-mode-hook     'hs-minor-mode)
-(add-hook 'sh-mode-hook         'hs-minor-mode)
-(add-hook 'perl-mode-hook       'hs-minor-mode)
-(add-hook 'java-mode-hook       'hs-minor-mode)
-
-;;; ERC IRC Client
-(require 'tls)
-(require 'erc)
-(defalias 'irc 'erc-tls)
-(define-key user-chat-map (kbd "j") 'erc-track-switch-buffer)
-
-(setq
- erc-port 6697
- erc-prompt-for-password t
- erc-mode-line-format "%t %a"
- erc-kill-queries-on-quit t
- erc-kill-buffer-on-part t
- erc-enable-logging t
- erc-log-write-after-insert t
- erc-log-write-after-send t
- erc-log-channels-directory "~/org/chats/irc/"
- erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
-
-(add-hook 'erc-hooks 'erc-track-mode)
-(add-to-list 'erc-modules 'notifications)
-
-;;; Evil
-(setq evil-toggle-key "C-`")
 (require 'evil)
-(require 'evil-matchit)
+(evil-mode 1)
 (global-evil-matchit-mode 1)
+(evil-surround-mode 1)
+
+(require 'ace-jump-mode)
+(require 'erc)
+(require 'flyspell)
+(require 'inline-crypt)
+(require 'magit)
+;(require 'org)
 
 ;;; Load Private Emacs Config
 (when (file-exists-p "~/personal/personal.el")
   (load "~/personal/personal.el"))
-
-(evil-mode)
-(global-surround-mode 1)
-(add-hook 'org-capture-mode-hook 'evil-insert-state)
-(add-hook 'epa-key-list-mode-hook (lambda () (evil-local-mode -1)))
-(add-hook 'git-commit-mode-hook 'evil-insert-state)
-(add-hook 'term-mode-hook 'evil-emacs-state)
-(add-hook 'git-rebase-mode-hook 'evil-emacs-state)
-(add-hook 'julia-post-run-hook 'evil-insert-state)
-
-(global-set-key (kbd "TAB") 'evil-indent)
-(define-key evil-normal-state-map (kbd "q") nil)
-(define-key evil-normal-state-map (kbd "M-.") nil)
-(define-key evil-visual-state-map (kbd "M-.") nil)
-
-(define-key evil-insert-state-map (kbd "C-e") nil)
-(define-key evil-insert-state-map (kbd "C-d") nil)
-(define-key evil-insert-state-map (kbd "C-k") nil)
-(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-(define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
-
-(define-key evil-motion-state-map (kbd "C-e") nil)
-(define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
-
-;;; LaTeX
-(require 'tex)
-(require 'tex-site)
-(require 'preview)
-(require 'auctex-latexmk)
-(add-hook 'LaTeX-mode-hook 'outline-minor-mode)
-
-(require 'julia-mode)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/ESS/lisp")
-(require 'ess-site)
-(require 'ess)
-(setq ess-ask-for-ess-directory nil)
-
-(setq ess-directory "~/.ess/")
-
-;;; Markdown-Mode
-(require 'markdown-mode)
-(setq markdown-enable-math t) ; LaTeX math
-;; Electric-indent buggers indentation up in markdown-mode
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (add-hook 'electric-indent-functions
-                      (lambda (_unused) 'no-indent) nil 'local)))
-
-;;; Helm
-(require 'helm)
-(setq helm-command-prefix-key "C-z h")
-(require 'helm-config)
-(helm-mode 1)
-
-(define-key helm-map (kbd "<Tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-y") 'helm-show-kill-ring)
-(define-key evil-motion-state-map (kbd "C-y") nil)
-(define-key evil-insert-state-map (kbd "C-y") nil)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-h a") 'helm-apropos)
-(define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
-(define-key user-map (kbd "r") 'helm-regexp)
-(define-key user-map (kbd "o") 'helm-occur)
-
-(define-key helm-command-map (kbd "o") 'helm-occur)
-(define-key helm-command-map (kbd "x") 'helm-register)
-
-(require 'helm-company)
-(global-set-key (kbd "<C-tab>") 'helm-company)
-
-;;; Helm Gtags
-(require 'helm-gtags)
-
-(define-minor-mode helm-gtags-auto-update-mode
-  "Auto update GTAGS when a file in this mode is saved."
-  :init-value nil
-  :group 'gtags-update
-  (if helm-gtags-auto-update-mode
-      (progn
-        (add-hook 'after-save-hook 'helm-gtags-update-tags nil t))
-    (remove-hook 'after-save-hook 'helm-gtags-update-tags t)))
-
-;;;###autoload
-(defun enable-helm-gtags-auto-update-mode()
-  "Turn on `helm-gtags-auto-update-mode'."
-  (interactive)
-  (helm-gtags-auto-update-mode 1))
-
-(add-hook 'python-mode-hook     'enable-helm-gtags-auto-update-mode)
-(add-hook 'py-mode-hook         'enable-helm-gtags-auto-update-mode)
-(add-hook 'c-mode-hook          'enable-helm-gtags-auto-update-mode)
-(add-hook 'c++-mode-hook        'enable-helm-gtags-auto-update-mode)
-(add-hook 'lisp-mode-hook       'enable-helm-gtags-auto-update-mode)
-(add-hook 'sh-mode-hook         'enable-helm-gtags-auto-update-mode)
-(add-hook 'asm-mode-hook        'enable-helm-gtags-auto-update-mode)
-
-(setq
- helm-gtags-ignore-case t
- helm-gtags-auto-update t
- helm-gtags-use-input-at-cursor t
- helm-gtags-pulse-at-cursor t
- helm-gtags-suggested-key-mapping t)
-
-;; Enable helm-gtags-mode in Dired so you can jump to any tag
-;; when navigate project tree with Dired
-(add-hook 'dired-mode-hook 'helm-gtags-mode)
-
-;; Enable helm-gtags-mode in languages that GNU Global supports
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'java-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
-
-(define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-select)
-(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-rtag)
-(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
