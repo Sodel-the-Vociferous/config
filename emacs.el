@@ -158,6 +158,9 @@
     :defer t
     :mode "\\.bib\\'")
    (ecb :defer t)
+   (eldoc
+    :defer t
+    :init (add-hook 'prog-mode-hook 'turn-on-eldoc-mode))
    (erc
     :defer t
     :init (progn
