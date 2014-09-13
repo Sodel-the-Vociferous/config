@@ -84,14 +84,3 @@ ensure_symlink ~/tmp ~/Downloads
 ensure_symlink ~/music ~/Music
 ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
-
-# Directories On My Big Ext Drive
-ensure_symlink /media/big-ext/dralston/Mail ~/Mail
-ensure_symlink /media/big-ext/dralston/backups ~/backups
-ensure_symlink /media/big-ext/dralston/emu ~/emu
-ensure_symlink /media/big-ext/dralston/lit ~/lit
-ensure_symlink /media/big-ext/dralston/local-share-Steam ~/.local/share/Steam
-ensure_symlink /media/big-ext/dralston/music ~/music
-ensure_symlink /media/big-ext/dralston/steam ~/.steam
-ensure_symlink /media/big-ext/dralston/vid ~/vid
-ensure_symlink /media/big-ext/dralston/wine ~/.wine
