@@ -270,20 +270,8 @@
    (flyspell
     :commands (flyspell-mode flyspell-prog-mode)
     :config (progn
-              (add-hook 'org-mode-hook 'flyspell-mode)
-              (add-hook 'markdown-mode-hook 'flyspell-mode)
-              (add-hook 'fundamental-mode-hook 'flyspell-mode)
-              (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
-              (add-hook 'git-commit-mode-hook 'flyspell-mode)
-
-              (add-hook 'asm-mode-hook 'flyspell-prog-mode)
-              (add-hook 'python-mode-hook 'flyspell-prog-mode)
-              (add-hook 'rust-mode-hook 'flyspell-prog-mode)
-              (add-hook 'py-mode-hook 'flyspell-prog-mode)
-              (add-hook 'c-mode-hook 'flyspell-prog-mode)
-              (add-hook 'scala-mode-hook 'flyspell-prog-mode)
-              (add-hook 'sh-mode-hook 'flyspell-prog-mode)
-              (add-hook 'erlang-mode-hook 'flyspell-prog-mode)))
+              (add-hook 'text-mode-hook 'flyspell-mode)
+              (add-hook 'prog-mode-hook 'flyspell-prog-mode)))
    (function-args :defer t)
    (furl :defer t)
    (ghc :defer t) ;?????
@@ -350,13 +338,9 @@
                 (interactive)
                 (helm-gtags-auto-update-mode 1))
 
-              (add-hook 'python-mode-hook     'enable-helm-gtags-auto-update-mode)
-              (add-hook 'py-mode-hook         'enable-helm-gtags-auto-update-mode)
-              (add-hook 'c-mode-hook          'enable-helm-gtags-auto-update-mode)
-              (add-hook 'c++-mode-hook        'enable-helm-gtags-auto-update-mode)
-              (add-hook 'lisp-mode-hook       'enable-helm-gtags-auto-update-mode)
-              (add-hook 'sh-mode-hook         'enable-helm-gtags-auto-update-mode)
-              (add-hook 'asm-mode-hook        'enable-helm-gtags-auto-update-mode)
+              (add-hook 'prog-mode-hook     'enable-helm-gtags-auto-update-mode)
+              (add-hook 'prog-mode-hook     'helm-gtags-mode)
+              (add-hook 'dired-mode-hook 'helm-gtags-mode)
 
               (setq
                helm-gtags-ignore-case t
