@@ -27,7 +27,7 @@ stty -ixoff
 
 if [[ $- = *i* ]]
 then
-    ~/config/bin/tmux-client.sh && exit
+    ~/config/login-scripts/tmux-client.sh && exit
 fi
 
 ## Set up prompts

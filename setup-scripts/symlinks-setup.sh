@@ -1,10 +1,12 @@
 #!/bin/bash
 
-LIB_ES_PATH=~/src/lib-ensure-symlinks/lib-ensure-symlinks.sh
+LIB_ES_PATH=./lib-ensure-symlinks/lib-ensure-symlinks.sh
 
 if [ ! -e $LIB_ES_PATH ]
 then
     echo "ERROR: lib-ensure-symlinks.sh not found at '$LIB_ES_PATH'"
+    echo "Run 'git submodule init' first"
+    echo
     exit 1
 fi
 
@@ -13,11 +15,11 @@ source $LIB_ES_PATH
 
 ## Shell Config
 
-ensure_symlink ~/config/bashrc.sh ~/.bashrc
-ensure_symlink ~/config/bash_aliases.sh ~/.bash_aliases
-ensure_symlink ~/config/bash_logout.sh ~/.bash_logout
-ensure_symlink ~/config/bash_profile.sh ~/.bash_profile
-ensure_symlink ~/config/profile.sh ~/.profile
+ensure_symlink ~/config/login-scripts/bashrc.sh ~/.bashrc
+ensure_symlink ~/config/login-scripts/bash_aliases.sh ~/.bash_aliases
+ensure_symlink ~/config/login-scripts/bash_logout.sh ~/.bash_logout
+ensure_symlink ~/config/login-scripts/bash_profile.sh ~/.bash_profile
+ensure_symlink ~/config/login-scripts/profile.sh ~/.profile
 
 ## Tmux Config
 ensure_symlink ~/config/tmux.conf ~/.tmux.conf
