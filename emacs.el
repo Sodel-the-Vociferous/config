@@ -282,7 +282,7 @@
    (git-rebase-mode :defer t)
    (gitconfig-mode :defer t)
    (gitignore-mode :defer t)
-   (ggtags)
+   (ggtags :defer t)
    (julia-mode
     :defer t
     :commands julia-mode
