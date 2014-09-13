@@ -1,9 +1,3 @@
-[submodule "emacs-site-lisp/ESS"]
-	path = emacs-site-lisp/ESS
-	url = https://github.com/emacs-ess/ESS
-[submodule "emacs-site-lisp/julia"]
-	path = emacs-site-lisp/julia
-	url = https://github.com/JuliaLang/julia/
 [submodule "setup-scripts/lib-ensure-symlinks"]
 	path = setup-scripts/lib-ensure-symlinks
 	url = git://www.github.com/Sodel-the-Vociferous/lib-ensure-symlinks.git
