@@ -685,15 +685,7 @@
    (web-beautify :defer t)
    (web-mode
     :defer t
-    :mode "\\.html?\\'"
-    :mode "\\.phtml\\'"
-    :mode "\\.tpl\\.php\\'"
-    :mode "\\.jsp\\'"
-    :mode "\\.as[cp]x\\'"
-    :mode "\\.erb\\'"
-    :mode "\\.mustache\\'"
-    :mode "\\.djhtml\\'"
-    :mode "\\.html?\\'"
+    :mode "\\.\\(p?html?\\|tpl\\|php\\|jsp\\|as[cp]x\\|erb\\)\\'"
     :config (setq web-mode-disable-auto-pairing nil))
                                         ;(workgroups)
    (wrap-region)
