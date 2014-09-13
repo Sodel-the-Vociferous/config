@@ -1,4 +1,14 @@
-;;; Startup & Shutdown
+;;;; File-Wide Macros ;;;;
+
+(defmacro add-hook-progn (hook &rest body)
+  `(add-hook ,hook
+             (lambda () . ,body)))
+
+(defmacro after-init (&rest body)
+  `(add-hook 'after-init-hook
+             (lambda () ,body)))
+
+;; Startup & Shutdown
 (setq
  inhibit-startup-screen t
  initial-scratch-message ""
@@ -12,6 +22,8 @@
 (setq-default
  indent-tabs-mode nil
  tab-width 8)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;;; Key Bindings ;;;;
 (global-set-key (kbd "<C-return>") 'newline-and-indent)
@@ -31,14 +43,7 @@
 (define-key user-map (kbd "e") 'eval-region)
 
 ;; Outline-mode
-(require 'outline)
-(define-key outline-minor-mode-map (kbd "<C-down>") 'outline-next-visible-heading)
-(define-key outline-minor-mode-map (kbd "<C-up>") 'outline-previous-visible-heading)
-(define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
-(define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
-(define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
-(define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
-(define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)
+
 
 ;;; Configure Package.el And El-Get ;;;;
 
@@ -48,7 +53,7 @@
 ;; Setup package archives
 (setq package-archives '(("org" . "http://orgmode.org/elpa/")
                          ("MELPA" . "http://melpa.milkbox.net/packages/")
-                         ;("Marmalade" . "http://marmalade-repo.org/packages/")
+                         ("Marmalade" . "http://marmalade-repo.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Load packages
@@ -61,30 +66,25 @@
   (require 'el-get))
 
 (require 'el-get-custom)
-
 (setq el-get-verbose t)
-
-(unless (require 'req-package nil t)
-  (package-refresh-contents)
-  (package-install 'req-package)
-  (require 'req-package))
-
-;;;; File-Wide Macros ;;;;
-
-(defmacro add-hook-progn (hook &rest body)
-  `(add-hook ,hook
-             (lambda () . ,body)))
-
-(defmacro after-init (&rest body)
-  `(add-hook 'after-init-hook
-             (lambda () ,body)))
-
-;;;; Other Packages ;;;;
 
 (let ((dir (file-name-directory el-get-status-file)))
   (unless (file-exists-p dir)
     (make-directory dir)))
 
+;; Sync El-Get Packages
+(setq user:el-get-packages nil)
+(setq user:el-get-packages
+      (mapcar 'el-get-source-name el-get-sources))
+(el-get 'sync user:el-get-packages)
+
+;;; Setup Req-Package
+(unless (require 'req-package nil t)
+  (package-refresh-contents)
+  (package-install 'req-package)
+  (require 'req-package))
+
+;; Packages
 (setq
  pkgs-to-req
  '((ace-jump-mode
@@ -102,8 +102,13 @@
     :config (progn
               (add-to-list 'default-frame-alist '(alpha . 100))))
    (ascii :defer t)
-   (async
-    :init (require 'async-bytecomp))
+   (asm-mode
+    ;; Make comments work better w/ fill-paragraph
+    :config (add-hook-progn 'asm-mode-hook
+                            (set (make-local-variable 'paragraph-start)
+                                 "^\\s-*;+.*$")))
+   (async)
+   (async-bytecomp :require async)
    (auctex
     :defer t
     :mode "\\.tex\\'"
@@ -113,16 +118,25 @@
               (require 'preview)
               (add-hook 'LaTeX-mode-hook 'outline-minor-mode)))
    (auctex-latexmk :defer t)
+   (autorevert
+    :init (global-auto-revert-mode t))
    (auto-compile :defer t)
    (bash-completion
-    :defer t
-    :pre-load (add-hook 'term-mode-hook 'bash-completion-setup))
+    :init (bash-completion-setup))
    (browse-kill-ring)
    (charmap :defer t)
    (cl-lib)
-   (color-theme)
-   (zenburn-theme :require color-theme)
+   (color-theme
+    :init (load-theme 'zenburn t))
+   (c-mode
+    :defer t
+    :config (progn
+              (setq c-default-style "K&R")
+              (setq c-basic-offset 8)
+              (setq tab-width 8)
+              (setq indent-tabs-mode nil)))
    (company
+    :init (global-company-mode t)
     :config (progn
               (setq
                ;; Helm-company usually pukes if company
@@ -154,6 +168,11 @@
    (dired+)
    (dired-efap)
    (dired-single)
+   (doc-view
+    :defer t
+    :mode "\\.pdf\\'"
+    :mode "\\.ps\\'"
+    :config (setq doc-view-continuous t))
    (ebib
     :defer t
     :mode "\\.bib\\'")
@@ -161,6 +180,8 @@
    (eldoc
     :defer t
     :init (add-hook 'prog-mode-hook 'turn-on-eldoc-mode))
+   (electric
+    :init (electric-indent-mode 1))
    (erc
     :defer t
     :init (progn
@@ -192,24 +213,28 @@
                exec-path (cons "/usr/lib/erlang/bin" exec-path))))
    (ess
     :defer t
+    :commands julia
     :config (progn
               (require 'ess-site)
               (setq
                ess-directory "~/.ess/"
                ess-ask-for-ess-directory nil)))
+   (ess-site
+    :defer t
+    :require ess)
    (evil
-    :pre-init (setq evil-toggle-key "C-`")
+    :pre-load (setq evil-toggle-key "C-`")
+    :init (evil-mode 1)
     :config (progn
-              (require 'evil-matchit)
-              (require 'evil-surround)
-              (require 'evil-nerd-commenter)
+              (dolist (mode '(term-mode
+                              epa-key-list-mode
+                              git-rebase-mode))
+                (push mode evil-emacs-state-modes))
 
-              (add-hook 'org-capture-mode-hook 'evil-insert-state)
-              (add-hook 'epa-key-list-mode-hook (lambda () (evil-local-mode -1)))
-              (add-hook 'git-commit-mode-hook 'evil-insert-state)
-              (add-hook 'term-mode-hook 'evil-emacs-state)
-              (add-hook 'git-rebase-mode-hook 'evil-emacs-state)
-              (add-hook 'julia-post-run-hook 'evil-insert-state)
+              (dolist (mode '(org-capture-mode
+                              git-commit-mode
+                              inferior-ess-mode))
+                (push mode evil-insert-state-modes))
 
               (define-key evil-insert-state-map (kbd "C-z") nil)
               (define-key evil-normal-state-map (kbd "C-z") nil)
@@ -235,9 +260,13 @@
               ;; For helm
               (define-key evil-motion-state-map (kbd "C-y") nil)
               (define-key evil-insert-state-map (kbd "C-y") nil)))
-   (evil-matchit :require evil)
+   (evil-matchit
+    :require evil
+    :init (evil-matchit-mode 1))
    (evil-nerd-commenter :require evil)
-   (evil-surround :require evil)
+   (evil-surround
+    :require evil
+    :init (evil-surround-mode 1))
    (f :defer t)
    (flycheck :defer t)
    (flyspell
@@ -270,18 +299,19 @@
    (ggtags)
    (julia-mode
     :defer t
+    :commands julia-mode
     :mode "\\.jl\\'")
    (haskell-mode
     :defer t
     :mode "\\.hs\\'"
-    :config (add-hook-progn
-             'haskell-mode-hook
-             (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-             (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-             (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-             (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
+    :config (progn
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
    (helm
-    :pre-init (setq helm-command-prefix-key "C-z h")
+    :pre-load (setq helm-command-prefix-key "C-z h")
+    :init (helm-mode 1)
     :init (progn
             (global-set-key (kbd "M-x") 'helm-M-x)
             (global-set-key (kbd "C-y") 'helm-show-kill-ring)
@@ -293,8 +323,6 @@
             (define-key user-map (kbd "o") 'helm-occur))
     :config (progn
               (require 'helm-config)
-              (require 'helm-company)
-
               ;; Swap Tab and C-z in helm-mode, so Tab executes
               ;; persistent actions, and C-z opens the actions
               ;; menu.
@@ -388,6 +416,7 @@
    (markdown-mode
     :defer t
     :mode "\\.md\\'"
+    :require electric
     :config (progn
               (require 'markdown-mode+)
               (setq markdown-enable-math t) ; LaTeX math
@@ -400,6 +429,10 @@
    ;; (marmalade)
    (notmuch :defer t)
    (notmuch-labeler :defer t)
+   (nxml
+    :defer t
+    :mode "\\.xml'"
+    :config (setq nxml-child-indent 2))
    (org
     :demand t
     :mode "\\.\\(org\\|org_archive\\)\\'"
@@ -558,7 +591,19 @@
    ;;  :defer t
    ;;  :require org)
    (outline-magic)
+   (outline-mode
+    :defer t
+    :config (progn
+              (define-key outline-minor-mode-map (kbd "<C-down>") 'outline-next-visible-heading)
+              (define-key outline-minor-mode-map (kbd "<C-up>") 'outline-previous-visible-heading)
+              (define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
+              (define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
+              (define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
+              (define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
+              (define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)))
    (package+)
+   (paren
+    :init (show-paren-mode t))
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
@@ -570,6 +615,10 @@
               (setq
                pylint-command "pylint"
                pylint-options '("-E" "--reports=n" "--output-format=parseable"))))
+   (python
+    :defer t
+    :commands python-mode
+    :mode "\\.py\\'")
    (python-pep8 :defer t)
    (regex-dsl)
    (request :defer t)
@@ -594,12 +643,35 @@
    (slime-company
     :defer t)
    (ssh-config-mode :defer t)
+   (term
+    :config (progn
+              (define-key user-map (kbd "t")
+                (defun user/ansi-term ()
+                  (interactive)
+                  (progn (ansi-term "/bin/bash" "shell"))))
+              (define-key term-raw-escape-map (kbd "C-z") 'user-map)
+              (define-key term-raw-map (kbd "<C-left>")
+                (defun user/term-send-prev-word ()
+                  (interactive)
+                  (term-send-raw-string "\eb")))
+              (define-key term-raw-map (kbd "<C-right>")
+                (defun user/term-send-next-word ()
+                  (interactive)
+                  (term-send-raw-string "\ef")))
+              ;; Terminals in emacs should be able to run tmux, regardless of
+              ;; whether or not emacs was started within tmux.
+              (setenv "TMUX" "")))
    (tidy
     :defer t
     :commands tidy-buffer
     ;; Tell the tidy command to tidy up XML files; by default,
     ;; it complains about XML being "malformed HTML".
     :config (setq tidy-shell-command "/usr/bin/tidy -xml"))
+   (tramp
+    ;; Theoretically, make TRAMP handle /sudo:root@host: paths by logging
+    ;; in via the regular TRAMP ssh method, and then `sudo` to root.
+    :config (setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
+                                                (nil "\\`root\\'" "/ssh:%h:"))))
    (tron-theme :defer t)
    (tronesque-theme :defer t)
    (ucs-utils :defer t)
@@ -607,6 +679,8 @@
    (unfill)
    (unicode-fonts)
    (unicode-whitespace)
+   (vc
+    :config (setq vc-follow-symlinks t))
    (wc-mode :defer t)
    (web-beautify :defer t)
    (web-mode
@@ -624,7 +698,12 @@
                                         ;(workgroups)
    (wrap-region)
    (xclip)
-   (yasnippet)))
+   (xt-mouse
+    :if (not window-system)
+    :defer t
+    :init (xterm-mouse-mode t))
+   (yasnippet)
+   (zenburn-theme :require color-theme)))
 
 (defmacro req-packages (pkg-defs)
   `(progn
@@ -653,84 +732,7 @@
  )
 
 
-
-
 ;;;; Configure Vanilla Emacs ;;;;
-
-
-
-;; Disable set-fill-prefix. I have only ever used it by accident, and
-;; to my annoyance.
-(put 'set-fill-prefix 'disabled t)
-
-;;; Interface
-(xterm-mouse-mode t)
-(setq doc-view-continuous t)
-(show-paren-mode t)
-
-;;; If a file changes on disk, and there are no changes in the buffer,
-;;; automatically revert the file.
-(global-auto-revert-mode t)
-
-;; delete-trailing-whitespace before saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;;; Erc
-
-
-;;; Asm Mode
-(add-hook-progn 'asm-mode-hook
-                ;; Make comments work better w/ fill-paragraph
-                (set (make-local-variable 'paragraph-start)
-                     "^\\s-*;+.*$"))
-
-;;; C Mode
-(setq c-default-style "K&R")
-(setq c-basic-offset 8)
-(setq tab-width 8)
-(setq indent-tabs-mode nil)
-
-;;; Python mode
-(setq ropemacs-local-prefix "C-z p")
-(autoload 'python-mode "python" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("/*.\.py$" . python-mode))
-
-;;; Term config
-(require 'term)
-(define-key user-map (kbd "t")
-  (defun user/ansi-term ()
-    (interactive)
-    (progn (ansi-term "/bin/bash" "shell"))))
-(define-key term-raw-escape-map (kbd "C-z") 'user-map)
-(define-key term-raw-map (kbd "<C-left>")
-  (defun user/term-send-prev-word ()
-    (interactive)
-    (term-send-raw-string "\eb")))
-(define-key term-raw-map (kbd "<C-right>")
-  (defun user/term-send-next-word ()
-    (interactive)
-    (term-send-raw-string "\ef")))
-;; Terminals in emacs should be able to run tmux, regardless of
-;; whether or not emacs was started within tmux.
-(setenv "TMUX" "")
-
-;;; Version Control
-(setq vc-follow-symlinks t)
-
-;;; Electric Indent Mode
-(electric-indent-mode 1)
-
-;;; Tramp
-(require 'tramp)
-;; Theoretically, make TRAMP handle /sudo:root@host: paths by logging
-;; in via the regular TRAMP ssh method, and then `sudo` to root.
-(setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
-                                    (nil "\\`root\\'" "/ssh:%h:")))
-
-;;; XML
-(setq
- ;; Indent children by 2 spaces
- nxml-child-indent 2)
 
 ;;; For Time Sheets
 (defun tbl-total-hours-to-money(wage original-string)
@@ -741,24 +743,6 @@
                   (+ (string-to-number hours-str)
                      (/ (string-to-number minutes-str) 60.0)))))
     (format "$%.2d" (* hours wage))))
-
-;;; Sync Packages
-(setq user:el-get-packages nil)
-(setq user:el-get-packages
-      (mapcar 'el-get-source-name el-get-sources))
-(el-get 'sync user:el-get-packages)
-
-
-;;; Enable Global Modes and Settings
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
-
-(load-theme 'zenburn)
-(global-company-mode 1)
-(helm-mode 1)
-(evil-mode 1)
-(global-evil-matchit-mode 1)
-(evil-surround-mode 1)
 
 ;;; Load Private Emacs Config
 (when (file-exists-p "~/personal/personal.el")
