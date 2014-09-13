@@ -302,7 +302,7 @@
               (define-key helm-command-map (kbd "o") 'helm-occur)
               (define-key helm-command-map (kbd "x") 'helm-register)))
    (helm-company
-    :require helm
+    :require (helm company)
     :config (global-set-key (kbd "<C-tab>") 'helm-company))
    (helm-gtags
     :require helm
