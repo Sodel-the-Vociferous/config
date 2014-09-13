@@ -50,6 +50,10 @@ export GTAGSCONF
 GTAGSLABEL=ctags
 export GTAGSLABEL
 
+# Add extra search paths for GTAGS
+GTAGSLIBPATH=~/src/navsim/RG5/lib/
+export GTAGSLIBPATH
+
 ## Start Programs/Daemons
 
 # Use keychain as a GPG and SSH agent, sending debug output to
