@@ -322,7 +322,7 @@
     :require (helm company)
     :config (global-set-key (kbd "<C-tab>") 'helm-company))
    (helm-gtags
-    :require helm
+    :require (helm ggtags)
     :config (progn
               (define-minor-mode helm-gtags-auto-update-mode
                 "Auto update GTAGS when a file in this mode is saved."
@@ -349,22 +349,10 @@
                helm-gtags-pulse-at-cursor t
                helm-gtags-suggested-key-mapping t)
 
-              ;; Enable helm-gtags-mode in Dired so you can jump to any tag
-              ;; when navigate project tree with Dired
-              (add-hook 'dired-mode-hook 'helm-gtags-mode)
-
-              ;; Enable helm-gtags-mode in languages that GNU Global supports
-              (add-hook 'c-mode-hook 'helm-gtags-mode)
-              (add-hook 'c++-mode-hook 'helm-gtags-mode)
-              (add-hook 'java-mode-hook 'helm-gtags-mode)
-              (add-hook 'asm-mode-hook 'helm-gtags-mode)
-
-              (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-select)
               (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-              (define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-rtag)
-              (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-              (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-              (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)))
+              (define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-pattern)
+              (define-key helm-gtags-mode-map (kbd "M-r") 'ggtags-query-replace)
+              (define-key helm-gtags-mode-map (kbd "M-R") 'ggtags-query-replace)))
    (helm-package :require helm)
    (inline-crypt
     :commands (inline-crypt-decrypt-region
