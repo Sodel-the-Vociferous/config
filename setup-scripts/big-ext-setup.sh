@@ -6,5 +6,10 @@ then
     exit 1
 fi
 
-mkdir /media/big-ext
-echo "/dev/disk/by-label/BigExt /media/big-ext              ext4    defaults,auto   0 0" | tee -a /etc/fstab
+FSTAB_LINE = "/dev/disk/by-label/BigExt /media/big-ext              ext4    defaults,auto   0 0"
+
+mkdir -p /media/big-ext
+
+grep -ve "$FSTAB_LINE" ||
+echo "$FSTAB_LINE" |
+tee -a /etc/fstab
