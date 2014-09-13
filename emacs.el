@@ -311,8 +311,8 @@
               (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
    (helm
     :pre-load (setq helm-command-prefix-key "C-z h")
-    :init (helm-mode 1)
     :init (progn
+            (helm-mode 1)
             (global-set-key (kbd "M-x") 'helm-M-x)
             (global-set-key (kbd "C-y") 'helm-show-kill-ring)
             (global-set-key (kbd "C-x b") 'helm-mini)
