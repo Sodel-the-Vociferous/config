@@ -42,8 +42,6 @@
 (define-key user-map (kbd "C-r") 'rename-buffer)
 (define-key user-map (kbd "e") 'eval-region)
 
-;; Outline-mode
-
 
 ;;; Configure Package.el And El-Get ;;;;
 
