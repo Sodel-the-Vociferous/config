@@ -15,11 +15,11 @@ source $LIB_ES_PATH
 
 ## Shell Config
 
-ensure_symlink ~/config/login-scripts/bashrc.sh ~/.bashrc
-ensure_symlink ~/config/login-scripts/bash_aliases.sh ~/.bash_aliases
-ensure_symlink ~/config/login-scripts/bash_logout.sh ~/.bash_logout
-ensure_symlink ~/config/login-scripts/bash_profile.sh ~/.bash_profile
-ensure_symlink ~/config/login-scripts/profile.sh ~/.profile
+ensure_symlink ~/config/session-scripts/bashrc.sh ~/.bashrc
+ensure_symlink ~/config/session-scripts/bash_aliases.sh ~/.bash_aliases
+ensure_symlink ~/config/session-scripts/bash_logout.sh ~/.bash_logout
+ensure_symlink ~/config/session-scripts/bash_profile.sh ~/.bash_profile
+ensure_symlink ~/config/session-scripts/profile.sh ~/.profile
 
 ## Tmux Config
 ensure_symlink ~/config/tmux.conf ~/.tmux.conf
