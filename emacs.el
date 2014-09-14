@@ -96,6 +96,8 @@
             (define-key user-map (kbd "j") 'ace-jump-char-mode)
             (define-key user-map (kbd "l") 'ace-jump-line-mode)
             (define-key user-map (kbd "w") 'ace-jump-word-mode)))
+   (ace-window
+    :init (global-set-key (kbd "C-x o") 'ace-window))
    (adaptive-wrap :defer t)
    (aes :defer t)
    (alpha
