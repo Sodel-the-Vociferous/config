@@ -367,7 +367,6 @@
             (define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
             (define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
             (define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)))
-   (ipython :defer t)
    (js2-mode
     :defer t
     :mode "\\.js\\'")
@@ -590,8 +589,7 @@
                pylint-options '("-E" "--reports=n" "--output-format=parseable"))))
    (python
     :defer t
-    :commands python-mode
-    :mode "\\.py\\'")
+    :commands python-mode)
    (python-pep8 :defer t)
    (regex-dsl)
    (request :defer t)
@@ -606,11 +604,11 @@
    (scala-mode2 :defer t)
    ;; (shell-command :type elpa)
    (slime
+    :defer t
     :commands slime
     :init (setq inferior-lisp-program "/usr/bin/sbcl")
-    :require slime-company
     :config (progn
-              (slime-setup (cons 'company-slime slime-contribs))
+              (slime-setup (cons 'slime-company slime-contribs))
               ;; Key bindings
               (define-key slime-mode-map (kbd "RET") 'newline-and-indent)))
    (slime-company
