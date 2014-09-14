@@ -8,7 +8,7 @@ fi
 
 # Terrible hack, to prevent cygwin from being stuck open with
 # processes in the background.
-if [[ $OS_TYPE = cygwin ]]
+if [[ $OS = Windows_NT ]]
 then
 	ps |
 	tail -n+2 |
