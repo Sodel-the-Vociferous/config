@@ -56,6 +56,13 @@ export GTAGSLIBPATH
 
 ## Start Programs/Daemons
 
+# Terrible hack, to prevent cygwin from being stuck open with
+# processes in the background
+if [[ $(hostname) = picard ]]
+then
+    alias nohup=cygstart
+fi
+
 # Use keychain as a GPG and SSH agent, sending debug output to
 # /dev/null instead of barfing on the login shell. (Only do this if
 # there isn't already a GPG/SSH Agent accessible.)
