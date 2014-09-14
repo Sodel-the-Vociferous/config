@@ -12,6 +12,7 @@ if [[ $OS = Windows_NT ]]
 then
 	ps |
 	tail -n+2 |
+	egrep -e "mintty$" |
 	sed -re 's/  +/ /g' |
 	cut -d ' ' -f2 |
 	xargs.exe kill

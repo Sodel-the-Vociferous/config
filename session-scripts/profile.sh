@@ -62,6 +62,7 @@ export GTAGSLIBPATH
 [ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
 
 # Start emacs daemon if one isn't already running
+[ ! $OS = Windows_NT ] &&
 pgrep ^emacs$ |
 xargs --no-run-if-empty ps -fp |
 tail -n +2 |

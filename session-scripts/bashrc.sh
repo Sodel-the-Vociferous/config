@@ -2,6 +2,11 @@
 #
 # Non-login bash-specific shell config.
 
+if [ $OS = Windows_NT ]
+then
+	export TERM=cygwin
+fi
+
 ## Write history out line by line, ignoring duplicates
 export PROMPT_COMMAND='history -a;'
 export HISTCONTROL=ignoreboth
