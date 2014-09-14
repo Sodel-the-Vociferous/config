@@ -177,7 +177,7 @@
    (ecb :defer t)
    (eldoc
     :defer t
-    :init (add-hook 'prog-mode-hook 'turn-on-eldoc-mode))
+    :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
    (electric
     :init (electric-indent-mode 1))
    (erc
