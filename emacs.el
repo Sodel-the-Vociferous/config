@@ -269,9 +269,9 @@
    (flycheck :defer t)
    (flyspell
     :commands (flyspell-mode flyspell-prog-mode)
-    :config (progn
-              (add-hook 'text-mode-hook 'flyspell-mode)
-              (add-hook 'prog-mode-hook 'flyspell-prog-mode)))
+    :init (progn
+            (add-hook 'text-mode-hook 'flyspell-mode)
+            (add-hook 'prog-mode-hook 'flyspell-prog-mode)))
    (function-args :defer t)
    (furl :defer t)
    (ghc :defer t) ;?????
