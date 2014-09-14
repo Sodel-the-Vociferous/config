@@ -322,26 +322,27 @@
     :require (helm company)
     :config (global-set-key (kbd "<C-tab>") 'helm-company))
    (helm-gtags
-    :require (helm ggtags)
+    :require (helm)
+    :commands helm-gtags-mode
+    :init (progn
+            (define-minor-mode helm-gtags-auto-update-mode
+              "Auto update GTAGS when a file in this mode is saved."
+              :init-value nil
+              :group 'helm-gtags-update
+              (if helm-gtags-auto-update-mode
+                  (progn
+                    (add-hook 'after-save-hook 'helm-gtags-update-tags nil :local))
+                (remove-hook 'after-save-hook 'helm-gtags-update-tags t)))
+
+            (defun enable-helm-gtags-auto-update-mode()
+              "Turn on `helm-gtags-auto-update-mode'."
+              (interactive)
+              (helm-gtags-auto-update-mode 1))
+
+            (add-hook 'dired-mode-hook 'helm-gtags-mode)
+            (add-hook 'prog-mode-hook 'helm-gtags-mode)
+            (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode))
     :config (progn
-              (define-minor-mode helm-gtags-auto-update-mode
-                "Auto update GTAGS when a file in this mode is saved."
-                :init-value nil
-                :group 'gtags-update
-                (if helm-gtags-auto-update-mode
-                    (progn
-                      (add-hook 'after-save-hook 'helm-gtags-update-tags nil t))
-                  (remove-hook 'after-save-hook 'helm-gtags-update-tags t)))
-
-              (defun enable-helm-gtags-auto-update-mode()
-                "Turn on `helm-gtags-auto-update-mode'."
-                (interactive)
-                (helm-gtags-auto-update-mode 1))
-
-              (add-hook 'prog-mode-hook     'enable-helm-gtags-auto-update-mode)
-              (add-hook 'prog-mode-hook     'helm-gtags-mode)
-              (add-hook 'dired-mode-hook 'helm-gtags-mode)
-
               (setq
                helm-gtags-ignore-case t
                helm-gtags-auto-update t
@@ -351,6 +352,8 @@
 
               (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
               (define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-pattern)
+
+              (require 'ggtags)
               (define-key helm-gtags-mode-map (kbd "M-r") 'ggtags-query-replace)
               (define-key helm-gtags-mode-map (kbd "M-R") 'ggtags-query-replace)))
    (helm-package :require helm)
