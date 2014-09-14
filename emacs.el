@@ -409,7 +409,7 @@
     :config (setq nxml-child-indent 2))
    (org
     :demand t
-    :mode "\\.\\(org\\|org_archive\\)\\'"
+    :mode '("\\.\\(org\\|org_archive\\)\\'" . org-mode)
     :init (progn
             ;; Global Init Config
 
@@ -591,7 +591,8 @@
                pylint-options '("-E" "--reports=n" "--output-format=parseable"))))
    (python
     :defer t
-    :commands python-mode)
+    :commands python-mode
+    :mode '("\\.py\\'" . python-mode))
    (python-pep8 :defer t)
    (regex-dsl)
    (request :defer t)
