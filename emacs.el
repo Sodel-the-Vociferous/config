@@ -199,9 +199,9 @@
                erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
               (add-to-list 'erc-modules 'notifications)
-              (add-hook 'erc-mode-hook (erc-log-enable))
-              (add-hook 'erc-mode-hook (erc-notifications-enable))
-              (add-hook 'erc-mode-hook (erc-track-enable))))
+              (add-to-list 'erc-modules 'track)
+              (add-to-list 'erc-modules 'log)
+              (add-to-list 'erc-modules 'spelling)))
    (erlang-mod
     :defer t
     :mode "\\.erl\\'"
