@@ -6,7 +6,8 @@ if [ "$SHLVL" = 1 ]; then
     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 fi
 
-
+# Terrible hack, to prevent cygwin from being stuck open with
+# processes in the background.
 if [[ $OS_TYPE = cygwin ]]
 then
 	ps |
@@ -15,4 +16,3 @@ then
 	cut -d ' ' -f2 |
 	xargs.exe kill
 fi
-
