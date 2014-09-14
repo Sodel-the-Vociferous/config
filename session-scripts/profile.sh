@@ -72,7 +72,7 @@ nohup emacs --daemon &> /dev/null &
 #nohup dropbox start &> /dev/null &
 
 # Start pulseaudio
-which pulseaudio > /dev/null &&
+which pulseaudio &> /dev/null &&
 pulseaudio --start &> /dev/null &
 
 [[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
