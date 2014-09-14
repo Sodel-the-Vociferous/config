@@ -14,9 +14,10 @@
  initial-scratch-message ""
  confirm-kill-emacs 'y-or-n-p)
 
-(tool-bar-mode 0)
+(when window-system
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0))
 (menu-bar-mode 0)
-(scroll-bar-mode 0)
 (column-number-mode t)
 (set-face-attribute 'default nil :height 130)
 (setq-default
