@@ -76,7 +76,8 @@
       '((:name cedet :lazy t)))
 (setq user:el-get-packages
       (mapcar 'el-get-source-name el-get-sources))
-(el-get 'sync user:el-get-packages)
+; (with-demoted-errors
+;   (el-get 'sync user:el-get-packages))
 
 ;;; Setup Req-Package
 (unless (require 'req-package nil t)
