@@ -71,7 +71,8 @@
     (make-directory dir)))
 
 ;; Sync El-Get Packages
-(setq user:el-get-packages nil)
+(setq el-get-sources
+      '((:name cedet :lazy t)))
 (setq user:el-get-packages
       (mapcar 'el-get-source-name el-get-sources))
 (el-get 'sync user:el-get-packages)
