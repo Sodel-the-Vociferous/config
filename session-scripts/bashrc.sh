@@ -2,7 +2,7 @@
 #
 # Non-login bash-specific shell config.
 
-if [ $OS = Windows_NT ]
+if [[ $OS = Windows_NT ]]
 then
 	export TERM=cygwin
 fi
