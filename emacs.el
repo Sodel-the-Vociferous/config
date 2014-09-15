@@ -266,6 +266,8 @@
    (evil-matchit
     :require evil
     :init (evil-matchit-mode 1))
+   (evil-leader :require evil)
+   (evil-org :require (evil evil-leader))
    (evil-nerd-commenter :require evil)
    (evil-surround
     :require evil
