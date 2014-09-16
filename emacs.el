@@ -130,6 +130,8 @@
               (require 'preview)
               (add-hook 'LaTeX-mode-hook 'outline-minor-mode)))
    (auctex-latexmk :defer t)
+   (auto-dim-other-buffers
+    :config (auto-dim-other-buffers-mode))
    (autorevert
     :init (global-auto-revert-mode t))
    (auto-compile)
