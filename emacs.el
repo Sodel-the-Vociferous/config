@@ -19,7 +19,7 @@
  initial-scratch-message ""
  confirm-kill-emacs 'y-or-n-p)
 
-(with-demoted-errors
+(ignore-errors
   (scroll-bar-mode 0)
   (tool-bar-mode 0))
 (menu-bar-mode 0)
