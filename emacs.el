@@ -52,7 +52,6 @@
 ;; Setup package archives
 (setq package-archives '(("org" . "http://orgmode.org/elpa/")
                          ("MELPA" . "http://melpa.milkbox.net/packages/")
-                         ("Marmalade" . "http://marmalade-repo.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Load packages
