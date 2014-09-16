@@ -132,14 +132,13 @@
    (auctex-latexmk :defer t)
    (autorevert
     :init (global-auto-revert-mode t))
-   (auto-compile :defer t)
+   (auto-compile)
    (bash-completion
     :init (bash-completion-setup))
    (browse-kill-ring)
    (charmap :defer t)
    (cl-lib)
-   (color-theme
-    :init (load-theme 'zenburn t))
+   (color-theme)
    (c-mode
     :defer t
     :config (progn
@@ -188,7 +187,6 @@
    (ebib
     :defer t
     :mode "\\.bib\\'")
-   (ecb :defer t)
    (eldoc
     :defer t
     :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
@@ -622,6 +620,7 @@
    ;; (shell-command :type elpa)
    (slime
     :defer t
+    :require slime-company
     :commands slime
     :init (setq inferior-lisp-program "/usr/bin/sbcl")
     :config (progn
@@ -683,7 +682,10 @@
     :defer t
     :init (xterm-mouse-mode t))
    (yasnippet)
-   (zenburn-theme :require color-theme)))
+   (zenburn-theme
+    :defer t
+    :require color-theme
+    :init (load-theme 'zenburn t))))
 
 (defmacro req-packages (pkg-defs)
   `(progn
