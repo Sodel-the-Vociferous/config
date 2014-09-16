@@ -8,6 +8,11 @@
   `(add-hook 'after-init-hook
              (lambda () ,body)))
 
+(defmacro req-packages (pkg-defs)
+  `(progn
+     ,@(mapcar (lambda (pkg-def) (cons 'req-package pkg-def))
+               (symbol-value pkg-defs))))
+
 ;; Startup & Shutdown
 (setq
  inhibit-startup-screen t
@@ -57,34 +62,39 @@
 ;; Load packages
 (package-initialize)
 
-;;; Setup El-Get
-(unless (require 'el-get nil t)
-  (package-refresh-contents)
-  (package-install 'el-get)
-  (require 'el-get))
-
-(require 'el-get-custom)
-(setq el-get-verbose t)
-
-(let ((dir (file-name-directory el-get-status-file)))
-  (unless (file-exists-p dir)
-    (make-directory dir)))
-
-;; Sync El-Get Packages
-(setq el-get-sources
-      '((:name cedet :lazy t)))
-(setq user:el-get-packages
-      (mapcar 'el-get-source-name el-get-sources))
-; (with-demoted-errors
-;   (el-get 'sync user:el-get-packages))
-
 ;;; Setup Req-Package
+
 (unless (require 'req-package nil t)
   (package-refresh-contents)
   (package-install 'req-package)
   (require 'req-package))
 
-;; Packages
+(setq
+ init-pkgs-to-req
+ '((el-get
+    :defer t
+    :config (progn
+              (require 'el-get-custom)
+              (setq el-get-verbose t)
+
+              (let ((dir (file-name-directory el-get-status-file)))
+                (unless (file-exists-p dir)
+                  (make-directory dir)))
+
+              ;; Sync El-Get Packages
+              (setq el-get-sources
+                    '((:name cedet :lazy t)))
+              (setq user:el-get-packages
+                    (mapcar 'el-get-source-name el-get-sources))
+              (el-get 'sync user:el-get-packages)))
+   (auto-compile
+    :config (progn
+              (auto-compile-on-save-mode)
+              (auto-compile-on-load-mode)))))
+
+(req-packages init-pkgs-to-req)
+(req-package-finish)
+
 (setq
  pkgs-to-req
  '((ace-jump-mode
