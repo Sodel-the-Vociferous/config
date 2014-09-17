@@ -670,8 +670,14 @@
     ;; in via the regular TRAMP ssh method, and then `sudo` to root.
     :config (setq tramp-default-proxies-alist '(((regexp-quote (system-name)) nil nil)
                                                 (nil "\\`root\\'" "/ssh:%h:"))))
-   (tron-theme :defer t)
-   (tronesque-theme :defer t)
+   (tron-theme
+    :defer t
+    :require color-theme
+    :config (load-theme 'tron-theme t))
+   (tronesque-theme
+    :defer t
+    :require color-theme
+    :config (load-theme 'tronesque t))
    (ucs-utils :defer t)
    (undo-tree)
    (unfill)
