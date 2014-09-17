@@ -141,6 +141,10 @@
    (charmap :defer t)
    (cl-lib)
    (color-theme)
+   (color-theme-sanityinc-tomorrow
+    :defer t
+    :require color-theme
+    :config (load-theme 'sanityinc-tomorrow-blue))
    (c-mode
     :defer t
     :config (progn
