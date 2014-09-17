@@ -166,14 +166,18 @@
                (remove 'company-pseudo-tooltip-unless-just-one-frontend
                        company-frontends)
 
-               company-backends
-               (append '((company-gtags
-                          company-ropemacs
-                          company-elisp
-                          company-dabbrev-code))
-                       ;; I want to use
-                       ;; helm-gtags instead.
-                       (remove 'company-semantic company-backends)))))
+               company-backends '((company-gtags
+                                   ;; company-etags
+                                   company-ropemacs
+                                   company-elisp
+                                   company-dabbrev-code)
+                                  ;; company-bbdb
+                                  ;; company-nxml
+                                  ;; company-css
+                                  ;; company-clang
+                                  ;; company-cmake
+                                  company-files
+                                  company-dabbrev))))
    (concurrent :defer t)
    (crontab-mode :defer t)
    (csv-mode
