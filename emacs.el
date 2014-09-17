@@ -186,7 +186,7 @@
    (ctable :defer t)
    (dash)
    (deferred :defer t)
-   (dired+)
+   (dired+ :defer t)
    (dired-efap)
    (dired-single)
    (doc-view
@@ -239,9 +239,6 @@
               (setq
                ess-directory "~/.ess/"
                ess-ask-for-ess-directory nil)))
-   (ess-site
-    :defer t
-    :require ess)
    (evil
     :pre-load (setq evil-toggle-key "C-`")
     :init (evil-mode 1)
@@ -284,7 +281,11 @@
     :require evil
     :init (evil-matchit-mode 1))
    (evil-leader :require evil)
-   (evil-org :require (evil evil-leader))
+   (evil-org
+    :defer t
+    :require (evil evil-leader)
+    :init (add-hook-progn 'org-mode-hook
+                          (require 'evil-org)))
    (evil-nerd-commenter :require evil)
    (evil-surround
     :require evil
@@ -430,7 +431,7 @@
     :mode "\\.xml'"
     :config (setq nxml-child-indent 2))
    (org
-    :demand t
+    :defer t
     :mode ("\\.\\(org\\|org_archive\\)\\'" . org-mode)
     :init (progn
             ;; Global Init Config
@@ -693,14 +694,8 @@
     :init (xterm-mouse-mode t))
    (yasnippet)
    (zenburn-theme
-    :defer t
     :require color-theme
-    :init (load-theme 'zenburn t))))
-
-(defmacro req-packages (pkg-defs)
-  `(progn
-     ,@(mapcar (lambda (pkg-def) (cons 'req-package pkg-def))
-               (symbol-value pkg-defs))))
+    :config (load-theme 'zenburn t))))
 
 (req-packages pkgs-to-req)
 (req-package-finish)
