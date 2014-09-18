@@ -291,7 +291,16 @@
     :require evil
     :init (evil-surround-mode 1))
    (f :defer t)
-   (flycheck :defer t)
+   (flycheck
+    :init (global-flycheck-mode 1))
+   (flycheck-rust
+    :defer t
+    :require (rust-mode flycheck)
+    :init (add-hook 'rust-mode-hook 'flycheck-rust-setup))
+   (flylisp
+    :defer t
+    (add-hook 'emacs-lisp-mode 'flylisp-mode)
+    (add-hook 'lisp-mode 'flylisp-mode))
    (flyspell
     :commands (flyspell-mode flyspell-prog-mode)
     :init (progn
@@ -327,6 +336,7 @@
             (global-set-key (kbd "M-x") 'helm-M-x)
             (global-set-key (kbd "C-y") 'helm-show-kill-ring)
             (global-set-key (kbd "C-x b") 'helm-mini)
+            (global-set-key (kbd "C-x C-b") 'helm-mini)
             (global-set-key (kbd "C-x C-f") 'helm-find-files)
             (global-set-key (kbd "C-h a") 'helm-apropos)
             (define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
