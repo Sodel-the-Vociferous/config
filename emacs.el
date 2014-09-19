@@ -298,9 +298,12 @@
    (flylisp
     :defer t
     :commands flylisp-mode
-    :config (progn
-              (add-hook 'emacs-lisp-mode 'flylisp-mode)
-              (add-hook 'lisp-mode 'flylisp-mode)))
+    :pre-load (defun enable-flylisp-mode ()
+                (interactive)
+                (flylisp-mode 1))
+    :init (progn
+              (add-hook 'emacs-lisp-mode-hook 'enable-flylisp-mode)
+              (add-hook 'lisp-mode-hook 'enable-flylisp-mode)))
    (flyspell
     :diminish flyspell-mode
     :commands (flyspell-mode flyspell-prog-mode)
