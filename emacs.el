@@ -294,6 +294,7 @@
     :init (add-hook 'rust-mode-hook 'flycheck-rust-setup))
    (flylisp
     :defer t
+    :commands flylisp-mode
     (add-hook 'emacs-lisp-mode 'flylisp-mode)
     (add-hook 'lisp-mode 'flylisp-mode))
    (flyspell
