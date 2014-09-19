@@ -32,21 +32,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;;; Key Bindings ;;;;
-(global-set-key (kbd "<C-return>") 'newline-and-indent)
-(global-set-key (kbd "<mouse-3>") 'mouse-popup-menubar)
-(global-set-key (kbd "<mouse-8>") 'previous-buffer)
-(global-set-key (kbd "<mouse-9>") 'next-buffer)
-(global-set-key (kbd "C-x C-M-k") 'kill-matching-buffers)
-(global-set-key (kbd "C-h C-M-f") 'find-function)
-
-(define-prefix-command 'user-map)
-(global-set-key (kbd "C-z") 'user-map)
-(define-key user-map (kbd "C-\\") 'toggle-hiding)
-(define-key user-map (kbd "C--") 'toggle-selective-display)
-(define-key user-map (kbd "C-z") 'suspend-frame)
-(define-key user-map (kbd "M-w") 'clipboard-kill-ring-save)
-(define-key user-map (kbd "C-r") 'rename-buffer)
-(define-key user-map (kbd "e") 'eval-region)
 
 
 ;;; Configure Package.el And El-Get ;;;;
@@ -87,6 +72,21 @@
               (setq user:el-get-packages
                     (mapcar 'el-get-source-name el-get-sources))
               (el-get 'sync user:el-get-packages)))
+   (bind-key
+    :config (progn
+              (unbind-key "C-z")
+              (bind-key "<C-return>" 'newline-and-indent)
+              (bind-key "<mouse-3>" 'mouse-popup-menubar)
+              (bind-key "<mouse-8>" 'previous-buffer)
+              (bind-key "<mouse-9>" 'next-buffer)
+              (bind-key "C-x C-M-k" 'kill-matching-buffers)
+              (bind-key "C-h C-M-f" 'find-function)
+              (bind-key "C-z C-\\" 'toggle-hiding)
+              (bind-key "C-z C--" 'toggle-selective-display)
+              (bind-key "C-z C-z" 'suspend-frame)
+              (bind-key "C-z M-w" 'clipboard-kill-ring-save)
+              (bind-key "C-z C-r" 'rename-buffer)
+              (bind-key "C-z e" 'eval-region)))
    (auto-compile
     :config (progn
               (auto-compile-on-save-mode)
@@ -101,12 +101,11 @@
     :commands (ace-jump-char-mode
                ace-jump-line-mode
                ace-jump-word-mode)
-    :init (progn
-            (define-key user-map (kbd "j") 'ace-jump-char-mode)
-            (define-key user-map (kbd "l") 'ace-jump-line-mode)
-            (define-key user-map (kbd "w") 'ace-jump-word-mode)))
+    :bind (("C-z j" . ace-jump-char-mode)
+           ("C-z l" . ace-jump-line-mode)
+           ("C-z w" . ace-jump-word-mode)))
    (ace-window
-    :init (global-set-key (kbd "C-x o") 'ace-window))
+    :bind ("C-x o" . ace-window))
    (adaptive-wrap :defer t)
    (aes :defer t)
    (alpha
@@ -204,9 +203,8 @@
     :init (electric-indent-mode 1))
    (erc
     :defer t
-    :init (progn
-            (defalias 'irc 'erc-tls)
-            (define-key user-map (kbd "c j") 'erc-track-switch-buffer))
+    :bind ("C-z c j" . erc-track-switch-buffer)
+    :init (defalias 'irc 'erc-tls)
     :config (progn
               (setq
                erc-port 6697
@@ -240,6 +238,7 @@
                ess-directory "~/.ess/"
                ess-ask-for-ess-directory nil)))
    (evil
+    :bind ("TAB" . evil-indent)
     :pre-load (setq evil-toggle-key "C-`")
     :init (evil-mode 1)
     :config (progn
@@ -253,30 +252,24 @@
                               inferior-ess-mode))
                 (push mode evil-insert-state-modes))
 
-              (define-key evil-insert-state-map (kbd "C-z") nil)
-              (define-key evil-normal-state-map (kbd "C-z") nil)
-              (define-key evil-emacs-state-map (kbd "C-z") nil)
-              (define-key evil-motion-state-map (kbd "C-z") nil)
+              (unbind-key "q" evil-normal-state-map)
 
-              (global-set-key (kbd "TAB") 'evil-indent)
-              (define-key evil-normal-state-map (kbd "q") nil)
+              (unbind-key "C-e" evil-insert-state-map)
+              (unbind-key "C-d" evil-insert-state-map)
+              (unbind-key "C-k" evil-insert-state-map)
+              (bind-key "C-g" 'evil-normal-state evil-insert-state-map)
+              (bind-key "C-c" 'evil-normal-state evil-visual-state-map)
 
-              (define-key evil-insert-state-map (kbd "C-e") nil)
-              (define-key evil-insert-state-map (kbd "C-d") nil)
-              (define-key evil-insert-state-map (kbd "C-k") nil)
-              (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-              (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
-
-              (define-key evil-motion-state-map (kbd "C-e") nil)
-              (define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
+              (unbind-key (kbd "C-e") evil-motion-state-map)
+              (bind-key (kbd "C-c") 'evil-exit-visual-state evil-visual-state-map)
 
               ;; For gtags
-              (define-key evil-normal-state-map (kbd "M-.") nil)
-              (define-key evil-visual-state-map (kbd "M-.") nil)
+              (unbind-key (kbd "M-.") evil-normal-state-map)
+              (unbind-key (kbd "M-.") evil-visual-state-map)
 
               ;; For helm
-              (define-key evil-motion-state-map (kbd "C-y") nil)
-              (define-key evil-insert-state-map (kbd "C-y") nil)))
+              (unbind-key (kbd "C-y") evil-motion-state-map)
+              (unbind-key (kbd "C-y") evil-insert-state-map)))
    (evil-matchit
     :require evil
     :init (evil-matchit-mode 1))
@@ -316,7 +309,8 @@
    (git-rebase-mode :defer t)
    (gitconfig-mode :defer t)
    (gitignore-mode :defer t)
-   (ggtags :defer t)
+   (ggtags
+    :bind ("M-r" . ggtags-query-replace))
    (julia-mode
     :defer t
     :commands julia-mode
@@ -330,35 +324,36 @@
               (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
               (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
    (helm
+    :bind (("M-x" . helm-M-x)
+           ("C-y" . helm-show-kill-ring)
+           ("C-x b" . helm-mini)
+           ("C-x C-b" . helm-mini)
+           ("C-x C-f" . helm-find-files)
+           ("C-h a" . helm-apropos)
+           ("C-z <C-SPC>" . helm-all-mark-rings)
+           ("C-z r" . helm-regexp)
+           ("C-z o" . helm-occur))
     :pre-load (setq helm-command-prefix-key "C-z h")
-    :init (progn
-            (helm-mode 1)
-            (global-set-key (kbd "M-x") 'helm-M-x)
-            (global-set-key (kbd "C-y") 'helm-show-kill-ring)
-            (global-set-key (kbd "C-x b") 'helm-mini)
-            (global-set-key (kbd "C-x C-b") 'helm-mini)
-            (global-set-key (kbd "C-x C-f") 'helm-find-files)
-            (global-set-key (kbd "C-h a") 'helm-apropos)
-            (define-key user-map (kbd "<C-SPC>") 'helm-all-mark-rings)
-            (define-key user-map (kbd "r") 'helm-regexp)
-            (define-key user-map (kbd "o") 'helm-occur))
+    :init (helm-mode 1)
     :config (progn
               (require 'helm-config)
               ;; Swap Tab and C-z in helm-mode, so Tab executes
               ;; persistent actions, and C-z opens the actions
               ;; menu.
-              (define-key helm-map (kbd "<Tab>") 'helm-execute-persistent-action)
-              (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-              (define-key helm-map (kbd "C-z")  'helm-select-action)
+              (bind-key "<Tab>" 'helm-execute-persistent-action helm-map)
+              (bind-key "C-i" 'helm-execute-persistent-action helm-map)
+              (bind-key "M-x" 'helm-select-action helm-map)
 
-              (define-key helm-command-map (kbd "o") 'helm-occur)
-              (define-key helm-command-map (kbd "x") 'helm-register)))
+              (bind-key "o" 'helm-occur helm-command-map)
+              (bind-key "x" 'helm-register helm-command-map)))
    (helm-company
     :require (helm company)
-    :config (global-set-key (kbd "<C-tab>") 'helm-company))
+    :bind ("<C-tab>" . helm-company))
    (helm-gtags
     :require (helm)
     :commands helm-gtags-mode
+    :bind (("M-." . helm-gtags-dwim)
+           ("M-?" . helm-gtags-find-pattern))
     :init (progn
             (define-minor-mode helm-gtags-auto-update-mode
               "Auto update GTAGS when a file in this mode is saved."
@@ -385,23 +380,18 @@
                helm-gtags-pulse-at-cursor t
                helm-gtags-suggested-key-mapping t)
 
-              (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-              (define-key helm-gtags-mode-map (kbd "M-?") 'helm-gtags-find-pattern)
 
-              (require 'ggtags)
-              (define-key helm-gtags-mode-map (kbd "M-r") 'ggtags-query-replace)
-              (define-key helm-gtags-mode-map (kbd "M-R") 'ggtags-query-replace)))
+              ))
    (helm-package :require helm)
    (inline-crypt
     :commands (inline-crypt-decrypt-region
                inline-crypt-decrypt-string
                inline-crypt-encrypt-region
                inline-crypt-encrypt-string)
-    :init (progn
-            (define-key user-map (kbd "C-c C-d") 'inline-crypt-decrypt-region)
-            (define-key user-map (kbd "C-c C-e") 'inline-crypt-encrypt-region)
-            (define-key user-map (kbd "C-c d") 'inline-crypt-decrypt-string)
-            (define-key user-map (kbd "C-c e") 'inline-crypt-encrypt-string)))
+    :bind (("C-z C-c C-d" . inline-crypt-decrypt-region)
+           ("C-z C-c C-e" . inline-crypt-encrypt-region)
+           ("C-z C-c d" . inline-crypt-decrypt-string)
+           ("C-z C-c e" . inline-crypt-encrypt-string)))
    (js2-mode
     :defer t
     :mode "\\.js\\'")
@@ -417,9 +407,8 @@
    (magit
     :defer t
     :commands magit-status
-    :init (progn
-            (define-key user-map (kbd "v") 'magit-status)
-            (setq magit-status-buffer-switch-function 'switch-to-buffer)))
+    :bind ("C-z v" . magit-status)
+    :init (setq magit-status-buffer-switch-function 'switch-to-buffer))
    (markdown-mode
     :defer t
     :mode "\\.md\\'"
@@ -443,38 +432,35 @@
    (org
     :defer t
     :mode ("\\.\\(org\\|org_archive\\)\\'" . org-mode)
-    :init (progn
-            ;; Global Init Config
-
-            (define-key user-map (kbd "C-o ]") 'outline-next-heading)
-            (define-key user-map (kbd "C-o [") 'outline-previous-heading)
-            (define-key user-map (kbd "C-o a") 'org-agenda)
-            (define-key user-map (kbd "C-o b")
-              (lambda ()
-                "Call `org-iswitchb' with two prefix args, restricting selection
-                        to agenda files."
+    :commands (org-agenda org-iswitchb)
+    :bind (("C-z C-o ]" . outline-next-heading)
+           ("C-z C-o [" . outline-previous-heading)
+           ("C-z C-o a" . org-agenda)
+           ("C-z C-o b" . user/org-iswitchb-agenda)
+           ("C-z C-o j" . org-clock-goto)
+           ("C-z C-o l" . org-store-link)
+           ("C-z C-o o" . org-clock-out)
+           ("C-z C-o <C-right>" . org-demote-subtree)
+           ("C-z C-o <C-left>" . org-promote-subtree))
+    :pre-load (defun user/org-iswitchb-agenda ()
+                "call `org-iswitchb' with two prefix args, restricting selection
+                              to agenda files."
                 (interactive)
-                (org-iswitchb 14)))
-            (define-key user-map (kbd "C-o c") 'org-capture)
-            (define-key user-map (kbd "C-o j") 'org-clock-goto)
-            (define-key user-map (kbd "C-o l") 'org-store-link)
-            (define-key user-map (kbd "C-o o") 'org-clock-out)
-            (define-key user-map (kbd "C-o <C-right>") 'org-demote-subtree)
-            (define-key user-map (kbd "C-o <C-left>") 'org-promote-subtree))
+                (org-iswitchb 14))
     :config (progn
               ;; (require 'org-journal)
               ;; (require 'org-toc)
 
               ;; For `helm-show-kill-ring'
-              (define-key org-mode-map (kbd "C-y") nil)
+              (unbind-key "C-y" org-mode-map)
 
               ;; Default binding for <C-tab> is dumb. I want
               ;; `helm-company', dammit!
-              (define-key org-mode-map (kbd "<C-tab>") nil)
-              (define-key org-mode-map (kbd "<C-M-tab>") 'org-force-cycle-archived)
+              (unbind-key "<C-tab>" org-mode-map)
+              (bind-key "<C-M-tab>" 'org-force-cycle-archived org-mode-map)
 
-              ;; Make "C-z C-o a <RET>" display an overview of all tasks in my
-              ;; agenda files.
+              ;; Make "C-z C-o a <RET>" display an overview of all
+              ;; tasks in my agenda files.
               (setq
                org-agenda-custom-commands
                '(("" "Agenda Tasks"
@@ -591,6 +577,9 @@
                                               :require-hours t
                                               :minutes ":%02d"
                                               :require-minutes t))))
+   (org-capture
+    :defer t
+    :bind ("C-z C-o c" . org-capture))
    ;; (org-journal
    ;;  :defer t
    ;;  :require org)
@@ -601,13 +590,13 @@
    (outline-mode
     :defer t
     :config (progn
-              (define-key outline-minor-mode-map (kbd "<C-down>") 'outline-next-visible-heading)
-              (define-key outline-minor-mode-map (kbd "<C-up>") 'outline-previous-visible-heading)
-              (define-key outline-minor-mode-map (kbd "<M-down>") 'outline-move-subtree-down)
-              (define-key outline-minor-mode-map (kbd "<M-up>") 'outline-move-subtree-up)
-              (define-key outline-minor-mode-map (kbd "<M-left>") 'outline-promote)
-              (define-key outline-minor-mode-map (kbd "<M-right>") 'outline-demote)
-              (define-key outline-minor-mode-map (kbd "<C-M-tab>") 'outline-cycle)))
+              (bind-key "<C-down>" 'outline-next-visible-heading outline-minor-mode-map)
+              (bind-key "<C-up>" 'outline-previous-visible-heading outline-minor-mode-map)
+              (bind-key "<M-down>" 'outline-move-subtree-down outline-minor-mode-map)
+              (bind-key "<M-up>" 'outline-move-subtree-up outline-minor-mode-map)
+              (bind-key "<M-left>" 'outline-promote outline-minor-mode-map)
+              (bind-key "<M-right>" 'outline-demote outline-minor-mode-map)
+              (bind-key "<C-M-tab>" 'outline-cycle outline-minor-mode-map)))
    (package+)
    (paren
     :init (show-paren-mode t))
@@ -647,25 +636,28 @@
     :config (progn
               (slime-setup (cons 'slime-company slime-contribs))
               ;; Key bindings
-              (define-key slime-mode-map (kbd "RET") 'newline-and-indent)))
+              (bind-key "RET" 'newline-and-indent slime-mode-map)))
    (slime-company
     :defer t)
    (ssh-config-mode :defer t)
    (term
-    :config (progn
-              (define-key user-map (kbd "t")
+    :bind ("C-z t" . user/ansi-term)
+    :pre-load (progn
                 (defun user/ansi-term ()
                   (interactive)
-                  (progn (ansi-term "/bin/bash" "shell"))))
-              (define-key term-raw-escape-map (kbd "C-z") 'user-map)
-              (define-key term-raw-map (kbd "<C-left>")
+                  (ansi-term "/bin/bash" "shell"))
+
                 (defun user/term-send-prev-word ()
                   (interactive)
-                  (term-send-raw-string "\eb")))
-              (define-key term-raw-map (kbd "<C-right>")
+                  (term-send-raw-string "\eb"))
+
                 (defun user/term-send-next-word ()
                   (interactive)
                   (term-send-raw-string "\ef")))
+    :config (progn
+              (bind-key "C-z" 'user-map term-raw-escape-map)
+              (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
+              (bind-key "<C-right>" 'user/term-send-next-word term-raw-map)
               ;; Terminals in emacs should be able to run tmux, regardless of
               ;; whether or not emacs was started within tmux.
               (setenv "TMUX" "")))
