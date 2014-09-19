@@ -378,6 +378,8 @@
             (add-hook 'prog-mode-hook 'helm-gtags-mode)
             (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode))
     :config (progn
+              (require 'ggtags)
+
               (setq
                helm-gtags-ignore-case t
                helm-gtags-auto-update t
