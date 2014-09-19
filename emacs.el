@@ -717,7 +717,7 @@
     :if (not window-system)
     :defer t
     :init (xterm-mouse-mode t))
-   (yasnippet)
+   (yasnippet :defer t)
    (zenburn-theme
     :require color-theme
     :config (progn
