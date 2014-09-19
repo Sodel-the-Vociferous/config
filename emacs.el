@@ -407,7 +407,7 @@
     :require json-reformat
     :mode "\\.json\\'")
    (json-reformat :defer t)
-   (list-packages-ext)
+   (list-packages-ext :defer t)
    (list-processes+)
    (list-utils)
    (log4e :defer t)
