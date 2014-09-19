@@ -687,7 +687,8 @@
     :config (load-theme 'tronesque t))
    (ucs-utils :defer t)
    (undo-tree
-    :diminish undo-tree-mode)
+    :diminish undo-tree-mode
+    :init (global-undo-tree-mode 1))
    (unfill)
    (unicode-fonts)
    (unicode-whitespace)
