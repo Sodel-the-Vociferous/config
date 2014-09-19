@@ -87,6 +87,8 @@
               (bind-key "C-z M-w" 'clipboard-kill-ring-save)
               (bind-key "C-z C-r" 'rename-buffer)
               (bind-key "C-z e" 'eval-region)))
+   (benchmark-init
+    :init (benchmark-init/activate))
    (auto-compile
     :config (progn
               (auto-compile-on-save-mode)
