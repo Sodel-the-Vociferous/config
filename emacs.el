@@ -69,9 +69,9 @@
               ;; Sync El-Get Packages
               (setq el-get-sources
                     '((:name cedet :lazy t)))
-              (setq user:el-get-packages
+              (setq user/el-get-packages
                     (mapcar 'el-get-source-name el-get-sources))
-              (el-get 'sync user:el-get-packages)))
+              (el-get 'sync user/el-get-packages)))
    (bind-key
     :config (progn
               (unbind-key "C-z")
