@@ -130,6 +130,7 @@
               (add-hook 'LaTeX-mode-hook 'outline-minor-mode)))
    (auctex-latexmk :defer t)
    (auto-dim-other-buffers
+    :diminish auto-dim-other-buffers-mode
     :config (auto-dim-other-buffers-mode))
    (autorevert
     :init (global-auto-revert-mode t))
@@ -152,6 +153,7 @@
               (setq tab-width 8)
               (setq indent-tabs-mode nil)))
    (company
+    :diminish company-mode
     :init (global-company-mode t)
     :config (progn
               (setq
@@ -295,6 +297,7 @@
     (add-hook 'emacs-lisp-mode 'flylisp-mode)
     (add-hook 'lisp-mode 'flylisp-mode))
    (flyspell
+    :diminish flyspell-mode
     :commands (flyspell-mode flyspell-prog-mode)
     :init (progn
             (add-hook 'text-mode-hook 'flyspell-mode)
@@ -324,6 +327,7 @@
               (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
               (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
    (helm
+    :diminish helm-mode
     :bind (("M-x" . helm-M-x)
            ("C-y" . helm-show-kill-ring)
            ("C-x b" . helm-mini)
@@ -406,6 +410,7 @@
    (log4e :defer t)
    (magit
     :defer t
+    :diminish magit-auto-revert-mode
     :commands magit-status
     :bind ("C-z v" . magit-status)
     :init (setq magit-status-buffer-switch-function 'switch-to-buffer))
@@ -681,7 +686,8 @@
     :require color-theme
     :config (load-theme 'tronesque t))
    (ucs-utils :defer t)
-   (undo-tree)
+   (undo-tree
+    :diminish undo-tree-mode)
    (unfill)
    (unicode-fonts)
    (unicode-whitespace)
