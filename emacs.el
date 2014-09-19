@@ -25,7 +25,6 @@
 (menu-bar-mode 0)
 (column-number-mode t)
 (set-face-attribute 'default nil :height 130)
-(set-face-background 'region "dark slate gray")
 (setq-default
  indent-tabs-mode nil
  tab-width 8)
@@ -721,7 +720,9 @@
    (yasnippet)
    (zenburn-theme
     :require color-theme
-    :config (load-theme 'zenburn t))))
+    :config (progn
+              (load-theme 'zenburn t)
+              (set-face-background 'region "dark slate gray")))))
 
 (req-packages pkgs-to-req)
 (req-package-finish)
