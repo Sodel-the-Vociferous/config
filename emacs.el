@@ -447,6 +447,7 @@
            ("C-z C-o o" . org-clock-out)
            ("C-z C-o <C-right>" . org-demote-subtree)
            ("C-z C-o <C-left>" . org-promote-subtree))
+    :idle (require 'org)
     :pre-load (defun user/org-iswitchb-agenda ()
                 "call `org-iswitchb' with two prefix args, restricting selection
                               to agenda files."
