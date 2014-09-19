@@ -298,8 +298,9 @@
    (flylisp
     :defer t
     :commands flylisp-mode
-    (add-hook 'emacs-lisp-mode 'flylisp-mode)
-    (add-hook 'lisp-mode 'flylisp-mode))
+    :config (progn
+              (add-hook 'emacs-lisp-mode 'flylisp-mode)
+              (add-hook 'lisp-mode 'flylisp-mode)))
    (flyspell
     :diminish flyspell-mode
     :commands (flyspell-mode flyspell-prog-mode)
