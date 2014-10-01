@@ -256,6 +256,8 @@
                               inferior-ess-mode))
                 (push mode evil-insert-state-modes))
 
+              (setq evil-move-cursor-back nil)
+
               (unbind-key "q" evil-normal-state-map)
 
               (unbind-key "C-e" evil-insert-state-map)
