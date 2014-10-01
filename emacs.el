@@ -68,7 +68,12 @@
 
               ;; Sync El-Get Packages
               (setq el-get-sources
-                    '((:name cedet :lazy t)))
+                    '((:name cedet :lazy t)
+                      (:name bbdb
+                             :branch "bbdb_2.35"
+                             :info nil
+                             :features bbdb-autoloads
+                             :build '("autoconf" "./configure" "make all"))))
               (setq user/el-get-packages
                     (mapcar 'el-get-source-name el-get-sources))
               (el-get 'sync user/el-get-packages)))
@@ -303,8 +308,8 @@
                 (interactive)
                 (flylisp-mode 1))
     :init (progn
-              (add-hook 'emacs-lisp-mode-hook 'enable-flylisp-mode)
-              (add-hook 'lisp-mode-hook 'enable-flylisp-mode)))
+            (add-hook 'emacs-lisp-mode-hook 'enable-flylisp-mode)
+            (add-hook 'lisp-mode-hook 'enable-flylisp-mode)))
    (flyspell
     :diminish flyspell-mode
     :commands (flyspell-mode flyspell-prog-mode)
