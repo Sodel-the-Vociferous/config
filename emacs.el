@@ -255,6 +255,7 @@
                     (append '(term-mode
                               epa-key-list-mode
                               git-rebase-mode
+                              magit-key-mode
                               magit-status-mode)
                             evil-emacs-state-modes))
 
@@ -604,7 +605,7 @@
                                               :require-minutes t))))
    (org-capture
     :defer t
-    :bind ("C-z C-o c" . org-capture))
+    :bind ("C-z C-o C-c" . org-capture))
    ;; (org-journal
    ;;  :defer t
    ;;  :require org)
