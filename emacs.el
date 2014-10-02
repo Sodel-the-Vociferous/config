@@ -251,15 +251,18 @@
     :pre-load (setq evil-toggle-key "C-`")
     :init (evil-mode 1)
     :config (progn
-              (dolist (mode '(term-mode
+              (setq evil-emacs-state-modes
+                    (append '(term-mode
                               epa-key-list-mode
-                              git-rebase-mode))
-                (push mode evil-emacs-state-modes))
+                              git-rebase-mode
+                              magit-status-mode)
+                            evil-emacs-state-modes))
 
-              (dolist (mode '(org-capture-mode
+              (setq evil-insert-state-modes
+                    (append '(org-capture-mode
                               git-commit-mode
-                              inferior-ess-mode))
-                (push mode evil-insert-state-modes))
+                              inferior-ess-mode)
+                            evil-insert-state-modes))
 
               (setq evil-move-cursor-back nil)
 
