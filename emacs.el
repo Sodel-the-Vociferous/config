@@ -297,7 +297,7 @@
    (evil-nerd-commenter :require evil)
    (evil-surround
     :require evil
-    :init (evil-surround-mode 1))
+    :init (global-evil-surround-mode 1))
    (f :defer t)
    (flycheck
     :init (global-flycheck-mode 1))
