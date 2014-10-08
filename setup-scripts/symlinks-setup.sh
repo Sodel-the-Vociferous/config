@@ -53,6 +53,7 @@ ensure_symlink ~/config/gitignore.global ~/.gitignore.global
 
 ## Other Dev Tool Config
 
+ensure_symlink ~/config/globalrc ~/.globalrc
 ensure_symlink ~/config/pylintrc.conf ~/.pylintrc
 ensure_symlink ~/config/sbclrc.lisp ~/.sbclrc
 
