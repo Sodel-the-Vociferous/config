@@ -178,15 +178,15 @@
 
                company-backends '((company-gtags
                                    ;; company-etags
-                                   company-ropemacs
                                    company-elisp
-                                   company-dabbrev-code)
+                                   company-files
+                                   company-dabbrev
+                                   company-ropemacs)
                                   ;; company-bbdb
                                   ;; company-nxml
                                   ;; company-css
                                   ;; company-clang
                                   ;; company-cmake
-                                  company-files
                                   company-dabbrev))))
    (concurrent :defer t)
    (crontab-mode :defer t)
