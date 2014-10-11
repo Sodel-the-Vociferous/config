@@ -163,12 +163,14 @@
     :diminish company-mode
     :init (global-company-mode t)
     :config (progn
+              (unbind-key (kbd "RET") company-active-map)
+              (unbind-key "<return>" company-active-map)
+
               (setq
                ;; Helm-company usually pukes if company
                ;; autocompletion starts after helm-company is
                ;; called.
                company-idle-delay 0
-
                ;; Get rid of company menu. I'll use helm.
                company-frontends
                (remove 'company-pseudo-tooltip-unless-just-one-frontend
