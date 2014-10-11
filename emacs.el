@@ -253,40 +253,41 @@
     :pre-load (setq evil-toggle-key "C-`")
     :init (evil-mode 1)
     :config (progn
-              (setq evil-emacs-state-modes
-                    (append '(term-mode
-                              epa-key-list-mode
-                              git-rebase-mode
-                              magit-key-mode
-                              magit-status-mode)
-                            evil-emacs-state-modes))
-
-              (setq evil-insert-state-modes
-                    (append '(org-capture-mode
-                              git-commit-mode
-                              inferior-ess-mode)
-                            evil-insert-state-modes))
-
-              (setq evil-move-cursor-back nil)
-
               (unbind-key "q" evil-normal-state-map)
 
               (unbind-key "C-e" evil-insert-state-map)
+
               (unbind-key "C-d" evil-insert-state-map)
               (unbind-key "C-k" evil-insert-state-map)
               (bind-key "C-g" 'evil-normal-state evil-insert-state-map)
               (bind-key "C-c" 'evil-normal-state evil-visual-state-map)
 
               (unbind-key (kbd "C-e") evil-motion-state-map)
+
               (bind-key (kbd "C-c") 'evil-exit-visual-state evil-visual-state-map)
+              (unbind-key (kbd "M-.") evil-normal-state-map)
 
               ;; For gtags
-              (unbind-key (kbd "M-.") evil-normal-state-map)
               (unbind-key (kbd "M-.") evil-visual-state-map)
+              (unbind-key (kbd "C-y") evil-motion-state-map)
 
               ;; For helm
-              (unbind-key (kbd "C-y") evil-motion-state-map)
-              (unbind-key (kbd "C-y") evil-insert-state-map)))
+              (unbind-key (kbd "C-y") evil-insert-state-map)
+
+              (setq evil-emacs-state-modes (append '(term-mode
+                                                     epa-key-list-mode
+                                                     git-rebase-mode
+                                                     magit-key-mode
+                                                     magit-status-mode)
+                                                   evil-emacs-state-modes)
+
+                    evil-insert-state-modes (append '(org-capture-mode
+                                                      git-commit-mode
+                                                      inferior-ess-mode)
+                                                    evil-insert-state-modes)
+
+                    evil-move-cursor-back nil
+                    evil-symbol-word-search t)))
    (evil-matchit
     :require evil
     :init (evil-matchit-mode 1))
