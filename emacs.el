@@ -450,7 +450,7 @@
     :diminish magit-auto-revert-mode
     :commands magit-status
     :bind (("C-z v" . magit-status)
-           ("C-z m a" . magit-amend-commit)
+           ("C-z m a" . magit-commit-amend)
            ("C-z m b" . magit-blame-mode))
     :init (setq magit-status-buffer-switch-function 'switch-to-buffer))
    (markdown-mode
