@@ -152,7 +152,7 @@
     :defer t
     :require color-theme
     :config (load-theme 'sanityinc-tomorrow-blue))
-   (c-mode
+   (cc-mode
     :defer t
     :config (progn
               (setq c-default-style "K&R")
