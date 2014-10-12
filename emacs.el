@@ -651,7 +651,8 @@
    (projectile
     :bind ("s-%" . projectile-replace)
     :pre-load (setq projectile-keymap-prefix (kbd "C-z p"))
-    :init (projectile-global-mode 1))
+    :init (projectile-global-mode 1)
+    :config (setq projectile-switch-project-action 'projectile-dired))
    (pyflakes :defer t)
    (pylint
     :defer t
