@@ -390,14 +390,18 @@
     :require (helm)
     :commands helm-gtags-mode
     :init (progn
+            (defun helm-gtags-update-tags-quietly ()
+              (flet ((message (&rest _) nil))
+                (helm-gtags-update-tags)))
+
             (define-minor-mode helm-gtags-auto-update-mode
               "Auto update GTAGS when a file in this mode is saved."
               :init-value nil
               :group 'helm-gtags-update
               (if helm-gtags-auto-update-mode
                   (progn
-                    (add-hook 'after-save-hook 'helm-gtags-update-tags nil :local))
-                (remove-hook 'after-save-hook 'helm-gtags-update-tags t)))
+                    (add-hook 'after-save-hook 'helm-gtags-update-tags-quietly nil :local))
+                (remove-hook 'after-save-hook 'helm-gtags-update-tags-quietly t)))
 
             (defun enable-helm-gtags-auto-update-mode()
               "Turn on `helm-gtags-auto-update-mode'."
