@@ -289,7 +289,9 @@
                                                       inferior-ess-mode)
                                                     evil-insert-state-modes)
 
-                    evil-move-cursor-back nil)))
+                    evil-move-cursor-back nil
+                    evil-want-C-i-jump nil)))
+   (evil-jumper)
    (evil-matchit
     :require evil
     :init (evil-matchit-mode 1))
