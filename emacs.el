@@ -275,6 +275,7 @@
               ;; For helm
               (unbind-key (kbd "C-y") evil-insert-state-map)
 
+              (set-default 'evil-symbol-word-search t)
               (setq evil-emacs-state-modes (append '(term-mode
                                                      epa-key-list-mode
                                                      git-rebase-mode
@@ -287,8 +288,7 @@
                                                       inferior-ess-mode)
                                                     evil-insert-state-modes)
 
-                    evil-move-cursor-back nil
-                    evil-symbol-word-search t)))
+                    evil-move-cursor-back nil)))
    (evil-matchit
     :require evil
     :init (evil-matchit-mode 1))
