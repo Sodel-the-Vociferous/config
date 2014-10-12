@@ -409,8 +409,8 @@
                helm-gtags-pulse-at-cursor t
                helm-gtags-suggested-key-mapping t)
 
-              (bind-key helm-gtags-dwim "M-." helm-gtags-mode-map)
-              (bind-key helm-gtags-find-pattern "M-?" helm-gtags-mode-map)))
+              (bind-key "M-." 'helm-gtags-dwim helm-gtags-mode-map)
+              (bind-key "M-?" 'helm-gtags-find-pattern helm-gtags-mode-map)))
    (helm-package :require helm)
    (inline-crypt
     :commands (inline-crypt-decrypt-region
