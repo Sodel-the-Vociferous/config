@@ -352,7 +352,8 @@
               (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
    (helm
     :diminish helm-mode
-    :bind (("M-x" . helm-M-x)
+    :bind (("C-x d" . helm-find-file)
+           ("M-x" . helm-M-x)
            ("C-y" . helm-show-kill-ring)
            ("C-x b" . helm-mini)
            ("C-x C-b" . helm-mini)
