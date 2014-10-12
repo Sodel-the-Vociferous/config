@@ -204,8 +204,8 @@
    (dired-single)
    (doc-view
     :defer t
-    :mode "\\.pdf\\'"
-    :mode "\\.ps\\'"
+    :mode ("\\.pdf\\'" . doc-view-mode)
+    :mode ("\\.ps\\'" . doc-view-mode)
     :config (setq doc-view-continuous t))
    (ebib
     :defer t
