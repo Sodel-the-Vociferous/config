@@ -176,6 +176,7 @@
                (remove 'company-pseudo-tooltip-unless-just-one-frontend
                        company-frontends)
 
+               company-elisp-detect-function-context nil
                company-backends '((company-gtags
                                    ;; company-etags
                                    company-elisp
