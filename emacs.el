@@ -302,6 +302,8 @@
    (evil-surround
     :require evil
     :init (global-evil-surround-mode 1))
+   (expand-region
+    :bind ("C-=" . er/expand-region))
    (f :defer t)
    (flycheck
     :init (global-flycheck-mode 1))
