@@ -8,3 +8,6 @@
 *.tgz
 *.tbz
 *.beam
+GPATH
+GTAGS
+GRTAGS
