@@ -636,6 +636,7 @@
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
+   (projectile)
    (pyflakes :defer t)
    (pylint
     :defer t
