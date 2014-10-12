@@ -133,7 +133,6 @@
       <property name="&lt;Alt&gt;F9" type="string" value="hide_window_key"/>
       <property name="&lt;Alt&gt;F11" type="string" value="fullscreen_key"/>
       <property name="&lt;Alt&gt;F8" type="string" value="resize_window_key"/>
-      <property name="&lt;Super&gt;Tab" type="string" value="switch_window_key"/>
       <property name="Escape" type="string" value="cancel_key"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;KP_1" type="string" value="move_window_workspace_1_key"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;KP_2" type="string" value="move_window_workspace_2_key"/>
