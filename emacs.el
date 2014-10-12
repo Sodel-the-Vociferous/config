@@ -424,6 +424,8 @@
               (bind-key "M-." 'helm-gtags-dwim helm-gtags-mode-map)
               (bind-key "M-?" 'helm-gtags-find-pattern helm-gtags-mode-map)))
    (helm-package :require helm)
+   (helm-projectile
+    :init (helm-projectile-on))
    (inline-crypt
     :commands (inline-crypt-decrypt-region
                inline-crypt-decrypt-string
