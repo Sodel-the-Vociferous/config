@@ -634,7 +634,8 @@
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
-   (projectile)
+   (projectile
+    :bind ("s-%" . projectile-replace))
    (pyflakes :defer t)
    (pylint
     :defer t
