@@ -181,6 +181,7 @@
                                    company-elisp
                                    company-files
                                    company-dabbrev
+                                   company-dabbrev-code
                                    company-ropemacs)
                                   ;; company-bbdb
                                   ;; company-nxml
