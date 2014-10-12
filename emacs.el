@@ -649,7 +649,9 @@
    (pkg-info)
    (popup :defer t)
    (projectile
-    :bind ("s-%" . projectile-replace))
+    :bind ("s-%" . projectile-replace)
+    :pre-load (setq projectile-keymap-prefix (kbd "C-z p"))
+    :init (projectile-global-mode 1))
    (pyflakes :defer t)
    (pylint
     :defer t
