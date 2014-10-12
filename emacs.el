@@ -279,6 +279,7 @@
               (setq evil-emacs-state-modes (append '(term-mode
                                                      epa-key-list-mode
                                                      git-rebase-mode
+                                                     magit-blame-mode
                                                      magit-key-mode
                                                      magit-status-mode)
                                                    evil-emacs-state-modes)
