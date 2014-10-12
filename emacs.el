@@ -86,6 +86,7 @@
               (bind-key "<mouse-9>" 'next-buffer)
               (bind-key "C-x C-M-k" 'kill-matching-buffers)
               (bind-key "C-h C-M-f" 'find-function)
+              (bind-key "C-h C-M-v" 'find-variable)
               (bind-key "C-z C-\\" 'toggle-hiding)
               (bind-key "C-z C--" 'toggle-selective-display)
               (bind-key "C-z C-z" 'suspend-frame)
