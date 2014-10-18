@@ -376,14 +376,12 @@
               ;; Swap Tab and C-z in helm-mode, so Tab executes
               ;; persistent actions, and C-z opens the actions
               ;; menu.
-              (bind-key "<Tab>" 'helm-execute-persistent-action helm-map)
-              (bind-key "C-i" 'helm-execute-persistent-action helm-map)
-              (bind-key "M-x" 'helm-select-action helm-map)
+              (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
+              (bind-key "<C-tab>" 'helm-select-action helm-map)
 
               (bind-key "g" 'helm-google-suggest helm-command-map)
               (bind-key "o" 'helm-occur helm-command-map)
               (bind-key "x" 'helm-register helm-command-map)
-
 
               (setq
                helm-google-suggest-use-curl-p t)))
