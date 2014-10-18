@@ -453,7 +453,7 @@
    (magit
     :defer t
     :diminish magit-auto-revert-mode
-    :commands magit-status
+    :commands (magit-blame-mode magit-status)
     :bind (("C-z v" . magit-status)
            ("C-z m a" . magit-commit-amend)
            ("C-z m b" . magit-blame-mode))
