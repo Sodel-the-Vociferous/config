@@ -380,10 +380,10 @@
               (bind-key "C-i" 'helm-execute-persistent-action helm-map)
               (bind-key "M-x" 'helm-select-action helm-map)
 
+              (bind-key "g" 'helm-google-suggest helm-command-map)
               (bind-key "o" 'helm-occur helm-command-map)
               (bind-key "x" 'helm-register helm-command-map)
 
-              (bind-key "C-z h g" 'helm-google-suggest)
 
               (setq
                helm-google-suggest-use-curl-p t)))
