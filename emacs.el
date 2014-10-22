@@ -235,10 +235,13 @@
                erc-log-channels-directory "~/org/chats/irc/"
                erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
+              (add-to-list 'erc-modules 'hl-nicks)
               (add-to-list 'erc-modules 'notifications)
               (add-to-list 'erc-modules 'track)
               (add-to-list 'erc-modules 'log)
               (add-to-list 'erc-modules 'spelling)))
+   (erc-hl-nicks
+    :defer t)
    (erlang-mod
     :defer t
     :mode "\\.erl\\'"
