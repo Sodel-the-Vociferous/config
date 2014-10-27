@@ -218,6 +218,13 @@
     :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
    (electric
     :init (electric-indent-mode 1))
+   (elfeed
+    :config (progn
+              (elfeed-org)
+              (setq-default elfeed-search-filter "@2-weeks-ago +unread +daily ")))
+   (elfeed-org
+    :defer t
+    :require elfeed)
    (erc
     :defer t
     :bind ("C-z c j" . erc-track-switch-buffer)
@@ -285,6 +292,8 @@
 
               (set-default 'evil-symbol-word-search t)
               (setq evil-emacs-state-modes (append '(term-mode
+                                                     elfeed-search-mode
+                                                     elfeed-show-mode
                                                      epa-key-list-mode
                                                      git-rebase-mode
                                                      magit-blame-mode
