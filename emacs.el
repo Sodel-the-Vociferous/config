@@ -725,6 +725,7 @@
               (bind-key "C-z" 'user-map term-raw-escape-map)
               (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
               (bind-key "<C-right>" 'user/term-send-next-word term-raw-map)
+              (add-hook-progn 'term-mode-hook (term-set-escape-char (kbd "C-z")))
               ;; Terminals in emacs should be able to run tmux, regardless of
               ;; whether or not emacs was started within tmux.
               (setenv "TMUX" "")))
@@ -798,7 +799,8 @@
  )
 
 
-;;;; Configure Vanilla Emacs ;;;;
+
+
 
 ;;; For Time Sheets
 (defun tbl-total-hours-to-money(wage original-string)
