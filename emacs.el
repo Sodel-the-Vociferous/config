@@ -223,6 +223,12 @@
    (elfeed
     :config (progn
               (elfeed-org)
+
+              (defun user/elfeed-search-mark-as-read-and-next ()
+                (interactive)
+                (elfeed-search-untag-all 'unread))
+              (bind-key "N" 'user/elfeed-search-mark-as-read-and-next elfeed-search-mode-map)
+
               (setq-default elfeed-search-filter "@2-weeks-ago +daily +unread ")))
    (elfeed-org
     :defer t
