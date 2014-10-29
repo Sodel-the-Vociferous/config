@@ -120,6 +120,8 @@
     :defer t
     :config (progn
               (add-to-list 'default-frame-alist '(alpha . 100))))
+   (ansi-term-command
+    :init (ansi-term-command-setup-atc-alias))
    (ascii :defer t)
    (asm-mode
     ;; Make comments work better w/ fill-paragraph
