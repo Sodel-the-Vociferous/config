@@ -37,7 +37,6 @@
     <property name="custom" type="empty">
       <property name="XF86Explorer" type="string" value="Thunar"/>
       <property name="&lt;Control&gt;Escape" type="string" value="xfdesktop --menu"/>
-      <property name="XF86LogOff" type="string" value="xfce4-session-logout"/>
       <property name="XF86AudioRaiseVolume" type="string" value="amixer set Master 10%+ -q"/>
       <property name="&lt;Alt&gt;F3" type="string" value="xfce4-appfinder"/>
       <property name="XF86AudioLowerVolume" type="string" value="amixer set Master 10%- -q"/>
@@ -53,8 +52,8 @@
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
       <property name="XF86AudioNext" type="string" value="pragha --next"/>
       <property name="override" type="bool" value="true"/>
-      <property name="&lt;Primary&gt;&lt;Super&gt;l" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;l" type="string" value="xfce4-session-logout --logout --fast"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
