@@ -223,7 +223,7 @@
    (elfeed
     :config (progn
               (elfeed-org)
-              (setq-default elfeed-search-filter "@2-weeks-ago +unread +daily ")))
+              (setq-default elfeed-search-filter "@2-weeks-ago +daily +unread ")))
    (elfeed-org
     :defer t
     :require elfeed)
