@@ -8,9 +8,9 @@ alias hello='ping 192.168.1.1'
 alias startx='TMUX= exec $(which startx)'
 alias tmuxc='~/config/login-scripts/tmux-client.sh'
 
-alias daytime='redshift -x'
-alias nighttime='redshift -o -O3000'
-alias darktime='redshift -o -O1500'
+alias brightscreen='redshift -x'
+alias dimscreen='redshift -o -O3000'
+alias darkscreen='redshift -o -O1500'
 
 alias mrst='mr -j5 st | less'
 alias MPLAB='cd ~/.wine/drive_c/Program\ Files/Microchip/MPLAB\ IDE/Core/; wine MPLAB.exe'
