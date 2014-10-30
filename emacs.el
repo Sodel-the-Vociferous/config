@@ -731,7 +731,7 @@
                   (interactive)
                   (term-send-raw-string "\ef")))
     :config (progn
-              (bind-key "C-z" 'user-map term-raw-escape-map)
+              (bind-key "C-z" 'term-stop-subjob term-raw-escape-map)
               (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
               (bind-key "<C-right>" 'user/term-send-next-word term-raw-map)
               (add-hook-progn 'term-mode-hook (term-set-escape-char (kbd "C-z")))
