@@ -6,7 +6,7 @@ alias ..='cd ..'
 alias potrace='potrace -s'
 alias hello='ping 192.168.1.1'
 alias startx='TMUX= exec $(which startx)'
-alias tmuxc='~/config/login-scripts/tmux-client.sh'
+alias tmuxc='~/config/session-scripts/tmux-client.sh'
 
 alias brightscreen='redshift -x'
 alias dimscreen='redshift -o -O3000'
