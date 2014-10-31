@@ -1,12 +1,16 @@
 "dmenu_run"
     Alt + F2
+
 "xfce4-terminal"
     Menu
-"xfce4-terminal"
-    XF86Calculator
 "xfce4-terminal -e 'sudo -i'"
     Control + Menu
+
+"xfce4-terminal"
+    XF86HomePage
 "xfce4-terminal -e 'sudo -i'"
+    Mod4 + XF86HomePage
+
     Control + XF86Calculator
 "wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz"
     Alt + F5
