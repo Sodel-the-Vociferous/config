@@ -11,7 +11,13 @@
 "xfce4-terminal -e 'sudo -i'"
     Mod4 + XF86HomePage
 
+"emacsclient --eval '(calc)'"
     Control + XF86Calculator
+"emacsclient --eval '(user/ansi-term)'"
+    Control + XF86HomePage
+"emacsclient --eval '(user/ansi-term-sudo-shell)'"
+    Control + Mod4 + XF86HomePage
+
 "wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz"
     Alt + F5
 "~/config/bin/bump-window.sh LEFT"
