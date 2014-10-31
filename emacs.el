@@ -29,6 +29,8 @@
  indent-tabs-mode nil
  tab-width 8)
 
+(setq recentf-save-file "~/.emacs.d/recentf")
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;;; Key Bindings ;;;;
