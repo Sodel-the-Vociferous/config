@@ -734,7 +734,13 @@
               (bind-key "C-z" 'term-stop-subjob term-raw-escape-map)
               (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
               (bind-key "<C-right>" 'user/term-send-next-word term-raw-map)
+
               (add-hook-progn 'term-mode-hook (evil-emacs-state))
+              ;; TODO: make a term-exit-hook instead
+              (defadvice term-handle-exit
+                (after bind-q-to-kill-dead-term activate)
+                (local-set-key (kbd "q") 'kill-this-buffer))
+
               ;; Terminals in emacs should be able to run tmux, regardless of
               ;; whether or not emacs was started within tmux.
               (setenv "TMUX" "")))
