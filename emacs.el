@@ -121,7 +121,13 @@
     :config (progn
               (add-to-list 'default-frame-alist '(alpha . 100))))
    (ansi-term-command
-    :config (ansi-term-command-setup-atc-alias))
+    :config (progn
+
+              (defun user/ansi-term-sudo-shell ()
+                (interactive)
+                (ansi-term-command "sudo" "-i"))
+
+              (ansi-term-command-setup-atc-alias)))
    (ascii :defer t)
    (asm-mode
     ;; Make comments work better w/ fill-paragraph
