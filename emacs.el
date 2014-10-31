@@ -842,3 +842,7 @@
 ;;; Load Private Emacs Config
 (when (file-exists-p "~/personal/personal.el")
   (load "~/personal/personal.el"))
+
+;; I want to start with an ielm buffer open
+(save-window-excursion
+  (ielm))
