@@ -112,8 +112,6 @@
     :bind (("C-z j" . ace-jump-char-mode)
            ("C-z l" . ace-jump-line-mode)
            ("C-z w" . ace-jump-word-mode)))
-   (ace-window
-    :bind ("C-x o" . ace-window))
    (adaptive-wrap :defer t)
    (aes :defer t)
    (alpha
@@ -784,7 +782,15 @@
     :defer t
     :mode "\\.\\(p?html?\\|tpl\\|php\\|jsp\\|as[cp]x\\|erb\\)\\'"
     :config (setq web-mode-disable-auto-pairing nil))
-                                        ;(workgroups)
+   (window-jump
+    :bind (("C-z <C-down>" . window-jump-down)
+           ("C-z <down>" . window-jump-down)
+           ("C-z <C-up>" . window-jump-up)
+           ("C-z <up>" . window-jump-up)
+           ("C-z <C-left>" . window-jump-left)
+           ("C-z <left>" . window-jump-left)
+           ("C-z <C-right>" . window-jump-right)
+           ("C-z <right>" . window-jump-right)))
    (wrap-region)
    (xclip)
    (xt-mouse
