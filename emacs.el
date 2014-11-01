@@ -857,10 +857,10 @@
                      (/ (string-to-number minutes-str) 60.0)))))
     (format "$%.2d" (* hours wage))))
 
-;;; Load Private Emacs Config
-(when (file-exists-p "~/personal/personal.el")
-  (load "~/personal/personal.el"))
-
 ;; I want to start with an ielm buffer open
 (save-window-excursion
   (ielm))
+
+;;; Load Private Emacs Config
+(when (file-exists-p "~/personal/personal.el")
+  (load "~/personal/personal.el"))
