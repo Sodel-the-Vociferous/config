@@ -271,6 +271,11 @@
               (setq
                erlang-root-dir "/usr/lib/erlang"
                exec-path (cons "/usr/lib/erlang/bin" exec-path))))
+   (eshell
+    :defer t
+    :idle (require 'eshell)
+    :bind ("C-z s" . eshell)
+    :config (setq eshell-cmpl-cycle-completions nil))
    (ess
     :defer t
     :commands julia
