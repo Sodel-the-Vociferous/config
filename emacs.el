@@ -750,6 +750,7 @@
               ;; TODO: make a term-exit-hook instead
               (defadvice term-handle-exit
                 (after bind-q-to-kill-dead-term activate)
+                (read-only-mode)
                 (local-set-key (kbd "q") 'kill-this-buffer))
 
               ;; Terminals in emacs should be able to run tmux, regardless of
