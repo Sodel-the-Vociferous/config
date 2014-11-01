@@ -756,7 +756,7 @@
               (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
               (bind-key "<C-right>" 'user/term-send-next-word term-raw-map)
 
-              (add-hook-progn 'term-mode-hook (evil-emacs-state))
+              (add-hook-progn 'term-mode-hook (evil-local-mode -1))
               ;; TODO: make a term-exit-hook instead
               (defadvice term-handle-exit
                 (after bind-q-to-kill-dead-term activate)
