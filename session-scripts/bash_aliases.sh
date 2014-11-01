@@ -15,6 +15,8 @@ alias darkscreen='redshift -o -O1500'
 alias mrst='mr -j5 st | less'
 alias MPLAB='cd ~/.wine/drive_c/Program\ Files/Microchip/MPLAB\ IDE/Core/; wine MPLAB.exe'
 
+alias eshell='emacsclient --eval "(eshell t)"'
+
 #Games
 alias homeworld2='cd ~/.wine/drive_c/Program\ Files/Sierra/Homeworld2/Bin/Release/; wine Homeworld2.exe -nopbuffer'
 alias homeworld='cd ~/.wine/drive_c/Sierra/Homeworld/; wine homeworld.exe /dsoundCoop'
