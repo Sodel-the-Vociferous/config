@@ -13,7 +13,7 @@
 
 "emacsclient --eval '(calc)'"
     Control + XF86Calculator
-"emacsclient --eval '(user/ansi-term)'"
+"emacsclient --eval '(eshell t)'"
     Control + XF86HomePage
 "emacsclient --eval '(user/ansi-term-sudo-shell)'"
     Control + Mod4 + XF86HomePage
