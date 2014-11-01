@@ -275,7 +275,17 @@
     :defer t
     :idle (require 'eshell)
     :bind ("C-z s" . eshell)
-    :config (setq eshell-cmpl-cycle-completions nil))
+    :config (progn
+              (setq eshell-cmpl-cycle-completions t)
+
+              (add-hook-progn
+               'eshell-mode-hook
+
+               (evil-local-mode -1)
+               (company-mode -1)
+
+               (bind-key "TAB" 'helm-esh-pcomplete eshell-mode-map)
+               (bind-key "<tab>" 'helm-esh-pcomplete eshell-mode-map))))
    (ess
     :defer t
     :commands julia
