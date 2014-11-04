@@ -33,8 +33,7 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;;; Key Bindings ;;;;
-
+(setq sentence-end-double-space nil)
 
 ;;; Configure Package.el And El-Get ;;;;
 
