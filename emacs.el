@@ -343,11 +343,6 @@
     :require evil
     :init (evil-matchit-mode 1))
    (evil-leader :require evil)
-   (evil-org
-    :defer t
-    :require (evil evil-leader)
-    :init (add-hook-progn 'org-mode-hook
-                          (require 'evil-org)))
    (evil-nerd-commenter :require evil)
    (evil-surround
     :require evil
