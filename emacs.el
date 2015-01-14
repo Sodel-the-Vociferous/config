@@ -31,8 +31,6 @@
 
 (setq recentf-save-file "~/.emacs.d/recentf")
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 (setq sentence-end-double-space nil)
 
 ;;; Configure Package.el And El-Get ;;;;
@@ -806,6 +804,8 @@
            ("C-z <C-right>" . window-jump-right)
            ("C-z <right>" . window-jump-right)))
    (wrap-region)
+   (ws-butler
+    :init (ws-butler-global-mode))
    (xclip)
    (xt-mouse
     :if (not window-system)
