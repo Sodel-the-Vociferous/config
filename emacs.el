@@ -403,8 +403,7 @@
            ("C-x C-f" . helm-find-files)
            ("C-h a" . helm-apropos)
            ("C-z <C-SPC>" . helm-all-mark-rings)
-           ("C-z r" . helm-regexp)
-           ("C-z o" . helm-occur))
+           ("C-z r" . helm-regexp))
     :pre-load (setq helm-command-prefix-key "C-z h")
     :init (helm-mode 1)
     :config (progn
@@ -465,6 +464,10 @@
    (helm-projectile
     :require projectile
     :init (helm-projectile-on))
+   (helm-swoop
+    :bind ("C-z o" . helm-swoop)
+    ;; I don't want swoop to auto-insert the symbol under my cursor.
+    :init (setq helm-swoop-pre-input-function (lambda ())))
    (inline-crypt
     :commands (inline-crypt-decrypt-region
                inline-crypt-decrypt-string
