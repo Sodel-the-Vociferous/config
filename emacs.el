@@ -808,7 +808,10 @@
            ("C-z <right>" . window-jump-right)))
    (wrap-region)
    (ws-butler
-    :init (ws-butler-global-mode))
+    :diminish (ws-butler-mode highlight-changes-mode)
+    ;; ws-butler breaks emacs if it's run before the emacs window
+    ;; starts.
+    :config (add-hook 'window-setup-hook 'ws-butler-global-mode))
    (xclip)
    (xt-mouse
     :if (not window-system)
