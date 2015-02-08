@@ -55,28 +55,28 @@
 
 (setq
  init-pkgs-to-req
- '((el-get
-    :defer t
-    :config (progn
-              (require 'el-get-custom)
-              (setq el-get-verbose t)
+ '(
+   ;; (el-get
+   ;;  :defer t
+   ;;  :config (progn
+   ;;            (require 'el-get-custom)
+   ;;            (setq el-get-verbose t)
 
-              (let ((dir (file-name-directory el-get-status-file)))
-                (unless (file-exists-p dir)
-                  (make-directory dir)))
+   ;;            (let ((dir (file-name-directory el-get-status-file)))
+   ;;              (unless (file-exists-p dir)
+   ;;                (make-directory dir)))
 
-              ;; Sync El-Get Packages
-              (setq el-get-sources
-                    '((:name cedet :lazy t)
-                      (:name bbdb
-                             :branch "bbdb_2.35"
-                             :info nil
-                             :features bbdb-autoloads
-                             :build '("autoconf" "./configure" "make all"))))
-              (setq user/el-get-packages
-                    (mapcar 'el-get-source-name el-get-sources))
-              ;(el-get 'sync user/el-get-packages)
-              ))
+   ;;            ;; Sync El-Get Packages
+   ;;            (setq el-get-sources
+   ;;                  '((:name cedet :lazy t)
+   ;;                    (:name bbdb
+   ;;                           :branch "bbdb_2.35"
+   ;;                           :info nil
+   ;;                           :features bbdb-autoloads
+   ;;                           :build '("autoconf" "./configure" "make all"))))
+   ;;            (setq user/el-get-packages
+   ;;                  (mapcar 'el-get-source-name el-get-sources))
+   ;;            (el-get 'sync user/el-get-packages)))
    (bind-key
     :config (progn
               (unbind-key "C-z")
