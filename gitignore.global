@@ -9,6 +9,7 @@
 *.tbz
 *.beam
 *.fcstd1
+*.FCStd.*
 GPATH
 GTAGS
 GRTAGS
