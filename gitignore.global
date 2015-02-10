@@ -10,6 +10,10 @@
 *.beam
 *.fcstd1
 *.FCStd.*
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
 GPATH
 GTAGS
 GRTAGS
