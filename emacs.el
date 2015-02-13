@@ -136,7 +136,7 @@
    (async-bytecomp :require async)
    (auctex
     :defer t
-    :mode "\\.tex\\'"
+    :mode ("\\.tex\\'" . LaTeX-mode)
     :config (progn
               (require 'tex)
               (require 'tex-site)
