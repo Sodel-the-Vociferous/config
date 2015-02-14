@@ -225,6 +225,7 @@
    (electric
     :init (electric-indent-mode 1))
    (elfeed
+    :require elfeed-org
     :config (progn
               (elfeed-org)
 
@@ -238,7 +239,7 @@
               (setq-default elfeed-search-filter "@2-weeks-ago +unread +daily ")))
    (elfeed-org
     :defer t
-    :require elfeed)
+    :commands elfeed-org)
    (erc
     :defer t
     :bind ("C-z c j" . erc-track-switch-buffer)

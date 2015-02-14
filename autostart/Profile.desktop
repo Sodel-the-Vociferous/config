@@ -1,12 +1,10 @@
 [Desktop Entry]
-Encoding=UTF-8
-Version=0.9.4
-Type=Application
-Name=Profile
 Comment=
+Encoding=UTF-8
 Exec=/home/dralston/.profile
+Name=Profile
 OnlyShowIn=XFCE;
 StartupNotify=false
 Terminal=false
-Hidden=true
-
+Type=Application
+Version=0.9.4
