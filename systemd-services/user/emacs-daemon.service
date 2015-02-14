@@ -1,0 +1,13 @@
+[Unit]
+Description=Emacs Daemon: the extensible, self-documenting text editor
+
+[Service]
+Type=forking
+ExecStart=/home/dralston/config/session-scripts/emacs--daemon.sh
+ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
+Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+Restart=always
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target

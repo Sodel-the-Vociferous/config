@@ -84,3 +84,6 @@ ensure_symlink ~/tmp ~/Downloads
 ensure_symlink ~/music ~/Music
 ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
+
+# User Systemd
+ensure_symlink ~/config/systemd-services/user ~/.config/systemd/user
