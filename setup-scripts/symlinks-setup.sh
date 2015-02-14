@@ -27,7 +27,6 @@ ensure_symlink ~/config/tmux.conf ~/.tmux.conf
 ## X Config
 
 ensure_symlink ~/config/xbindkeysrc ~/.xbindkeysrc
-ensure_symlink ~/config/xinitrc.sh ~/.xinitrc
 ensure_symlink ~/config/xsession.sh ~/.xsession
 ensure_symlink ~/config/Xdefaults ~/.Xdefaults
 
