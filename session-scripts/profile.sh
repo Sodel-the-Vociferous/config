@@ -5,8 +5,8 @@
 ## Language
 LC_COLLATE=C
 export LC_COLLATE
-LANG=en_CA.UTF-8
-export LANG
+# LANG=en_CA.UTF-8
+# export LANG
 
 ## Environment Variables ##
 
@@ -21,14 +21,6 @@ export ALTERNATE_EDITOR
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
 export LD_LIBRARY_PATH
-GTK_PATH=/opt/lib32/usr/lib/gtk-2.0/
-export GTK_PATH
-PANGO_RC_FILE="/opt/lib32/config/pango/pangorc"
-export PANGO_RC_FILE
-GCONV_PATH=/opt/lib32/usr/lib/gconv
-export GCONV_PATH
-GDK_PIXBUF_MODULE_FILE="/opt/lib32/config/gdk/gdk-pixbuf.loaders"
-export GDK_PIXBUF_MODULE_FILE
 PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/games"
 export PATH
 STOW_DIR="/usr/local/stow"
