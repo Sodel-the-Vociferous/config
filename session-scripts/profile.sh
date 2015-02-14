@@ -55,10 +55,7 @@ export GTAGSLIBPATH
 
 # Start emacs daemon if one isn't already running
 [ ! $OS = Windows_NT ] &&
-pgrep ^emacs$ |
-xargs --no-run-if-empty ps -fp |
-tail -n +2 |
-grep -e --daemon > /dev/null ||
+pgrep -f "emacs(-gtk)? --daemon" |
 nohup emacs --daemon &> /dev/null &
 
 # Start dropbox
