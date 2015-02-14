@@ -2,6 +2,8 @@
 #
 # Executed at session startup
 
+export TMUX=
+
 cd ~;
 
 already_running () {
