@@ -76,6 +76,7 @@ ensure_symlink ~/config/gpg.conf ~/.gnupg/gpg.conf
 
 ## Other Config
 
+ensure_symlink ~/config/LibreCAD.conf ~/.config/LibreCAD/LibreCAD.conf
 ensure_symlink ~/config/keysnail.js ~/.keysnail.js
 ensure_symlink ~/config/minirc.dfl ~/.minirc.dfl
 ensure_symlink ~/config/nethackrc ~/.nethackrc
