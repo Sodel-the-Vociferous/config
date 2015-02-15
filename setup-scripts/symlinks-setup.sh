@@ -52,6 +52,9 @@ ensure_symlink ~/config/kde/ktimezonedrc ~/.config/ktimezonedrc
 ensure_symlink ~/config/kde/kwinrc ~/.config/kwinrc
 ensure_symlink ~/config/kde/plasmarc ~/.config/plasmarc
 
+ensure_symlink ~/config/konsolerc ~/.kde4/share/config/konsolerc
+ensure_symlink ~/config/konquerorrc ~/.kde4/share/config/konquerorrc
+
 ## Git Config
 
 ensure_symlink ~/config/gitattributes ~/.gitattributes

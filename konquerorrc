@@ -1,0 +1,30 @@
+[FMSettings]
+AlwaysTabbedMode=false
+KonquerorTabforExternalURL=false
+MMBOpensTab=true
+MouseMiddleClickClosesTab=false
+NewTabsInFront=false
+OpenAfterCurrentPage=false
+PermanentCloseButton=true
+PopupsWithinTabs=false
+TabCloseActivatePrevious=false
+
+[HTML Settings]
+AutomaticDetectionLanguage=1
+
+[KPropertiesDialog]
+Height 1024=459
+Width 1280=461
+
+[SearchBar]
+CompletionMode=5
+CurrentEngine=google
+History list=\\0
+Mode=1
+SuggestionEnabled=true
+
+[Undo]
+Number of Closed Windows=7
+
+[UserSettings]
+HomeURL=file:///home/dralston
