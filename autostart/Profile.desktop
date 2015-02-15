@@ -2,6 +2,7 @@
 Comment=
 Encoding=UTF-8
 Exec=/home/dralston/.profile
+Hidden=false
 Name=Profile
 OnlyShowIn=XFCE;
 StartupNotify=false
