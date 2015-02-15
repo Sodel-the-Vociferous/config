@@ -52,7 +52,9 @@ ensure_symlink ~/config/kde/ktimezonedrc ~/.config/ktimezonedrc
 ensure_symlink ~/config/kde/kwinrc ~/.config/kwinrc
 ensure_symlink ~/config/kde/plasmarc ~/.config/plasmarc
 
-ensure_symlink ~/config/konsolerc ~/.kde4/share/config/konsolerc
+ensure_symlink ~/config/konsole/konsolerc ~/.kde4/share/config/konsolerc
+ensure_symlink ~/config/konsole/Shell.profile ~/.kde4/share/apps/konsole/Shell.profile
+ensure_symlink ~/config/konsole/WhiteOnBlack.colorscheme ~/.kde4/share/apps/konsole/WhiteOnBlack.colorscheme
 ensure_symlink ~/config/konquerorrc ~/.kde4/share/config/konquerorrc
 
 ## Git Config
