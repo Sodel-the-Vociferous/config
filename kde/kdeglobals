@@ -135,6 +135,7 @@ BrowserApplication=firefox
 BrowserApplication=firefox
 ColorScheme=Breeze Dark
 Name=Breeze
+TerminalApplication[$e]=konsole
 XftAntialias=true
 XftHintStyle=hintfull
 XftSubPixel=none

@@ -20,7 +20,7 @@ _k_friendly_name=khotkeys
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 
 [kmix]
-_k_friendly_name=KMix
+_k_friendly_name=kmix
 decrease_volume=Volume Down,Volume Down,Decrease Volume
 increase_volume=Volume Up,Volume Up,Increase Volume
 mute=Volume Mute,Volume Mute,Mute
@@ -187,6 +187,7 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 [plasmashell]
 _k_friendly_name=plasmashell
 activate widget 2=Alt+F1,none,Activate Application Menu Widget
+activate widget 4=none,none,Activate Task Manager Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
