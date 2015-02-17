@@ -225,16 +225,13 @@
    (electric
     :init (electric-indent-mode 1))
    (elfeed
-    :require elfeed-org
     :config (progn
-              (elfeed-org)
-
               (bind-key "q" 'kill-this-buffer elfeed-search-mode-map)
 
               (setq elfeed-sort-order 'ascending)
               (setq-default elfeed-search-filter "@2-weeks-ago +unread +daily ")))
    (elfeed-org
-    :commands elfeed-org)
+    :config (elfeed-org))
    (erc
     :defer t
     :bind ("C-z c j" . erc-track-switch-buffer)
