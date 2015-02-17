@@ -82,6 +82,7 @@
       <property name="names-visible" type="array">
         <value type="string" value="thunar"/>
         <value type="string" value="vlc"/>
+        <value type="string" value="redshift-gtk"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="task manager"/>
         <value type="string" value="wicd-client.py"/>
@@ -95,6 +96,7 @@
         <value type="string" value="ibus panel"/>
         <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
+        <value type="string" value="software updates"/>
         <value type="string" value="liferea"/>
         <value type="string" value="abrt"/>
         <value type="string" value="opera"/>
