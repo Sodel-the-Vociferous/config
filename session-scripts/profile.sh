@@ -15,8 +15,10 @@ EDITOR=emacsclient
 export EDITOR
 VISUAL=$EDITOR
 export VISUAL
-ALTERNATE_EDITOR=
-export ALTERNATE_EDITOR
+
+[[ $OS = Windows_NT ]] &&
+(ALTERNATE_EDITOR=
+ export ALTERNATE_EDITOR)
 
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
