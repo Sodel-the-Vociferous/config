@@ -118,14 +118,14 @@
     :defer t
     :config (progn
               (add-to-list 'default-frame-alist '(alpha . 100))))
-   (ansi-term-command
-    :config (progn
+   ;; (ansi-term-command
+   ;;  :config (progn
 
-              (defun user/ansi-term-sudo-shell ()
-                (interactive)
-                (ansi-term-command "sudo" "-i"))
+   ;;            (defun user/ansi-term-sudo-shell ()
+   ;;              (interactive)
+   ;;              (ansi-term-command "sudo" "-i"))
 
-              (ansi-term-command-setup-atc-alias)))
+   ;;            (ansi-term-command-setup-atc-alias)))
    (ascii :defer t)
    (asm-mode
     ;; Make comments work better w/ fill-paragraph
