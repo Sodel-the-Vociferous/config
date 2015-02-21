@@ -16,10 +16,6 @@ export EDITOR
 VISUAL=$EDITOR
 export VISUAL
 
-[[ $OS = Windows_NT ]] &&
-(ALTERNATE_EDITOR=
- export ALTERNATE_EDITOR)
-
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
 export LD_LIBRARY_PATH
@@ -48,23 +44,9 @@ export GTAGSLABEL
 GTAGSLIBPATH=~/src/navsim/RG5/lib/
 export GTAGSLIBPATH
 
-## Start Programs/Daemons
+# Use keychain as a GPG and SSH agent.
+eval $(keychain --inherit local-once --quiet --eval)
 
-# Use keychain as a GPG and SSH agent, sending debug output to
-# /dev/null instead of barfing on the login shell. (Only do this if
-# there isn't already a GPG/SSH Agent accessible.)
-[ "$SSH_AGENT" ] || eval $(keychain --eval --agents ssh,gpg 2> /dev/null)
-
-# Start emacs daemon if one isn't already running
-[ ! $OS = Windows_NT ] &&
-pgrep -f "emacs(-gtk)? --daemon" |
-nohup emacs --daemon &> /dev/null &
-
-# Start dropbox
-#nohup dropbox start &> /dev/null &
-
-# Start pulseaudio
-which pulseaudio &> /dev/null &&
-pulseaudio --start &> /dev/null &
-
-[[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
+# If there's no user systemd, run the supplemental script.
+pgrep -l -u $(whoami) -f "systemd .*--user" ||
+    source ~/.no_user_systemd.sh
