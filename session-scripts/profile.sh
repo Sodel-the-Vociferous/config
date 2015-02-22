@@ -48,5 +48,5 @@ export GTAGSLIBPATH
 eval $(keychain --inherit local-once --quiet --eval)
 
 # If there's no user systemd, run the supplemental script.
-pgrep -l -u $(whoami) -f "systemd .*--user" ||
+pgrep -l -u $(whoami) -f "systemd .*--user" >/dev/null ||
     source ~/.no_user_systemd.sh
