@@ -756,6 +756,7 @@
               ;; Terminals in emacs should be able to run tmux, regardless of
               ;; whether or not emacs was started within tmux.
               (setenv "TMUX" "")))
+   (term-run)
    (tidy
     :defer t
     :commands tidy-buffer
