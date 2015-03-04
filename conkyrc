@@ -128,6 +128,7 @@ ${color light blue}RAM:${color} $memmax
  $mem ($memperc%)
  ${membar 5,90}
 ${color light blue}CPU:${color} ${freq} MHz
+ ${cpugraph cpu0 20,94}
  ${cpugraph cpu1 20,45} ${cpugraph cpu2 20,45}
  ${cpugraph cpu3 20,45} ${cpugraph cpu4 20,45}
 ${stippled_hr 100 1}
