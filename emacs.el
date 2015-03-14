@@ -134,14 +134,14 @@
                                  "^\\s-*;+.*$")))
    (async)
    (async-bytecomp :require async)
-   (auctex
-    :defer t
-    :mode ("\\.tex\\'" . LaTeX-mode)
-    :config (progn
-              (require 'tex)
-              (require 'tex-site)
-              (require 'preview)
-              (add-hook 'LaTeX-mode-hook 'outline-minor-mode)))
+   ;; (auctex
+   ;;  :defer t
+   ;;  :mode ("\\.tex\\'" . LaTeX-mode)
+   ;;  :config (progn
+   ;;            (require 'tex)
+   ;;            (require 'tex-site)
+   ;;            (require 'preview)
+   ;;            (add-hook 'LaTeX-mode-hook 'outline-minor-mode)))
    (auctex-latexmk :defer t)
    (auto-dim-other-buffers
     :diminish auto-dim-other-buffers-mode
