@@ -85,6 +85,7 @@ ensure_symlink ~/config/newsbeuter.conf ~/.newsbeuter/config
 ensure_symlink ~/config/redshift.conf ~/.config/redshift.conf
 ensure_symlink ~/config/screenrc ~/.screenrc
 ensure_symlink ~/config/moc/config ~/.moc/config
+ensure_symlink ~/config/zdoom.ini ~/.config/zdoom/zdoom.ini
 
 # Application Definitions
 
