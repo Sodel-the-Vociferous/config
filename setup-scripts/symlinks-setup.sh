@@ -82,6 +82,7 @@ ensure_symlink ~/config/keysnail.js ~/.keysnail.js
 ensure_symlink ~/config/minirc.dfl ~/.minirc.dfl
 ensure_symlink ~/config/nethackrc ~/.nethackrc
 ensure_symlink ~/config/newsbeuter.conf ~/.newsbeuter/config
+ensure_symlink ~/config/prboom-plus.cfg ~/.prboom-plus/prboom-plus.cfg
 ensure_symlink ~/config/redshift.conf ~/.config/redshift.conf
 ensure_symlink ~/config/screenrc ~/.screenrc
 ensure_symlink ~/config/moc/config ~/.moc/config
