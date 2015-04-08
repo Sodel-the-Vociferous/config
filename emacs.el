@@ -96,9 +96,9 @@
    (benchmark-init
     :init (benchmark-init/activate))
    (auto-compile
-    :config (progn
-              (auto-compile-on-save-mode)
-              (auto-compile-on-load-mode)))))
+    :init (progn
+            (auto-compile-on-save-mode)
+            (auto-compile-on-load-mode)))))
 
 (req-packages init-pkgs-to-req)
 (req-package-finish)
@@ -145,7 +145,7 @@
    (auctex-latexmk :defer t)
    (auto-dim-other-buffers
     :diminish auto-dim-other-buffers-mode
-    :config (auto-dim-other-buffers-mode))
+    :init (auto-dim-other-buffers-mode))
    (autorevert
     :init (global-auto-revert-mode t))
    (auto-compile)
@@ -174,7 +174,7 @@
               ;; autocompletion candidate when I just want to start a
               ;; new line. Unbinding <return> means I can still use
               ;; <tab> for that purpose.
-              (unbind-key (kbd "RET") company-active-map)
+              (unbind-key "RET" company-active-map)
               (unbind-key "<return>" company-active-map)
 
               (setq
@@ -265,7 +265,7 @@
                exec-path (cons "/usr/lib/erlang/bin" exec-path))))
    (eshell
     :defer t
-    :idle (require 'eshell)
+    ;; :idle (require 'eshell)
     :bind ("C-z s" . eshell)
     :config (progn
               (setq eshell-cmpl-cycle-completions t)
@@ -288,8 +288,9 @@
                ess-ask-for-ess-directory nil)))
    (evil
     :bind ("TAB" . evil-indent)
-    :pre-load (setq evil-toggle-key "C-`")
-    :init (evil-mode 1)
+    :init (progn
+            (setq evil-toggle-key "C-`")
+            (evil-mode 1))
     :config (progn
               (unbind-key "q" evil-normal-state-map)
 
@@ -300,17 +301,17 @@
               (bind-key "C-g" 'evil-normal-state evil-insert-state-map)
               (bind-key "C-c" 'evil-normal-state evil-visual-state-map)
 
-              (unbind-key (kbd "C-e") evil-motion-state-map)
+              (unbind-key "C-e" evil-motion-state-map)
 
-              (bind-key (kbd "C-c") 'evil-exit-visual-state evil-visual-state-map)
-              (unbind-key (kbd "M-.") evil-normal-state-map)
+              (bind-key "C-c" 'evil-exit-visual-state evil-visual-state-map)
+              (unbind-key "M-." evil-normal-state-map)
 
               ;; For gtags
-              (unbind-key (kbd "M-.") evil-visual-state-map)
-              (unbind-key (kbd "C-y") evil-motion-state-map)
+              (unbind-key "M-." evil-visual-state-map)
+              (unbind-key "C-y" evil-motion-state-map)
 
               ;; For helm
-              (unbind-key (kbd "C-y") evil-insert-state-map)
+              (unbind-key "C-y" evil-insert-state-map)
 
               (set-default 'evil-symbol-word-search t)
               (setq evil-emacs-state-modes (append '(term-mode
@@ -335,6 +336,10 @@
     :init (evil-matchit-mode 1))
    (evil-leader :require evil)
    (evil-nerd-commenter :require evil)
+   ;; (evil-rsi
+   ;;  :require evil
+   ;;  :diminish evil-rsi-mode
+   ;;  :init (evil-rsi-mode))
    (evil-surround
     :require evil
     :init (global-evil-surround-mode 1))
@@ -350,10 +355,11 @@
    (flylisp
     :defer t
     :commands flylisp-mode
-    :pre-load (defun enable-flylisp-mode ()
-                (interactive)
-                (flylisp-mode 1))
     :init (progn
+            (defun enable-flylisp-mode ( )
+              (interactive) 
+              (flylisp-mode 1))
+            
             (add-hook 'emacs-lisp-mode-hook 'enable-flylisp-mode)
             (add-hook 'lisp-mode-hook 'enable-flylisp-mode)))
    (flyspell
@@ -381,7 +387,7 @@
    (haskell-mode
     :defer t
     :mode "\\.hs\\'"
-    :config (progn
+    :init (progn
               (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
               (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
               (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
@@ -397,10 +403,12 @@
            ("C-h a" . helm-apropos)
            ("C-z <C-SPC>" . helm-all-mark-rings)
            ("C-z r" . helm-regexp))
-    :pre-load (setq helm-command-prefix-key "C-z h")
-    :init (helm-mode 1)
+    :init (progn
+            (setq helm-command-prefix-key "C-z h")
+            (helm-mode 1))
     :config (progn
               (require 'helm-config)
+
               ;; Swap Tab and C-z in helm-mode, so Tab executes
               ;; persistent actions, and C-z opens the actions
               ;; menu.
@@ -523,12 +531,12 @@
            ("C-z C-o o" . org-clock-out)
            ("C-z C-o <C-right>" . org-demote-subtree)
            ("C-z C-o <C-left>" . org-promote-subtree))
-    :idle (require 'org)
-    :pre-load (defun user/org-iswitchb-agenda ()
-                "call `org-iswitchb' with two prefix args, restricting selection
-                              to agenda files."
-                (interactive)
-                (org-iswitchb 14))
+    ;; :idle (require 'org)
+    :init (defun user/org-iswitchb-agenda ()
+            "call `org-iswitchb' with two prefix args, restricting selection
+            to agenda files."
+            (interactive)
+            (org-iswitchb 14))
     :config (progn
               ;; (require 'org-journal)
               ;; (require 'org-toc)
@@ -687,8 +695,9 @@
    (popup :defer t)
    (projectile
     :bind ("s-%" . projectile-replace)
-    :pre-load (setq projectile-keymap-prefix (kbd "C-z p"))
-    :init (projectile-global-mode 1)
+    :init (progn
+            (setq projectile-keymap-prefix (kbd "C-z p"))
+            (projectile-global-mode 1))
     :config (setq projectile-switch-project-action 'projectile-dired))
    (pyflakes :defer t)
    (pylint
@@ -729,18 +738,18 @@
    (ssh-config-mode :defer t)
    (term
     :bind ("C-z t" . user/ansi-term)
-    :pre-load (progn
-                (defun user/ansi-term ()
-                  (interactive)
-                  (ansi-term "/bin/bash" "shell"))
+    :init (progn
+            (defun user/ansi-term ()
+              (interactive)
+              (ansi-term "/bin/bash" "shell"))
 
-                (defun user/term-send-prev-word ()
-                  (interactive)
-                  (term-send-raw-string "\eb"))
+            (defun user/term-send-prev-word ()
+              (interactive)
+              (term-send-raw-string "\eb"))
 
-                (defun user/term-send-next-word ()
-                  (interactive)
-                  (term-send-raw-string "\ef")))
+            (defun user/term-send-next-word ()
+              (interactive)
+              (term-send-raw-string "\ef")))
     :config (progn
               (bind-key "C-z" 'term-stop-subjob term-raw-escape-map)
               (bind-key "<C-left>" 'user/term-send-prev-word term-raw-map)
@@ -802,10 +811,10 @@
            ("C-z <right>" . window-jump-right)))
    (wrap-region)
    (ws-butler
-    :diminish (ws-butler-mode highlight-changes-mode)
+    :diminish (ws-butler-mode)
     ;; ws-butler breaks emacs if it's run before the emacs window
     ;; starts.
-    :config (add-hook 'window-setup-hook 'ws-butler-global-mode))
+    :init (add-hook 'window-setup-hook 'ws-butler-global-mode))
    (xclip)
    (xt-mouse
     :if (not window-system)
@@ -814,9 +823,8 @@
    (yasnippet :defer t)
    (zenburn-theme
     :require color-theme
-    :config (progn
-              (load-theme 'zenburn t)
-              (set-face-background 'region "dark slate gray")))))
+    :init (load-theme 'zenburn t)
+    :config (set-face-background 'region "dark slate gray"))))
 
 (req-packages pkgs-to-req)
 (req-package-finish)
