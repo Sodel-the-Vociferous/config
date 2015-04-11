@@ -96,6 +96,7 @@
         <value type="string" value="ibus panel"/>
         <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
+        <value type="string" value="kgpg"/>
         <value type="string" value="software updates"/>
         <value type="string" value="liferea"/>
         <value type="string" value="elmergui"/>
