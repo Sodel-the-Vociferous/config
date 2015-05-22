@@ -45,7 +45,10 @@ GTAGSLIBPATH=~/src/navsim/RG5/lib/
 export GTAGSLIBPATH
 
 # Connect to dbus
+unset DBUS_SESSION_BUS_ADDRESS
+dbus-launch --autolaunch $(cat /etc/machine-id) 2>&1 >> ~/dbl.txt
 eval $(dbus-launch --autolaunch $(cat /etc/machine-id))
+export DBUS_SESSION_BUS_ADDRESS
 
 # Use keychain as a GPG and SSH agent.
 eval $(keychain --inherit local-once --quiet --eval)

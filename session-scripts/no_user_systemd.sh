@@ -12,5 +12,8 @@ nohup emacs --daemon &> /dev/null &
 which pulseaudio &> /dev/null &&
 pulseaudio --start &> /dev/null &
 
+unset $DBUS_SESSION_BUS_ADDRESS
+eval $(dbus-launch --sh-syntax --autolaunch $(cat /etc/machine-id))
+
 # Make sure a dying shell doesn't kill these background processes.
 [[ "$(echo $SHELL | grep /bin/bash)" ]] && disown -a
