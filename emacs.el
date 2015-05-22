@@ -469,6 +469,7 @@
     :bind ("C-z o" . helm-swoop)
     ;; I don't want swoop to auto-insert the symbol under my cursor.
     :init (setq helm-swoop-pre-input-function (lambda ())))
+   (helm-unicode)
    (inline-crypt
     :commands (inline-crypt-decrypt-region
                inline-crypt-decrypt-string
