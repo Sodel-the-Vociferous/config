@@ -498,7 +498,9 @@
     :bind (("C-z v" . magit-status)
            ("C-z m a" . magit-commit-amend)
            ("C-z m b" . magit-blame-mode))
-    :init (setq magit-status-buffer-switch-function 'switch-to-buffer))
+    :init (setq
+           magit-status-buffer-switch-function 'switch-to-buffer
+           magit-last-seen-setup-instructions "1.4.0"))
    (markdown-mode
     :defer t
     :mode "\\.md\\'"
