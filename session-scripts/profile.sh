@@ -15,6 +15,8 @@ EDITOR=emacsclient
 export EDITOR
 VISUAL=$EDITOR
 export VISUAL
+ALTERNATE_EDITOR=
+export ALTERNATE_EDITOR
 
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
@@ -45,14 +47,27 @@ GTAGSLIBPATH=~/src/navsim/RG5/lib/
 export GTAGSLIBPATH
 
 # Connect to dbus
-unset DBUS_SESSION_BUS_ADDRESS
-dbus-launch --autolaunch $(cat /etc/machine-id) 2>&1 >> ~/dbl.txt
-eval $(dbus-launch --autolaunch $(cat /etc/machine-id))
-export DBUS_SESSION_BUS_ADDRESS
+[[ -z $DBUS_SESSION_BUS_ADDRESS ]] &&
+    which dbus-launch @> /dev/null &&
+    eval $(dbus-launch --sh-syntax --autolaunch $(cat /etc/machine-id))
 
 # Use keychain as a GPG and SSH agent.
 eval $(keychain --inherit local-once --quiet --eval)
 
-# If there's no user systemd, run the supplemental script.
-pgrep -l -u $(whoami) -f "systemd .*--user" >/dev/null ||
-    source ~/.no_user_systemd.sh
+# Start emacs daemon if one isn't already running
+if [[ $OS = Windows_NT ]]
+then
+    EMACSD=emacs
+else
+    EMACSD=emacs-x11
+fi
+
+pgrep -f "emacs(-gtk|-x11|-w32)? --daemon" &>/dev/null ||
+nohup $EMACSD --daemon &> /dev/null &
+
+# Start pulseaudio
+which pulseaudio &> /dev/null &&
+pulseaudio --start &> /dev/null &
+
+# Make sure a dying shell doesn't kill these background processes.
+[[ $SHELL = /bin/bash ]] && disown -a
