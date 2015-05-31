@@ -48,7 +48,7 @@ export GTAGSLIBPATH
 
 # Connect to dbus
 [[ -z $DBUS_SESSION_BUS_ADDRESS ]] &&
-    which dbus-launch @> /dev/null &&
+    [[ -e /etc/machine-id ]] &&
     eval $(dbus-launch --sh-syntax --autolaunch $(cat /etc/machine-id))
 
 # Use keychain as a GPG and SSH agent.
