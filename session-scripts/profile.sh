@@ -52,7 +52,7 @@ export GTAGSLIBPATH
     eval $(dbus-launch --sh-syntax --autolaunch $(cat /etc/machine-id))
 
 # Use keychain as a GPG and SSH agent.
-eval $(keychain --inherit local-once --quiet --eval)
+eval $(keychain --inherit local-once --quiet --eval 2>/dev/null)
 
 # Start emacs daemon if one isn't already running
 if [[ $OS = Windows_NT ]]
