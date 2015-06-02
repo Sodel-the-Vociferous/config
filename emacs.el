@@ -27,7 +27,7 @@
 (set-face-attribute 'default nil :height 130)
 (setq-default
  indent-tabs-mode nil
- tab-width 8)
+ tab-width 4)
 
 (setq recentf-save-file "~/.emacs.d/recentf")
 
