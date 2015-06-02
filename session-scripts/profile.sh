@@ -25,6 +25,10 @@ export ALTERNATE_EDITOR
 EMACS_TOOLKIT=x11
 export EMACS_TOOLKIT
 
+# GET OUT OF MY FACE
+PINENTRY_USER_DATA="USE_CURSES=1"
+export PINENTRY_USER_DATA
+
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
 export LD_LIBRARY_PATH
