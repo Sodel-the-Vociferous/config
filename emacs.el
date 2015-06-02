@@ -401,7 +401,8 @@
            ("C-x C-b" . helm-mini)
            ("C-x C-f" . helm-find-files)
            ("C-h a" . helm-apropos)
-           ("C-z <C-SPC>" . helm-all-mark-rings)
+           ("C-z <C-SPC>" . helm-mark-ring)
+           ("C-z <C-SPC>" . helm-global-mark-ring)
            ("C-z r" . helm-regexp))
     :init (progn
             (setq helm-command-prefix-key "C-z h")
