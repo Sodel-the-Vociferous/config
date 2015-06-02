@@ -545,6 +545,8 @@
               ;; (require 'org-journal)
               ;; (require 'org-toc)
 
+              (add-hook-progn 'org-mode-hook (flycheck-mode -1))
+
               ;; For `helm-show-kill-ring'
               (unbind-key "C-y" org-mode-map)
 
