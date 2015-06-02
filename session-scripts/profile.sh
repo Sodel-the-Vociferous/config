@@ -22,6 +22,9 @@ export VISUAL
 ALTERNATE_EDITOR=
 export ALTERNATE_EDITOR
 
+EMACS_TOOLKIT=x11
+export EMACS_TOOLKIT
+
 # Set up paths
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib32/usr/lib/:/usr/local/lib:/usr/local/lib64"
 export LD_LIBRARY_PATH
@@ -59,15 +62,8 @@ export GTAGSLIBPATH
 eval $(keychain --inherit local-once --quiet --eval 2>/dev/null)
 
 # Start emacs daemon if one isn't already running
-if [[ $OS = Windows_NT ]]
-then
-    EMACSD=emacs
-else
-    EMACSD=emacs-x11
-fi
-
 pgrep -f "emacs(-gtk|-x11|-w32)? --daemon" &>/dev/null ||
-nohup $EMACSD --daemon &> /dev/null &
+nohup emacs --daemon &> /dev/null &
 
 # Start pulseaudio
 which pulseaudio &> /dev/null &&
