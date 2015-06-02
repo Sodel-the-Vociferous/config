@@ -10,6 +10,10 @@ export LC_COLLATE
 
 ## Environment Variables ##
 
+# X
+XAUTHORITY=$HOME/.Xauthority
+export XAUTHORITY
+
 # Editors
 EDITOR=emacsclient
 export EDITOR
