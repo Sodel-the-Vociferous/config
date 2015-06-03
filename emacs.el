@@ -94,11 +94,11 @@
               (bind-key "C-z C-r" 'rename-buffer)
               (bind-key "C-z e" 'eval-region)))
    (benchmark-init
-    :init (benchmark-init/activate))
+    :config (benchmark-init/activate))
    (auto-compile
-    :init (progn
-            (auto-compile-on-save-mode)
-            (auto-compile-on-load-mode)))))
+    :config (progn
+              (auto-compile-on-save-mode)
+              (auto-compile-on-load-mode)))))
 
 (req-packages init-pkgs-to-req)
 (req-package-finish)
@@ -145,12 +145,12 @@
    (auctex-latexmk :defer t)
    (auto-dim-other-buffers
     :diminish auto-dim-other-buffers-mode
-    :init (auto-dim-other-buffers-mode))
+    :config (auto-dim-other-buffers-mode))
    (autorevert
-    :init (global-auto-revert-mode t))
+    :config (global-auto-revert-mode t))
    (auto-compile)
    (bash-completion
-    :init (bash-completion-setup))
+    :config (bash-completion-setup))
    (browse-kill-ring)
    (charmap :defer t)
    (cl-lib)
@@ -168,8 +168,9 @@
               (setq indent-tabs-mode nil)))
    (company
     :diminish company-mode
-    :init (global-company-mode t)
     :config (progn
+              (global-company-mode t)
+
               ;; I HATE it when <return> selects the current
               ;; autocompletion candidate when I just want to start a
               ;; new line. Unbinding <return> means I can still use
@@ -223,7 +224,7 @@
     :defer t
     :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
    (electric
-    :init (electric-indent-mode 1))
+    :config (electric-indent-mode 1))
    (elfeed
     :config (progn
               (bind-key "q" 'kill-this-buffer elfeed-search-mode-map)
@@ -287,13 +288,13 @@
                ess-directory "~/.ess/"
                ess-ask-for-ess-directory nil)))
    (evil
+    :demand t
     :bind ("TAB" . evil-indent)
-    :init (progn
-            (setq evil-toggle-key "C-`")
-            (evil-mode 1))
+    :init (setq evil-toggle-key "C-`")
     :config (progn
-              (unbind-key "q" evil-normal-state-map)
+              (evil-mode 1)
 
+              (unbind-key "q" evil-normal-state-map)
               (unbind-key "C-e" evil-insert-state-map)
 
               (unbind-key "C-d" evil-insert-state-map)
@@ -332,22 +333,28 @@
                     evil-move-cursor-back nil
                     evil-want-C-i-jump nil)))
    (evil-matchit
+    :demand t
     :require evil
-    :init (evil-matchit-mode 1))
-   (evil-leader :require evil)
-   (evil-nerd-commenter :require evil)
+    :config (turn-on-evil-matchit-mode))
+   (evil-leader
+    :demand t
+    :require evil)
+   (evil-nerd-commenter
+    :demand t
+    :require evil)
    ;; (evil-rsi
    ;;  :require evil
    ;;  :diminish evil-rsi-mode
    ;;  :init (evil-rsi-mode))
    (evil-surround
+    :demand t
     :require evil
-    :init (global-evil-surround-mode 1))
+    :config (global-evil-surround-mode 1))
    (expand-region
     :bind ("C-=" . er/expand-region))
    (f :defer t)
    (flycheck
-    :init (global-flycheck-mode 1))
+    :config (global-flycheck-mode 1))
    (flycheck-rust
     :defer t
     :require (rust-mode flycheck)
@@ -404,11 +411,10 @@
            ("C-z <C-SPC>" . helm-mark-ring)
            ("C-z <C-SPC>" . helm-global-mark-ring)
            ("C-z r" . helm-regexp))
-    :init (progn
-            (setq helm-command-prefix-key "C-z h")
-            (helm-mode 1))
+    :init (setq helm-command-prefix-key "C-z h")
     :config (progn
               (require 'helm-config)
+              (helm-mode 1)
 
               ;; Swap Tab and C-z in helm-mode, so Tab executes
               ;; persistent actions, and C-z opens the actions
@@ -426,31 +432,32 @@
     :require (helm company)
     :bind ("<C-tab>" . helm-company))
    (helm-gtags
+    :demand t
     :require (helm)
     :commands helm-gtags-mode
-    :init (progn
-            (defun helm-gtags-update-tags-quietly ()
-              (flet ((message (&rest _) nil))
-                (helm-gtags-update-tags)))
-
-            (define-minor-mode helm-gtags-auto-update-mode
-              "Auto update GTAGS when a file in this mode is saved."
-              :init-value nil
-              :group 'helm-gtags-update
-              (if helm-gtags-auto-update-mode
-                  (progn
-                    (add-hook 'after-save-hook 'helm-gtags-update-tags-quietly nil :local))
-                (remove-hook 'after-save-hook 'helm-gtags-update-tags-quietly t)))
-
-            (defun enable-helm-gtags-auto-update-mode()
-              "Turn on `helm-gtags-auto-update-mode'."
-              (interactive)
-              (helm-gtags-auto-update-mode 1))
-
-            (add-hook 'dired-mode-hook 'helm-gtags-mode)
-            (add-hook 'prog-mode-hook 'helm-gtags-mode)
-            (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode))
     :config (progn
+              (defun helm-gtags-update-tags-quietly ()
+                (flet ((message (&rest _) nil))
+                  (helm-gtags-update-tags)))
+
+              (define-minor-mode helm-gtags-auto-update-mode
+                "Auto update GTAGS when a file in this mode is saved."
+                :init-value nil
+                :group 'helm-gtags-update
+                (if helm-gtags-auto-update-mode
+                    (progn
+                      (add-hook 'after-save-hook 'helm-gtags-update-tags-quietly nil :local))
+                  (remove-hook 'after-save-hook 'helm-gtags-update-tags-quietly t)))
+
+              (defun enable-helm-gtags-auto-update-mode()
+                "Turn on `helm-gtags-auto-update-mode'."
+                (interactive)
+                (helm-gtags-auto-update-mode 1))
+
+              (add-hook 'dired-mode-hook 'helm-gtags-mode)
+              (add-hook 'prog-mode-hook 'helm-gtags-mode)
+              (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode)
+
               (require 'ggtags)
 
               (setq
@@ -465,7 +472,7 @@
    (helm-package :require helm)
    (helm-projectile
     :require projectile
-    :init (helm-projectile-on))
+    :config (helm-projectile-on))
    (helm-swoop
     :bind ("C-z o" . helm-swoop)
     ;; I don't want swoop to auto-insert the symbol under my cursor.
@@ -695,7 +702,7 @@
               (bind-key "<C-M-tab>" 'outline-cycle outline-minor-mode-map)))
    (package+)
    (paren
-    :init (show-paren-mode t))
+    :config (show-paren-mode t))
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
@@ -794,7 +801,7 @@
    (ucs-utils :defer t)
    (undo-tree
     :diminish undo-tree-mode
-    :init (global-undo-tree-mode 1))
+    :config (global-undo-tree-mode 1))
    (unfill)
    (unicode-fonts)
    (unicode-whitespace)
@@ -829,8 +836,9 @@
    (yasnippet :defer t)
    (zenburn-theme
     :require color-theme
-    :init (load-theme 'zenburn t)
-    :config (set-face-background 'region "dark slate gray"))))
+    :config (progn
+              (load-theme 'zenburn t)
+              (set-face-background 'region "dark slate gray")))))
 
 (req-packages pkgs-to-req)
 (req-package-finish)
