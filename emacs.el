@@ -100,6 +100,7 @@
    (bind-key
     :config (progn
               (unbind-key "C-z")
+              (bind-key "C-g" 'keyboard-escape-quit)
               (bind-key "<C-return>" 'newline-and-indent)
               (bind-key "<mouse-3>" 'mouse-popup-menubar)
               (bind-key "<mouse-8>" 'previous-buffer)
