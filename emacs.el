@@ -454,7 +454,7 @@
     :bind ("<C-tab>" . helm-company))
    (helm-gtags
     :demand t
-    :require (helm)
+    :require (helm ggtags)
     :commands helm-gtags-mode
     :config (progn
               (defun helm-gtags-update-tags-quietly ()
