@@ -20,6 +20,7 @@ ensure_symlink ~/config/session-scripts/bash_aliases.sh ~/.bash_aliases
 ensure_symlink ~/config/session-scripts/bash_logout.sh ~/.bash_logout
 ensure_symlink ~/config/session-scripts/bash_profile.sh ~/.bash_profile
 ensure_symlink ~/config/session-scripts/profile.sh ~/.profile
+ensure_symlink ~/config/inputrc ~/.inputrc
 
 ## Tmux Config
 ensure_symlink ~/config/tmux.conf ~/.tmux.conf
