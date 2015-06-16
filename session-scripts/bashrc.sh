@@ -48,6 +48,7 @@ export PS1='\u@\h[$(parse_git_branch)\W]\$ '
 
 ## Load aliases
 source ~/.bash_aliases;
+shopt -s expand_aliases
 
 ## Set up bach completion
 if [ -f "/usr/share/bash-completion/bash_completion" ]
