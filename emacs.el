@@ -495,7 +495,11 @@
    (helm-package :require helm)
    (helm-projectile
     :require projectile
-    :config (helm-projectile-on))
+    :config (progn
+              (helm-projectile-on)
+
+              (unbind-key "C-z p F" projectile-mode-map)
+              (bind-key "C-z p F" 'projectile-find-file-in-known-projects projectile-mode-map)))
    (helm-swoop
     :bind ("C-z o" . helm-swoop)
     ;; I don't want swoop to auto-insert the symbol under my cursor.
