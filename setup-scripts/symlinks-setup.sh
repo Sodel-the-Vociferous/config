@@ -19,7 +19,6 @@ ensure_symlink ~/config/session-scripts/bashrc.sh ~/.bashrc
 ensure_symlink ~/config/session-scripts/bash_aliases.sh ~/.bash_aliases
 ensure_symlink ~/config/session-scripts/bash_logout.sh ~/.bash_logout
 ensure_symlink ~/config/session-scripts/bash_profile.sh ~/.bash_profile
-ensure_symlink ~/config/session-scripts/no_user_systemd.sh ~/.no_user_systemd.sh
 ensure_symlink ~/config/session-scripts/profile.sh ~/.profile
 
 ## Tmux Config
