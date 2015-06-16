@@ -33,6 +33,7 @@
         <value type="int" value="9"/>
         <value type="int" value="21"/>
         <value type="int" value="10"/>
+        <value type="int" value="12"/>
         <value type="int" value="18"/>
         <value type="int" value="3"/>
         <value type="int" value="15"/>
@@ -98,7 +99,9 @@
         <value type="string" value="dropbox"/>
         <value type="string" value="kgpg"/>
         <value type="string" value="software updates"/>
+        <value type="string" value="virt-manager"/>
         <value type="string" value="liferea"/>
+        <value type="string" value="vmware-tray"/>
         <value type="string" value="elmergui"/>
         <value type="string" value="abrt"/>
         <value type="string" value="opera"/>
@@ -133,12 +136,11 @@
       <property name="command" type="string" value="xfce4-mixer"/>
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
-    <property name="plugin-12" type="string" value="places">
-      <property name="items" type="empty"/>
+    <property name="plugin-12" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="14344181481.desktop"/>
+      </property>
       <property name="appearance" type="empty"/>
-      <property name="show-button-type" type="int" value="2"/>
-      <property name="show-recent-clear" type="bool" value="true"/>
-      <property name="show-recent" type="bool" value="false"/>
     </property>
     <property name="plugin-15" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
