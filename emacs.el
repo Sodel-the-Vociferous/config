@@ -44,7 +44,7 @@
   (tool-bar-mode 0))
 (menu-bar-mode 0)
 (column-number-mode t)
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 140)
 (setq-default
  indent-tabs-mode nil
  tab-width 4)
