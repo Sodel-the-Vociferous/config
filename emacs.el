@@ -732,7 +732,12 @@
     :init (progn
             (setq projectile-keymap-prefix (kbd "C-z p"))
             (projectile-global-mode 1))
-    :config (setq projectile-switch-project-action 'projectile-dired))
+    :config (setq
+             projectile-find-file-hook 'projectile-invalidate-cache
+             projectile-enable-caching t
+             projectile-completion-system 'helm
+             projectile-find-dir-includes-top-level t
+             projectile-switch-project-action 'projectile-vc))
    (pyflakes :defer t)
    (pylint
     :defer t
