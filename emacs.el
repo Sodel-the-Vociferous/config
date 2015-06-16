@@ -53,6 +53,8 @@
 
 (setq sentence-end-double-space nil)
 
+(setq shell-command-switch "-lc")
+
 ;;; Configure Package.el And El-Get ;;;;
 
 ;;; Packages
@@ -799,12 +801,14 @@
               (defadvice term-handle-exit
                 (after bind-q-to-kill-dead-term activate)
                 (read-only-mode)
-                (local-set-key (kbd "q") 'kill-this-buffer))
+                (local-set-key (kbd "q") 'kill-buffer-and-window))
 
               ;; Terminals in emacs should be able to run tmux, regardless of
               ;; whether or not emacs was started within tmux.
               (setenv "TMUX" "")))
-   (term-run)
+   (term-run
+    :bind (("M-!" . term-run-shell-command)
+           ("C-M-!" . shell-command)))
    (tidy
     :defer t
     :commands tidy-buffer
