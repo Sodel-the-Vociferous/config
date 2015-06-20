@@ -1,13 +1,5 @@
 /background
 /emacs-site-lisp/*/*
 /systemd-services/user/*.target.wants/
-/xfce/xfconf/xfce-perchannel-xml/keyboards.xml
-/xfce/xfconf/xfce-perchannel-xml/ristretto.xml
-/xfce/xfconf/xfce-perchannel-xml/thunar.xml
-/xfce/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml
-/xfce/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
-/xfce/xfconf/xfce-perchannel-xml/xfce4-mime-settings.xml
-/xfce/xfconf/xfce-perchannel-xml/xfce4-mixer.xml
-/xfce/xfconf/xfce-perchannel-xml/xfcethemer.xml
-/xfce/xfconf/xfce-perchannel-xml/xfwm4.xml
 /xfce/panel/xfce4-sensors-plugin-13.rc
+/xfce/
