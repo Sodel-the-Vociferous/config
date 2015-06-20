@@ -494,11 +494,26 @@
               (bind-key "M-?" 'helm-gtags-find-pattern helm-gtags-mode-map)))
    (helm-package :require helm)
    (helm-projectile
-    :require projectile
+    :demand t
+    :bind ("s-%" . projectile-replace)
+    :init (setq projectile-keymap-prefix (kbd "C-z p"))
     :config (progn
+              (projectile-global-mode 1)
               (helm-projectile-on)
 
-              (unbind-key "C-z p F" projectile-mode-map)
+              (defadvice helm-projectile-find-file
+                  (before dont-use-cache-for-current-project disable)
+                (projectile-invalidate-cache nil))
+
+              (setq
+               projectile-find-file-hook (lambda () (projectile-invalidate-cache nil))
+               projectile-enable-caching t
+               projectile-completion-system 'helm
+               projectile-find-dir-includes-top-level t
+               projectile-switch-project-action 'projectile-vc)
+
+              ;; Rebind this, because the helm version doesn't work
+              ;; outside of project dirs.
               (bind-key "C-z p F" 'projectile-find-file-in-known-projects projectile-mode-map)))
    (helm-swoop
     :bind ("C-z o" . helm-swoop)
@@ -733,17 +748,6 @@
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
-   (projectile
-    :bind ("s-%" . projectile-replace)
-    :init (progn
-            (setq projectile-keymap-prefix (kbd "C-z p"))
-            (projectile-global-mode 1))
-    :config (setq
-             projectile-find-file-hook 'projectile-invalidate-cache
-             projectile-enable-caching t
-             projectile-completion-system 'helm
-             projectile-find-dir-includes-top-level t
-             projectile-switch-project-action 'projectile-vc))
    (pyflakes :defer t)
    (pylint
     :defer t
