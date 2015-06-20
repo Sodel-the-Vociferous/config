@@ -231,6 +231,7 @@
     :mode "\\.csv\'")
    (ctable :defer t)
    (dash)
+   (darktooth-theme :defer t)
    (deferred :defer t)
    (dired+ :defer t)
    (dired-efap)
