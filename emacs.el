@@ -186,8 +186,8 @@
     :defer t
     :config (progn
               (setq c-default-style "K&R")
-              (setq c-basic-offset 8)
-              (setq tab-width 8)
+              (setq c-basic-offset 4)
+              (setq tab-width 4)
               (setq indent-tabs-mode nil)))
    (company
     :diminish company-mode
