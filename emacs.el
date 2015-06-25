@@ -726,6 +726,7 @@
    (org-capture
     :defer t
     :bind ("C-z C-o C-c" . org-capture))
+   (org-projectile :defer t)
    ;; (org-journal
    ;;  :defer t
    ;;  :require org)
