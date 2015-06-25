@@ -73,5 +73,11 @@ nohup emacs --daemon &> /dev/null &
 which pulseaudio &> /dev/null &&
 pulseaudio --start &> /dev/null &
 
+# Workaround multiple gvfsds bug, screwing up mounts in
+# /run/user/$UID/gvfs
+[[ $(pgrep ^gvfsd$ 2>/dev/null | wc -l) -gt 1 ]] &&
+    killall gvfsd &&
+    nohup /usr/lib/gvfs/gvfsd &> /dev/null &
+
 # Make sure a dying shell doesn't kill these background processes.
 [[ $SHELL = /bin/bash ]] && disown -a
