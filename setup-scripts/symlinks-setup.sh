@@ -102,5 +102,16 @@ ensure_symlink ~/music ~/Music
 ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
 
-# User Systemd
-ensure_symlink ~/config/systemd-services/user ~/.config/systemd/user
+# "Mounts"
+ensure_symlink /media/big-ext/$USER ~/mnt/big-ext
+
+# Directories On My Big Ext Drive
+ensure_symlink /media/big-ext/$USER/Mail ~/Mail
+ensure_symlink /media/big-ext/$USER/backups ~/backups
+ensure_symlink /media/big-ext/$USER/emu ~/emu
+ensure_symlink /media/big-ext/$USER/lit ~/lit
+ensure_symlink /media/big-ext/$USER/local-share-Steam ~/.local/share/Steam
+ensure_symlink /media/big-ext/$USER/music ~/music
+ensure_symlink /media/big-ext/$USER/steam ~/.steam
+ensure_symlink /media/big-ext/$USER/vid ~/vid
+ensure_symlink /media/big-ext/$USER/wine ~/.wine
