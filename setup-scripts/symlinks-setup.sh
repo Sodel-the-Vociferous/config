@@ -103,15 +103,15 @@ ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
 
 # "Mounts"
-ensure_symlink /media/big-ext/$USER ~/mnt/big-ext
+ensure_symlink /media/big-ext/ ~/mnt/big-ext
 
 # Directories On My Big Ext Drive
-ensure_symlink /media/big-ext/$USER/Mail ~/Mail
-ensure_symlink /media/big-ext/$USER/backups ~/backups
-ensure_symlink /media/big-ext/$USER/emu ~/emu
-ensure_symlink /media/big-ext/$USER/lit ~/lit
-ensure_symlink /media/big-ext/$USER/local-share-Steam ~/.local/share/Steam
-ensure_symlink /media/big-ext/$USER/music ~/music
-ensure_symlink /media/big-ext/$USER/steam ~/.steam
-ensure_symlink /media/big-ext/$USER/vid ~/vid
-ensure_symlink /media/big-ext/$USER/wine ~/.wine
+ensure_symlink ~/mnt/big-ext/$USER/Mail ~/Mail
+ensure_symlink ~/mnt/big-ext/$USER/backups ~/backups
+ensure_symlink ~/mnt/big-ext/$USER/emu ~/emu
+ensure_symlink ~/mnt/big-ext/$USER/lit ~/lit
+ensure_symlink ~/mnt/big-ext/$USER/local-share-Steam ~/.local/share/Steam
+ensure_symlink ~/mnt/big-ext/$USER/music ~/music
+ensure_symlink ~/mnt/big-ext/$USER/steam ~/.steam
+ensure_symlink ~/mnt/big-ext/$USER/vid ~/vid
+ensure_symlink ~/mnt/big-ext/$USER/wine ~/.wine
