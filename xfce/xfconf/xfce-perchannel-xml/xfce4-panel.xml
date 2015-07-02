@@ -95,6 +95,7 @@
         <value type="string" value="blueman-applet"/>
         <value type="string" value="skype-bin"/>
         <value type="string" value="ibus panel"/>
+        <value type="string" value="deluge"/>
         <value type="string" value="haguichi"/>
         <value type="string" value="dropbox"/>
         <value type="string" value="kgpg"/>
