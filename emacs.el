@@ -75,6 +75,9 @@
   (package-install 'req-package)
   (require 'req-package))
 
+(req-package--log-enable-logging)
+(setq req-package-log-level 'debug)
+
 (setq
  init-pkgs-to-req
  '(
