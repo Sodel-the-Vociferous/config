@@ -339,17 +339,21 @@
               (unbind-key "C-y" evil-insert-state-map)
 
               (set-default 'evil-symbol-word-search t)
+              (add-hook-progn 'git-commit-mode-hook (evil-insert-state))
+
               (setq evil-emacs-state-modes (append '(term-mode
                                                      elfeed-search-mode
                                                      elfeed-show-mode
                                                      epa-key-list-mode
                                                      git-rebase-mode
+                                                     magit-popup-mode
                                                      magit-blame-mode
                                                      magit-key-mode
                                                      magit-status-mode)
                                                    evil-emacs-state-modes)
 
                     evil-insert-state-modes (append '(org-capture-mode
+                                                      global-git-commit-mode
                                                       git-commit-mode
                                                       inferior-ess-mode)
                                                     evil-insert-state-modes)
@@ -403,10 +407,10 @@
    (furl :defer t)
    (ghc :defer t) ;?????
    (git-blame :defer t)
-   (git-commit-mode :defer t)
+   (git-commit :defer t)
    ;; (git-modeline
    ;;  :config (setq git-state-modeline-decoration 'git-state-decoration-letter))
-   (git-rebase-mode :defer t)
+   (git-rebase :defer t)
    (gitconfig-mode :defer t)
    (gitignore-mode :defer t)
    (ggtags
@@ -544,7 +548,6 @@
    (log4e :defer t)
    (magit
     :defer t
-    :diminish magit-auto-revert-mode
     :commands (magit-blame-mode magit-status)
     :bind (("C-z v" . magit-status)
            ("C-z m a" . magit-commit-amend)
