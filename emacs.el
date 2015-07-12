@@ -274,7 +274,7 @@
                erc-enable-logging t
                erc-log-write-after-insert t
                erc-log-write-after-send t
-               erc-log-channels-directory "~/org/chats/irc/"
+               erc-log-channels-directory (concat "~/org/chats/" system-name "-irc/")
                erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"))
 
               (add-to-list 'erc-modules 'hl-nicks)
