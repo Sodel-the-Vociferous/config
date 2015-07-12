@@ -1,0 +1,8 @@
+[openSUSE-13.2-0]
+name=openSUSE-13.2-0
+enabled=0
+autorefresh=1
+baseurl=hd:///?device=/dev/disk/by-id/usb-Kingston_DT_101_G2_001CC0EC33EEBB51F70800FE-0:0-part2
+path=/
+type=yast2
+keeppackages=0

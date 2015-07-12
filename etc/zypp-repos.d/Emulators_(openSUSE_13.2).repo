@@ -1,0 +1,8 @@
+[Emulators_(openSUSE_13.2)]
+name=Emulators (openSUSE_13.2)
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/Emulators/openSUSE_13.2/
+path=/
+type=rpm-md
+keeppackages=0

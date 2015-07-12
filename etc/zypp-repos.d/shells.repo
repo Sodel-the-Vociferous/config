@@ -1,0 +1,7 @@
+[shells]
+name=shells
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/shells/openSUSE_13.2/
+type=rpm-md
+keeppackages=0
