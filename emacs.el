@@ -460,32 +460,31 @@
     :require (helm company)
     :bind ("<C-tab>" . helm-company))
    (helm-gtags
-    :demand t
-    :require (helm ggtags)
-    :commands helm-gtags-mode
+    ;; :require (helm ggtags)
+    :init (progn
+            (defun helm-gtags-update-tags-quietly ()
+              (flet ((message (&rest _) nil))
+                (helm-gtags-update-tags)))
+
+            (define-minor-mode helm-gtags-auto-update-mode
+              "Auto update GTAGS when a file in this mode is saved."
+              :init-value nil
+              :group 'helm-gtags-update
+              (if helm-gtags-auto-update-mode
+                  (progn
+                    (add-hook 'after-save-hook 'helm-gtags-update-tags-quietly nil :local))
+                (remove-hook 'after-save-hook 'helm-gtags-update-tags-quietly t)))
+
+            (defun enable-helm-gtags-auto-update-mode()
+              "Turn on `helm-gtags-auto-update-mode'."
+              (interactive)
+              (helm-gtags-auto-update-mode 1))
+
+            (add-hook 'dired-mode-hook 'helm-gtags-mode)
+            (add-hook 'prog-mode-hook 'helm-gtags-mode)
+            (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode))
+
     :config (progn
-              (defun helm-gtags-update-tags-quietly ()
-                (flet ((message (&rest _) nil))
-                  (helm-gtags-update-tags)))
-
-              (define-minor-mode helm-gtags-auto-update-mode
-                "Auto update GTAGS when a file in this mode is saved."
-                :init-value nil
-                :group 'helm-gtags-update
-                (if helm-gtags-auto-update-mode
-                    (progn
-                      (add-hook 'after-save-hook 'helm-gtags-update-tags-quietly nil :local))
-                  (remove-hook 'after-save-hook 'helm-gtags-update-tags-quietly t)))
-
-              (defun enable-helm-gtags-auto-update-mode()
-                "Turn on `helm-gtags-auto-update-mode'."
-                (interactive)
-                (helm-gtags-auto-update-mode 1))
-
-              (add-hook 'dired-mode-hook 'helm-gtags-mode)
-              (add-hook 'prog-mode-hook 'helm-gtags-mode)
-              (add-hook 'prog-mode-hook 'enable-helm-gtags-auto-update-mode)
-
               (require 'ggtags)
 
               (setq
