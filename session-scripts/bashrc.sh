@@ -19,14 +19,15 @@ export HISTFILESIZE=$HISTSIZE
 # Actively check the terminal size.
 shopt -s checkwinsize
 
-# Disable annoying Ctl-S/Ctl-Q
-stty stop ''
-stty start ''
-stty -ixon
-stty -ixoff
 
 if [[ $- = *i* ]]
 then
+    # Disable annoying Ctl-S/Ctl-Q
+    stty stop ''
+    stty start ''
+    stty -ixon
+    stty -ixoff
+
     ~/config/session-scripts/tmux-client.sh && exit
 fi
 
