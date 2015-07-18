@@ -410,7 +410,9 @@
    (furl :defer t)
    (ghc :defer t) ;?????
    (git-blame :defer t)
-   (git-commit :defer t)
+   (git-commit
+    :demand t
+    :config (global-git-commit-mode))
    ;; (git-modeline
    ;;  :config (setq git-state-modeline-decoration 'git-state-decoration-letter))
    (git-rebase :defer t)
