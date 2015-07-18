@@ -516,6 +516,9 @@
                   (before dont-use-cache-for-current-project disable)
                 (projectile-invalidate-cache nil))
 
+              (if (eq system-type 'cygwin)
+                  (setq projectile-indexing-method 'native))
+
               (setq
                projectile-find-file-hook (lambda () (projectile-invalidate-cache nil))
                projectile-enable-caching t
