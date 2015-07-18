@@ -759,6 +759,7 @@
    (package+)
    (paren
     :config (show-paren-mode t))
+   (persistent-soft)
    (pg :defer t)
    (pkg-info)
    (popup :defer t)
@@ -855,7 +856,22 @@
     :diminish undo-tree-mode
     :config (global-undo-tree-mode 1))
    (unfill)
-   (unicode-fonts)
+   (unicode-fonts
+    :demand t
+    :require persistent-soft
+
+    :init
+    (defun my-hook-unicode-fonts-setup (frame)
+      "Run unicode-fonts-setup, then remove the hook."
+      (progn
+        (select-frame frame)
+        (unicode-fonts-setup)
+        (message "Removing unicode-fonts-setup to after-make-frame-functions hook")
+        (remove-hook 'after-make-frame-functions 'my-hook-unicode-fonts-setup)))
+    (add-hook 'after-make-frame-functions 'my-hook-unicode-fonts-setup nil)
+
+    :config
+    (require 'persistent-soft))
    (unicode-whitespace)
    (vc
     :config (setq vc-follow-symlinks t))
