@@ -377,6 +377,7 @@
     :require evil
     :diminish evil-rsi-mode
     :init (evil-rsi-mode))
+   (evil-ranger)
    (evil-surround
     :demand t
     :require evil
