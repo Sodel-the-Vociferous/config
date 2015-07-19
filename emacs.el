@@ -373,10 +373,10 @@
    (evil-nerd-commenter
     :demand t
     :require evil)
-   ;; (evil-rsi
-   ;;  :require evil
-   ;;  :diminish evil-rsi-mode
-   ;;  :init (evil-rsi-mode))
+   (evil-rsi
+    :require evil
+    :diminish evil-rsi-mode
+    :init (evil-rsi-mode))
    (evil-surround
     :demand t
     :require evil
