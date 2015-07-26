@@ -38,6 +38,8 @@ STOW_DIR="/usr/local/stow"
 export STOW_DIR
 GOPATH=~/src/go
 export GOPATH
+PASSWORD_STORE_DIR=$HOME/.password-store
+export PASSWORD_STORE_DIR
 
 # Make Wine emulate 32-bit Windows.
 WINEARCH=win32
