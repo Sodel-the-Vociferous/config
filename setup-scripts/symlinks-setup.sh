@@ -92,6 +92,7 @@ ensure_symlink ~/config/zdoom.ini ~/.config/zdoom/zdoom.ini
 
 ensure_symlink ~/config/autostart/Xsession.desktop ~/.config/autostart/Xsession.desktop
 ensure_symlink ~/config/autostart/Profile.desktop ~/.config/autostart/Profile.desktop
+ensure_symlink ~/config/applications/Simplify3D.desktop ~/.local/share/applications/Simplify3D.desktop
 ensure_symlink ~/config/applications/emacsclient.desktop ~/.local/share/applications/emacsclient.desktop
 ensure_symlink ~/config/applications/xscreensaver-prefs.desktop ~/.local/share/applications/xscreensaver-prefs
 
