@@ -105,6 +105,7 @@
    (bind-key
     :config (progn
               (unbind-key "C-z")
+              (bind-key "C-z B" 'browse-url)
               (bind-key "C-g" 'keyboard-escape-quit)
               (bind-key "<C-return>" 'newline-and-indent)
               (bind-key "<mouse-3>" 'mouse-popup-menubar)
@@ -467,7 +468,6 @@
    (helm-gtags
     :demand t
     :require (helm ggtags)
-    :commands helm-gtags-mode
     :init (progn
               (defun helm-gtags-update-tags-quietly ()
                 (flet ((message (&rest _) nil))
@@ -857,7 +857,6 @@
     :config (global-undo-tree-mode 1))
    (unfill)
    (unicode-fonts
-    :demand t
     :require persistent-soft
 
     :init
@@ -868,7 +867,7 @@
         (unicode-fonts-setup)
         (message "Removing unicode-fonts-setup to after-make-frame-functions hook")
         (remove-hook 'after-make-frame-functions 'my-hook-unicode-fonts-setup)))
-    (add-hook 'after-make-frame-functions 'my-hook-unicode-fonts-setup nil)
+    ;(add-hook 'after-make-frame-functions 'my-hook-unicode-fonts-setup nil)
 
     :config
     (require 'persistent-soft))
