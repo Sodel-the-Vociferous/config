@@ -80,6 +80,7 @@ ensure_symlink ~/config/gpg.conf ~/.gnupg/gpg.conf
 ensure_symlink ~/config/LibreCAD.conf ~/.config/LibreCAD/LibreCAD.conf
 ensure_symlink ~/config/keysnail.js ~/.keysnail.js
 ensure_symlink ~/config/minirc.dfl ~/.minirc.dfl
+ensure_symlink ~/config/srhk-prefs.xml ~/.config/unity3d/Harebrained\ Schemes/SRHK/prefs
 ensure_symlink ~/config/nethackrc ~/.nethackrc
 ensure_symlink ~/config/newsbeuter.conf ~/.newsbeuter/config
 ensure_symlink ~/config/prboom-plus.cfg ~/.prboom-plus/prboom-plus.cfg
