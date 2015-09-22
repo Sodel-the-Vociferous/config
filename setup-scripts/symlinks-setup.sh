@@ -40,11 +40,6 @@ ensure_symlink ~/config/xscreensaver ~/.xscreensaver
 ensure_symlink ~/config/xfce/xfconf ~/.config/xfce4/xfconf
 ensure_symlink ~/config/xfce/panel ~/.config/xfce4/panel
 
-## Emacs Config
-
-ensure_symlink ~/config/emacs.el ~/.emacs
-ensure_symlink ~/config/emacs-site-lisp ~/.emacs.d/site-lisp
-
 ## KDE Config
 ensure_symlink ~/config/kde/kdeglobals ~/.config/kdeglobals
 ensure_symlink ~/config/kde/kglobalshortcutsrc ~/.config/kglobalshortcutsrc
