@@ -1,10 +1,8 @@
 #!/bin/bash
 DIR=$HOME/.local/share/Steam/
 
-echo "Removing libstd"
-find $DIR -iname "libstd*" -exec rm -rf {} \;
-
-echo "Removing libgcc"
-find $DIR -iname "libgcc*" -exec rm -rf {} \;
+find $DIR -iname "libstd*" -delete
+find $DIR -iname "libgcc*" -delete
+find $DIR -iname "libxcb*" -delete
 
 echo "All Done"
