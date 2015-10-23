@@ -85,33 +85,33 @@
         <value type="string" value="thunar"/>
         <value type="string" value="vlc"/>
         <value type="string" value="redshift-gtk"/>
+        <value type="string" value="liferea"/>
         <value type="string" value="mumble"/>
-        <value type="string" value="virt-manager"/>
-        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="terminal"/>
         <value type="string" value="google-chrome-stable"/>
         <value type="string" value="wicd-client.py"/>
         <value type="string" value="task manager"/>
-        <value type="string" value="ibus panel"/>
+        <value type="string" value="steam"/>
         <value type="string" value="qjackctl"/>
-        <value type="string" value="terminal"/>
         <value type="string" value="pragha music player"/>
-        <value type="string" value="seapplet"/>
+        <value type="string" value="ibus panel"/>
+        <value type="string" value="quamachi.pyw"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="skype-bin"/>
         <value type="string" value="tray_daemon"/>
-        <value type="string" value="kgpg"/>
-        <value type="string" value="vmware-tray"/>
-        <value type="string" value="steam"/>
-        <value type="string" value="deluge"/>
-        <value type="string" value="dropbox"/>
-        <value type="string" value="quamachi.pyw"/>
         <value type="string" value="haguichi"/>
+        <value type="string" value="kgpg"/>
+        <value type="string" value="dropbox"/>
+        <value type="string" value="networkmanager applet"/>
         <value type="string" value="software updates"/>
-        <value type="string" value="scp-dbus-service.py"/>
-        <value type="string" value="liferea"/>
-        <value type="string" value="abrt"/>
-        <value type="string" value="opera"/>
+        <value type="string" value="seapplet"/>
+        <value type="string" value="deluge"/>
+        <value type="string" value="virt-manager"/>
+        <value type="string" value="vmware-tray"/>
         <value type="string" value="elmergui"/>
+        <value type="string" value="abrt"/>
+        <value type="string" value="scp-dbus-service.py"/>
+        <value type="string" value="opera"/>
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-hidden" type="array">
