@@ -20,6 +20,7 @@ alias eshell='emacsclient --eval "(eshell t)"'
 
 #Games
 alias kerbal-space-program='cd ~/games; mono kerbal-ckan-mono.exe'
+alias cdsteam='cd .local/share/Steam/SteamApps/common/'
 alias homeworld2='cd ~/.wine/drive_c/Program\ Files/Sierra/Homeworld2/Bin/Release/; wine Homeworld2.exe -nopbuffer'
 alias homeworld='cd ~/.wine/drive_c/Sierra/Homeworld/; wine homeworld.exe /dsoundCoop'
 alias fh='cd ~/.wine/drive_c/Program\ Files/EA\ GAMES/Battlefield\ 1942/; wine BF1942.exe +game fh'
