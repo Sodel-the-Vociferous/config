@@ -24,6 +24,7 @@ gitk
 global
 gnome-system-monitor
 gtk2-metatheme-greybird
+gvim
 keychain
 numlockx
 okular
@@ -39,6 +40,7 @@ swftools
 tig
 tmux
 unzip
+vim
 wget
 wmctrl
 xarchiver
