@@ -11,13 +11,13 @@ at
 bindfs
 conky
 ctags
-daadobe-sourcecodepro-fonts
+adobe-sourcecodepro-fonts
 dmenu
 dropbox
 emacs
 emacs-el
-faienza-icon-theme
-Firefox
+faenza-icon-theme
+MozillaFirefox
 flash-player
 git
 gitk
@@ -28,7 +28,7 @@ gvim
 keychain
 numlockx
 okular
-parallel
+gnu_parallel
 pavucontrol
 redshift
 redshift-gtk
@@ -48,7 +48,7 @@ xbindkeys
 xclip
 xdg-utils
 xev
-xfce4-panel-plugin-c-mixer
+xfce4-panel-plugin-mixer
 xfce4-panel-plugin-cpugraph
 xfce4-panel-plugin-sensors
 xfce4-taskmanager

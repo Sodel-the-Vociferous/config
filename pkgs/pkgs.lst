@@ -37,7 +37,6 @@ gcc-c++
 gdb
 gimp
 global
-global-ctags
 gnu_ddrescue
 gnumeric
 gobby
@@ -51,8 +50,8 @@ infinoted
 inkscape
 iotop
 iproute2
-ipython
-java-1.8.0-openjdk
+python-jupyter_ipython
+java-1_8_0-openjdk
 k3b
 librecad
 libreoffice
@@ -94,15 +93,14 @@ python-numpy
 python-pip
 python-pyserial
 python-scipy
-python-sqlalchemy
+python-SQLAlchemy
 python-virtualenv
-python3-ipython
 python3-matplotlib
 python3-numpy
 python3-pip
 python3-pyserial
 python3-scipy
-python3-sqlalchemy
+python3-SQLAlchemy
 qemu
 qemu-extras
 qemu-kvm
@@ -122,7 +120,7 @@ subversion
 swftools
 texinfo
 thunar-plugin-shares
-tidy
+tidy-html5
 tix
 units
 unrar
