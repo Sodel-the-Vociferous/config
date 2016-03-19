@@ -55,6 +55,10 @@ export GTAGSCONF
 GTAGSLABEL=ctags
 export GTAGSLABEL
 
+if [[ $OS = Windows_NT ]]; then
+    unset GTAGSLABEL
+fi
+
 # Add extra search paths for GTAGS
 GTAGSLIBPATH=~/src/navsim/RG5/lib/
 export GTAGSLIBPATH
