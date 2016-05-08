@@ -13,8 +13,8 @@ UnredirectFullscreen=false
 XRenderSmoothScale=false
 
 [Desktops]
-Number=5
-Rows=1
+Number=6
+Rows=2
 
 [Effect-Cube]
 BorderActivate=9
@@ -46,7 +46,9 @@ TopRight=None
 cubeslideEnabled=false
 desktopchangeosdEnabled=false
 kwin4_effect_fadedesktopEnabled=false
+kwin4_effect_maximizeEnabled=false
 kwin4_effect_translucencyEnabled=false
+minimizeanimationEnabled=false
 slideEnabled=false
 
 [Script-desktopchangeosd]
@@ -64,6 +66,9 @@ ShowToolTips=true
 [TabBox]
 BorderActivate=9
 BorderAlternativeActivate=9
+DesktopLayout=org.kde.breeze.desktop
+DesktopListLayout=org.kde.breeze.desktop
+LayoutName=org.kde.breeze.desktop
 
 [Windows]
 ElectricBorderCooldown=350

@@ -2,7 +2,6 @@
 Comment=
 Encoding=UTF-8
 Exec=/home/dralston/.xsession
-Hidden=false
 Name=Xsession
 OnlyShowIn=XFCE;
 StartupNotify=false

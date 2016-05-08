@@ -1,3 +1,6 @@
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
 [FMSettings]
 AlwaysTabbedMode=false
 KonquerorTabforExternalURL=false
@@ -9,12 +12,20 @@ PermanentCloseButton=true
 PopupsWithinTabs=false
 TabCloseActivatePrevious=false
 
+[Favorite Profiles]
+Favorites=
+
 [HTML Settings]
 AutomaticDetectionLanguage=1
 
+[KParts Plugins]
+searchbarEnabled=true
+
 [KPropertiesDialog]
 Height 1024=459
+Height 1080=512
 Width 1280=461
+Width 1920=630
 
 [SearchBar]
 CompletionMode=5
@@ -24,7 +35,7 @@ Mode=1
 SuggestionEnabled=true
 
 [Undo]
-Number of Closed Windows=8
+Number of Closed Windows=12
 
 [UserSettings]
 HomeURL=file:///home/dralston

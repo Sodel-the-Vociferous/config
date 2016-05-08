@@ -1,6 +1,16 @@
 [KDE Keyboard Layout Switcher]
 Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
-_k_friendly_name=KDE Keyboard Layout Switcher
+_k_friendly_name=KDE Daemon
+
+[kaccess]
+Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
+_k_friendly_name=kaccess
+
+[kcm_touchpad]
+Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
+Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
+Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,Toggle Touchpad
+_k_friendly_name=KDE Daemon
 
 [kded5]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
@@ -8,14 +18,15 @@ Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decre
 Hibernate=Hibernate,Hibernate,Hibernate
 Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,Increase Keyboard Brightness
 Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Increase Screen Brightness
-PowerOff=Power Off,Power Off,
+PowerOff=Power Off,Power Off,Power Off
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
-Sleep=Sleep,Sleep,Sleep
+Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
-_k_friendly_name=kded5
+_k_friendly_name=KDE Daemon
+display=Display,Display,Switch Display
 
 [khotkeys]
-_k_friendly_name=khotkeys
+_k_friendly_name=KDE Daemon
 {2b7c96ba-1d2f-426b-8718-080f525baaf8}=Print,none,PrintScreen
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 
@@ -27,12 +38,12 @@ mute=Volume Mute,Volume Mute,Mute
 
 [krunner]
 _k_friendly_name=krunner
-run command=Alt+Space\tAlt+F2\tSearch,Alt+Space,Run Command
-run command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipboard contents
+run command=\t\tSearch,Alt+Space,Run Command
+run command on clipboard contents=none,Alt+Shift+F2,Run Command on clipboard contents
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
-Lock Session=Screensaver\tCtrl+Alt+L,Screensaver\tCtrl+Alt+L,Lock Session
+Lock Session=Screensaver\tCtrl+Alt+L,Ctrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,none,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
@@ -82,7 +93,7 @@ Switch to Desktop 20=none,none,Switch to Desktop 20
 Switch to Desktop 3=Ctrl+F3,Ctrl+F3,Switch to Desktop 3
 Switch to Desktop 4=Ctrl+F4,Ctrl+F4,Switch to Desktop 4
 Switch to Desktop 5=Ctrl+F5,none,Switch to Desktop 5
-Switch to Desktop 6=none,none,Switch to Desktop 6
+Switch to Desktop 6=Ctrl+F6,none,Switch to Desktop 6
 Switch to Desktop 7=none,none,Switch to Desktop 7
 Switch to Desktop 8=none,none,Switch to Desktop 8
 Switch to Desktop 9=none,none,Switch to Desktop 9
@@ -136,10 +147,12 @@ Window Pack Down=none,none,Pack Window Down
 Window Pack Left=none,none,Pack Window to the Left
 Window Pack Right=none,none,Pack Window to the Right
 Window Pack Up=none,none,Pack Window Up
+Window Quick Tile Bottom=none,none,Quick Tile Window to the Bottom
 Window Quick Tile Bottom Left=none,none,Quick Tile Window to the Bottom Left
 Window Quick Tile Bottom Right=none,none,Quick Tile Window to the Bottom Right
 Window Quick Tile Left=none,none,Quick Tile Window to the Left
 Window Quick Tile Right=none,none,Quick Tile Window to the Right
+Window Quick Tile Top=none,none,Quick Tile Window to the Top
 Window Quick Tile Top Left=none,none,Quick Tile Window to the Top Left
 Window Quick Tile Top Right=none,none,Quick Tile Window to the Top Right
 Window Raise=none,none,Raise Window
@@ -179,20 +192,30 @@ Window to Screen 4=none,none,Window to Screen 4
 Window to Screen 5=none,none,Window to Screen 5
 Window to Screen 6=none,none,Window to Screen 6
 Window to Screen 7=none,none,Window to Screen 7
-_k_friendly_name=kwin
+_k_friendly_name=KWin
 view_actual_size=Meta+0,Meta+0,Actual Size
 view_zoom_in=Meta+=,Meta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
+[mediacontrol]
+_k_friendly_name=mediacontrol
+nextmedia=Media Next,Media Next,Media playback next
+playpausemedia=Media Play,Media Play,Play/Pause media playback
+previousmedia=Media Previous,Media Previous,Media playback previous
+stopmedia=Media Stop,Media Stop,Stop media playback
+
 [plasmashell]
-_k_friendly_name=plasmashell
-activate widget 2=Alt+F1,none,Activate Application Menu Widget
+_k_friendly_name=Plasma
 activate widget 4=none,none,Activate Task Manager Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
 cyclePrevAction=none,none,Previous History Item
 edit_clipboard=none,none,Edit Contents...
+manage activities=Meta+Q,Meta+Q,Activities...
+next activity=Meta+Tab,none,Walk through activities
+previous activity=Meta+Shift+Tab,none,Walk through activities (Reverse)
 repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
-show dashboard=Ctrl+F12,Ctrl+F12,Show Dashboard
+show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position
+stop current activity=Meta+S,Meta+S,Stop Current Activity
