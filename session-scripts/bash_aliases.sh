@@ -18,6 +18,8 @@ alias MPLAB='cd ~/.wine/drive_c/Program\ Files/Microchip/MPLAB\ IDE/Core/; wine 
 
 alias eshell='emacsclient --eval "(eshell t)"'
 
+alias vmware='LD_LIBRARY_PATH=/usr/lib/vmware/lib/libglibmm-2.4.so.1/:$LD_LIBRARY_PATH vmware'
+
 #Games
 alias kerbal-space-program='cd ~/games; mono kerbal-ckan-mono.exe'
 alias cdsteam='cd .local/share/Steam/SteamApps/common/'
