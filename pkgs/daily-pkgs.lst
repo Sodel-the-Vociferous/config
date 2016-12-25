@@ -25,10 +25,12 @@ global
 gnome-system-monitor
 gtk2-metatheme-greybird
 gvim
+iw
 keychain
 numlockx
 okular
 gnu_parallel
+password-store
 pavucontrol
 redshift
 redshift-gtk

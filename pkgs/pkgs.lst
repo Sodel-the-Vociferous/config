@@ -53,6 +53,7 @@ iotop
 iproute2
 ava-1_8_0-openjdk
 k3b
+kernel-devel
 libXss1-32bit
 librecad
 libreoffice
