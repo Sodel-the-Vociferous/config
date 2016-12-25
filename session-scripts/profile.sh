@@ -63,6 +63,8 @@ fi
 GTAGSLIBPATH=~/src/navsim/RG5/lib/
 export GTAGSLIBPATH
 
+XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
 # Connect to dbus
 [[ -z $DBUS_SESSION_BUS_ADDRESS ]] &&
     [[ -e /etc/machine-id ]] &&
