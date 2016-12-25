@@ -10,6 +10,6 @@ FSTAB_LINE="/dev/disk/by-label/BigExt /media/big-ext              ext4    defaul
 
 mkdir -p /media/big-ext
 
-grep -ve "$FSTAB_LINE" ||
+grep -e "$FSTAB_LINE" /etc/fstab ||
 echo "$FSTAB_LINE" |
 tee -a /etc/fstab
