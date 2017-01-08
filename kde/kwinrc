@@ -1,5 +1,5 @@
 [Compositing]
-AnimationSpeed=3
+AnimationSpeed=2
 Backend=OpenGL
 Enabled=true
 GLColorCorrection=false
@@ -10,11 +10,16 @@ GLTextureFilter=2
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 UnredirectFullscreen=false
+WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
 [Desktops]
 Number=6
 Rows=2
+
+[Effect-CoverSwitch]
+TabBox=false
+TabBoxAlternative=false
 
 [Effect-Cube]
 BorderActivate=9
@@ -23,6 +28,10 @@ BorderActivateSphere=9
 
 [Effect-DesktopGrid]
 BorderActivate=9
+
+[Effect-FlipSwitch]
+TabBox=false
+TabBoxAlternative=false
 
 [Effect-PresentWindows]
 BorderActivate=9
@@ -43,8 +52,11 @@ TopLeft=None
 TopRight=None
 
 [Plugins]
+coverswitchEnabled=true
 cubeslideEnabled=false
 desktopchangeosdEnabled=false
+flipswitchEnabled=true
+highlightwindowEnabled=true
 kwin4_effect_fadedesktopEnabled=false
 kwin4_effect_maximizeEnabled=false
 kwin4_effect_translucencyEnabled=false
@@ -64,11 +76,32 @@ PluginLib=aurorae
 ShowToolTips=true
 
 [TabBox]
+ActivitiesMode=1
+ApplicationsMode=0
 BorderActivate=9
 BorderAlternativeActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
+DesktopMode=1
+HighlightWindows=true
+LayoutName=compact
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
+
+[TabBoxAlternative]
+ActivitiesMode=1
+ApplicationsMode=0
+DesktopMode=1
+HighlightWindows=true
 LayoutName=org.kde.breeze.desktop
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
 
 [Windows]
 ElectricBorderCooldown=350

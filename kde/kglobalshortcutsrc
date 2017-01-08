@@ -22,22 +22,39 @@ PowerOff=Power Off,Power Off,Power Off
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
-_k_friendly_name=KDE Daemon
-display=Display,Display,Switch Display
+_k_friendly_name=Power Management
+display=Display,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
 {2b7c96ba-1d2f-426b-8718-080f525baaf8}=Print,none,PrintScreen
+{8d270beb-bed7-4d8a-9ede-ab3765cc6e48}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
+{9219e0a5-9759-465d-8ee3-d8d6320dcd54}=,none,Start Screenshot Tool
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{d9d83ad6-d2e1-42b8-9f73-faa0ff6c9e39}=Shift+Print,none,Take Full Screen Screenshot
+{fa6eaa14-d0f4-43c6-9a46-621a58435b16}=Meta+Print,none,Take Active Window Screenshot
+
+[klipper]
+_k_friendly_name=Klipper
+clear-history=none,none,Clear Clipboard History
+clipboard_action=,Ctrl+Alt+X,Enable Clipboard Actions
+cycleNextAction=none,none,Next History Item
+cyclePrevAction=none,none,Previous History Item
+edit_clipboard=none,none,Edit Contents...
+repeat_action=,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
+show-on-mouse-pos=none,none,Open Klipper at Mouse Position
 
 [kmix]
-_k_friendly_name=kmix
+_k_friendly_name=Audio Volume
+decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Decrease Microphone Volume
 decrease_volume=Volume Down,Volume Down,Decrease Volume
+increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume
 increase_volume=Volume Up,Volume Up,Increase Volume
+mic_mute=Microphone Mute,Microphone Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
 
 [krunner]
-_k_friendly_name=krunner
+_k_friendly_name=Run Command
 run command=\t\tSearch,Alt+Space,Run Command
 run command on clipboard contents=none,Alt+Shift+F2,Run Command on clipboard contents
 
@@ -55,6 +72,8 @@ Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
+FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
+FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
@@ -198,7 +217,7 @@ view_zoom_in=Meta+=,Meta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
-_k_friendly_name=mediacontrol
+_k_friendly_name=Media Controller
 nextmedia=Media Next,Media Next,Media playback next
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
@@ -206,6 +225,7 @@ stopmedia=Media Stop,Media Stop,Stop media playback
 
 [plasmashell]
 _k_friendly_name=Plasma
+activate widget 2=Alt+F1,none,Activate Application Menu Widget
 activate widget 4=none,none,Activate Task Manager Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
