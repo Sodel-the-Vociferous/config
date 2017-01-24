@@ -15,6 +15,7 @@ set +o histexpand
 # Store lots of history
 export HISTSIZE=50000
 export HISTFILESIZE=$HISTSIZE
+export HISTTIMEFORMAT='%F %H:%M:%S'
 
 # Actively check the terminal size.
 shopt -s checkwinsize
