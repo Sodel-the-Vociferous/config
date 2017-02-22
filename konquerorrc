@@ -23,9 +23,13 @@ searchbarEnabled=true
 
 [KPropertiesDialog]
 Height 1024=459
-Height 1080=512
+Height 1080=516
 Width 1280=461
-Width 1920=630
+Width 1920=636
+
+[Open-with settings]
+CompletionMode=5
+History=xfce4-terminal
 
 [SearchBar]
 CompletionMode=5

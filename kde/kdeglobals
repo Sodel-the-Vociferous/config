@@ -2,60 +2,60 @@
 update_info=fonts_global.upd:Fonts_Global
 
 [ColorEffects:Disabled]
-Color=56,56,56
-ColorAmount=0
-ColorEffect=0
-ContrastAmount=0.65000000000000002
-ContrastEffect=1
-IntensityAmount=0.10000000000000001
-IntensityEffect=2
+Color=
+ColorAmount=
+ColorEffect=
+ContrastAmount=
+ContrastEffect=
+IntensityAmount=
+IntensityEffect=
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
-Color=112,111,110
-ColorAmount=0.025000000000000001
-ColorEffect=2
-ContrastAmount=0.10000000000000001
-ContrastEffect=2
+Color=
+ColorAmount=
+ColorEffect=
+ContrastAmount=
+ContrastEffect=
 Enable=false
-IntensityAmount=0
-IntensityEffect=0
+IntensityAmount=
+IntensityEffect=
 
 [Colors:Button]
-BackgroundAlternate=77,77,77
-BackgroundNormal=49,54,59
-DecorationFocus=61,174,233
-DecorationHover=61,174,233
+BackgroundAlternate=189,195,199
+BackgroundNormal=77,77,77
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
 ForegroundActive=61,174,233
-ForegroundInactive=189,195,199
+ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=239,240,241
+ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:Complementary]
-BackgroundAlternate=59,64,69
-BackgroundNormal=49,54,59
-DecorationFocus=30,146,255
-DecorationHover=61,174,230
-ForegroundActive=246,116,0
-ForegroundInactive=175,176,179
-ForegroundLink=61,174,230
-ForegroundNegative=237,21,21
-ForegroundNeutral=201,206,59
-ForegroundNormal=239,240,241
-ForegroundPositive=17,209,22
-ForegroundVisited=61,174,230
+BackgroundAlternate=41,44,48
+BackgroundNormal=35,38,41
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
+ForegroundActive=61,174,233
+ForegroundInactive=127,140,141
+ForegroundLink=41,128,185
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=252,252,252
+ForegroundPositive=39,174,96
+ForegroundVisited=127,140,141
 
 [Colors:Selection]
 BackgroundAlternate=29,153,243
-BackgroundNormal=61,174,233
-DecorationFocus=61,174,233
-DecorationHover=61,174,233
+BackgroundNormal=52,73,94
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
 ForegroundActive=252,252,252
-ForegroundInactive=239,240,241
+ForegroundInactive=252,252,252
 ForegroundLink=253,188,75
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -65,43 +65,43 @@ ForegroundVisited=189,195,199
 
 [Colors:Tooltip]
 BackgroundAlternate=77,77,77
-BackgroundNormal=49,54,59
-DecorationFocus=61,174,233
-DecorationHover=61,174,233
+BackgroundNormal=29,153,243
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
 ForegroundActive=61,174,233
-ForegroundInactive=189,195,199
+ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=239,240,241
+ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=49,54,59
+BackgroundAlternate=41,44,48
 BackgroundNormal=35,38,41
-DecorationFocus=61,174,233
-DecorationHover=61,174,233
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
 ForegroundActive=61,174,233
-ForegroundInactive=189,195,199
+ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=239,240,241
+ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:Window]
-BackgroundAlternate=77,77,77
+BackgroundAlternate=189,195,199
 BackgroundNormal=49,54,59
-DecorationFocus=61,174,233
-DecorationHover=61,174,233
+DecorationFocus=29,153,243
+DecorationHover=77,77,77
 ForegroundActive=61,174,233
-ForegroundInactive=189,195,199
+ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=239,240,241
+ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
@@ -148,7 +148,7 @@ dir_pixmap=/usr/share/pixmaps
 
 [General]
 BrowserApplication=firefox
-ColorScheme=Breeze Dark
+ColorScheme=Breeze High Contrast
 Name=Breeze Dark
 TerminalApplication[$e]=xfce4-terminal
 XftAntialias=true
@@ -197,7 +197,7 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=185
+Speedbar Width=187
 View Style=Simple
 listViewIconSize=0
 
@@ -292,10 +292,10 @@ DisabledValue=1
 Size=22
 
 [WM]
-activeBackground=49,54,59
-activeBlend=255,255,255
+activeBackground=29,153,243
+activeBlend=29,153,243
 activeFont=Droid Sans Mono,13,-1,5,50,0,0,0,0,0
-activeForeground=239,240,241
+activeForeground=252,252,252
 inactiveBackground=49,54,59
-inactiveBlend=75,71,67
-inactiveForeground=127,140,141
+inactiveBlend=26,188,156
+inactiveForeground=252,252,252
