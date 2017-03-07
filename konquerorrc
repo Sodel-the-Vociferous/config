@@ -1,6 +1,10 @@
 [Desktop Entry]
 DefaultProfile=Shell.profile
 
+[DownloadDialog Settings]
+Height 1080=400
+Width 1920=700
+
 [FMSettings]
 AlwaysTabbedMode=false
 KonquerorTabforExternalURL=false
@@ -25,7 +29,7 @@ searchbarEnabled=true
 Height 1024=459
 Height 1080=516
 Width 1280=461
-Width 1920=636
+Width 1920=658
 
 [Open-with settings]
 CompletionMode=5
