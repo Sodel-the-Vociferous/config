@@ -100,7 +100,7 @@ ensure_symlink ~/images ~/Pictures
 ensure_symlink ~/vid ~/Videos
 
 # "Mounts"
-ensure_symlink /media/big-ext/ ~/mnt/big-ext
+ensure_symlink /mnt/big-ext/ ~/mnt/big-ext
 
 # Directories On My Big Ext Drive
 ensure_symlink ~/mnt/big-ext/$USER/Mail ~/Mail
