@@ -9,6 +9,14 @@ export LC_COLLATE
 # export LANG
 
 ## Environment Variables ##
+XDG_DESKTOP_DIR="$HOME/desktop"
+XDG_DOWNLOAD_DIR="$HOME/tmp"
+XDG_TEMPLATES_DIR="$HOME/templates"
+XDG_PUBLICSHARE_DIR="$HOME/public"
+XDG_DOCUMENTS_DIR="$HOME/doc"
+XDG_MUSIC_DIR="$HOME/music"
+XDG_PICTURES_DIR="$HOME/images"
+XDG_VIDEOS_DIR="$HOME/vid"
 
 # X
 XAUTHORITY=$HOME/.Xauthority
