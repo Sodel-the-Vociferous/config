@@ -84,6 +84,13 @@ ensure_symlink ~/config/screenrc ~/.screenrc
 ensure_symlink ~/config/moc/config ~/.moc/config
 ensure_symlink ~/config/zdoom.ini ~/.config/zdoom/zdoom.ini
 
+(which kbuildsycoca4 || which update-desktop-database) &&
+    ensure_symlink \
+        ~/config/applications/org-protocol.desktop \
+        ~/.local/share/applications/org-protocol.desktop &&
+    kbuildsycoca4 &>/dev/null &&
+    update-desktop-database ~/.local/share/applications/ &>/dev/null
+
 # Application Definitions
 
 ensure_symlink ~/config/autostart/Xsession.desktop ~/.config/autostart/Xsession.desktop
