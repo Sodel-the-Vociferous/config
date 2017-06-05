@@ -46,6 +46,10 @@ STOW_DIR="/usr/local/stow"
 export STOW_DIR
 GOPATH=~/src/go
 export GOPATH
+# Allow default ($PATH-based?) man directories to be searched too, by adding an
+# empty field. Fixes `man nix-env``
+MANPATH="$MANPATH:"
+export MANPATH
 PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_DIR
 
