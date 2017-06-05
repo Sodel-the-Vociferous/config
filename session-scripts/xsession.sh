@@ -44,6 +44,6 @@ setxkbmap -option ctrl:nocaps
 # Workaround gdm's buggered up placement of .Xauthority
 xhost +si:localuser:`id -un`
 
-already_running xscreensaver || xscreensaver -nosplash &
+# already_running xscreensaver || xscreensaver -nosplash &
 
 disown -a
