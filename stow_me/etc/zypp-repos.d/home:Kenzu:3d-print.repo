@@ -1,0 +1,7 @@
+[home:Kenzu:3d-print]
+name=home:Kenzu:3d-print
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/Kenzu:/3d-print/openSUSE_13.2/
+type=rpm-md
+keeppackages=0

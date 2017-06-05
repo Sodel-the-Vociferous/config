@@ -1,0 +1,9 @@
+[openSUSE:13.1:NonFree]
+name=openSUSE:13.1:NonFree
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/distribution/13.1/repo/non-oss/
+path=/
+type=yast2
+priority=100
+keeppackages=0

@@ -1,0 +1,7 @@
+[home:amazingfate]
+name=home:amazingfate
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/amazingfate/openSUSE_13.2/
+type=rpm-md
+keeppackages=0

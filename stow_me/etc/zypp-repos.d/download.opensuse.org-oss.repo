@@ -1,0 +1,8 @@
+[download.opensuse.org-oss]
+name=Main Repository (Sources)
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/source/distribution/13.2/repo/oss/
+path=/
+type=yast2
+keeppackages=0

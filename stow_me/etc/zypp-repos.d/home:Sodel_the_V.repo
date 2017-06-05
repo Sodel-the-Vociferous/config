@@ -1,0 +1,9 @@
+[home:Sodel_the_V]
+name=home:Sodel_the_V
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/Sodel_the_V/openSUSE_13.2/
+path=/
+type=rpm-md
+priority=98
+keeppackages=0

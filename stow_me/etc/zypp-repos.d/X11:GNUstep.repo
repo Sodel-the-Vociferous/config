@@ -1,0 +1,7 @@
+[X11:GNUstep]
+name=X11:GNUstep
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/X11:/GNUstep/openSUSE_Factory/
+type=rpm-md
+keeppackages=0
