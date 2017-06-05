@@ -64,7 +64,7 @@ export PYTHONDONTWRITEBYTECODE
 # Setup gtags w/ exuberant ctags
 GTAGSCONF=$HOME/.globalrc
 export GTAGSCONF
-GTAGSLABEL=ctags
+GTAGSLABEL=default #ctags
 export GTAGSLABEL
 
 if [[ $OS = Windows_NT ]]; then
