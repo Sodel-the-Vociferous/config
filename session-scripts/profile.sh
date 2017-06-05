@@ -101,3 +101,5 @@ pulseaudio --start &> /dev/null &
 
 # Make sure a dying shell doesn't kill these background processes.
 [[ $SHELL = /bin/bash ]] && disown -a
+
+export PATH="$PATH:$HOME/.cargo/bin:"
