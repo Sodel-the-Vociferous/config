@@ -171,6 +171,7 @@ ChangeCursor=true
 ColorScheme=openSUSE
 DoubleClickInterval=400
 LookAndFeelPackage=org.kde.breezedark.desktop
+ShowDeleteCommand=false
 SingleClick=false
 StartDragDist=4
 StartDragTime=500
@@ -197,7 +198,7 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=188
+Speedbar Width=189
 View Style=Simple
 listViewIconSize=0
 
@@ -247,6 +248,7 @@ Size=32
 Trash=$HOME/Desktop/Trash/
 
 [PreviewSettings]
+MaximumRemoteSize=0
 MaximumSize=3145728
 camera=true
 file=true
