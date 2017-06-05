@@ -1,5 +1,7 @@
 alias aliases='$EDITOR ~/.bash_aliases'
 alias l='ls -lhF --color=auto'
+alias l1='ls -1 --color=auto'
+alias ls1='ls -1 --color=auto'
 alias ls='ls -h --color=auto'
 alias lsd='ls -d */'
 alias ..='cd ..'
