@@ -9,8 +9,6 @@ byacc
 bzr
 calibre
 cdecl
-cmake
-cppcheck
 crudini
 dejavu-fonts
 deluge
@@ -28,22 +26,17 @@ feh
 ffmpeg
 filezilla
 findutils
-firefox
 flac
 flex
 fortune
 fuse-exfat
 fusesmb
-gcc
-gcc-c++
 gconf2-32bit
 gdb
 gimp
-global
 gnu_ddrescue
 gnumeric
 gobby
-gparted
 gpg2
 gputils
 hdparm
@@ -57,7 +50,6 @@ k3b
 kernel-devel
 libXss1-32bit
 librecad
-libreoffice
 libvirt
 libvirt-client
 libvirt-daemon
@@ -123,7 +115,6 @@ scrot
 sdparm
 sharutils
 smartmontools
-socat
 splint
 sqlite2
 subversion
