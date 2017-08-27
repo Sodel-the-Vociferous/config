@@ -20,7 +20,7 @@ dropbox
 emacs
 emacs-el
 faenza-icon-theme
-firefox
+MozillaFirefox
 flash-player
 gcc
 gcc-c++
@@ -36,6 +36,7 @@ gvim
 iw
 keychain
 libreoffice
+moreutils
 numlockx
 okular
 password-store

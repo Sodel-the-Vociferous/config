@@ -1,3 +1,4 @@
 latexmk
+texlive-cap-of
 texlive-scheme-medium
 texlive-wrapfig
