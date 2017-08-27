@@ -143,6 +143,10 @@ DisabledSemiTransparent=true
 DisabledValue=1
 Size=32
 
+[DirSelect Dialog]
+DirSelectDialog Size=640,480
+History Items[$e]=file:$HOME/music/modern/boards-of-canada
+
 [Directories]
 dir_pixmap=/usr/share/pixmaps
 
@@ -198,7 +202,7 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=189
+Speedbar Width=190
 View Style=Simple
 listViewIconSize=0
 
