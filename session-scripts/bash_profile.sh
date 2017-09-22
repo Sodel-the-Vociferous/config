@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if (uname -r | egrep -e "Microsoft$" &> /dev/null) && [[ -z "$DISPLAY" ]]; then
-   export DISPLAY=":0.0"
+   export DISPLAY="localhost:0.0"
    xset -q &> /dev/null || unset DISPLAY
 fi
 
