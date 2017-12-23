@@ -1,7 +1,8 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=org-protocol
-Exec=emacsclient %u
-Type=Application
+Name=Emacs Client
+Exec=/home/dralston/config/helper-scripts/org-capture "%u"
+Icon=emacs-icon
 Terminal=false
-Categories=System;
+Type=Application
 MimeType=x-scheme-handler/org-protocol;
