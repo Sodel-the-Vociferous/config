@@ -145,7 +145,7 @@ Size=32
 
 [DirSelect Dialog]
 DirSelectDialog Size=640,480
-History Items[$e]=file:$HOME/music/modern/boards-of-canada
+History Items[$e]=file:$HOME/prj/webdev/org-capture-extension,file:$HOME/music/modern/boards-of-canada
 
 [Directories]
 dir_pixmap=/usr/share/pixmaps
@@ -189,7 +189,7 @@ rule_count=1
 
 [KFileDialog Settings]
 Automatically select filename extension=true
-Breadcrumb Navigation=true
+Breadcrumb Navigation=false
 Decoration position=0
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
@@ -202,7 +202,7 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=233
+Speedbar Width=257
 View Style=Simple
 listViewIconSize=0
 
