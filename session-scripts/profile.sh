@@ -85,13 +85,6 @@ XDG_RUNTIME_DIR="/run/user/$(id -u)"
 # Use keychain as a GPG and SSH agent.
 eval $(keychain --inherit local-once --quiet --eval 2>/dev/null)
 
-# Start emacs daemon if one isn't already running
-pgrep -f "emacs(-gtk|-x11|-w32)? --daemon" &>/dev/null ||
-nohup emacs --daemon &> /dev/null &
-
-# Start pulseaudio
-which pulseaudio &> /dev/null &&
-pulseaudio --start &> /dev/null &
 
 # Workaround multiple gvfsds bug, screwing up mounts in
 # /run/user/$UID/gvfs
