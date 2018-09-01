@@ -1,7 +1,6 @@
 MozillaFirefox
 ack
 adobe-sourcecodepro-fonts
-adobe-sourcecodepro-fonts
 adobe-sourcesanspro-fonts
 adobe-sourceserifpro-fonts
 alsa
@@ -20,13 +19,12 @@ dropbox
 emacs
 emacs-el
 faenza-icon-theme
-MozillaFirefox
+fd
 flash-player
 gcc
 gcc-c++
 git
 gitk
-global
 global
 gnome-system-monitor
 gnu_parallel
@@ -36,7 +34,6 @@ gvim
 iw
 keychain
 libreoffice
-moreutils
 moreutils
 numlockx
 okular
