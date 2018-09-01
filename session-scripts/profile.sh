@@ -53,9 +53,10 @@ export MANPATH
 PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_DIR
 
-# Make Wine emulate 32-bit Windows.
-WINEARCH=win32
-export WINEARCH
+# # Make Wine emulate 32-bit Windows.
+# # Commented out so Steam Play/Proton (64-bit) doesn't break.
+# WINEARCH=win32
+# export WINEARCH
 
 # Prevent Python from cluttering my filesystem up with .pyc files
 PYTHONDONTWRITEBYTECODE=true
