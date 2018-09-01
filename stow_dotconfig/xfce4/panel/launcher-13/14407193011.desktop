@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Simplify3D
+GenericName=3D Print Slicer
+Exec=/opt/Simplify3D-3.0.1/LaunchScript.sh
+Icon=/opt/Simplify3D-3.0.1/icon.png
+Path=/opt/Simplify3D-3.0.1
+Type=Application
+Terminal=false
+Categories=Graphics;Other
+StartupWMClass=Simplify3D
+X-XFCE-Source=file:///home/dralston/.local/share/applications/Simplify3D.desktop

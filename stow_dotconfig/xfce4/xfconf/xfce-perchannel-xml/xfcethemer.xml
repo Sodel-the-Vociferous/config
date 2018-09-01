@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfcethemer" version="1.0">
+  <property name="WindowWidth" type="int" value="462"/>
+  <property name="WindowHeight" type="int" value="470"/>
+</channel>
