@@ -1,8 +1,0 @@
-[repo-source]
-name=openSUSE-13.2-Source
-enabled=1
-autorefresh=1
-baseurl=http://download.opensuse.org/source/distribution/13.2/repo/oss/
-path=/
-type=yast2
-keeppackages=0

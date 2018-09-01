@@ -1,0 +1,7 @@
+[repo-debug]
+name=repo-debug
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/tumbleweed/repo/debug
+type=rpm-md
+keeppackages=0

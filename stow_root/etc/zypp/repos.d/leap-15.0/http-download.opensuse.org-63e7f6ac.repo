@@ -1,0 +1,7 @@
+[http-download.opensuse.org-63e7f6ac]
+name=devel:tools:compiler
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/devel:/tools:/compiler/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

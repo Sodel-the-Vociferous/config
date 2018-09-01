@@ -1,0 +1,7 @@
+[http-download.opensuse.org-09f31b19]
+name=CrossToolchain:avr
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

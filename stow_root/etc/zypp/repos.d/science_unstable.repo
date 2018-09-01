@@ -1,0 +1,10 @@
+[science_unstable]
+name=Software for Scientists and Engineers (unstable: openSUSE_Tumbleweed)
+enabled=1
+autorefresh=0
+baseurl=http://download.opensuse.org/repositories/science:/unstable/openSUSE_Tumbleweed/
+type=rpm-md
+priority=100
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/science:/unstable/openSUSE_Tumbleweed/repodata/repomd.xml.key
+keeppackages=0

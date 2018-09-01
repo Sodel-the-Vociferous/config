@@ -1,0 +1,7 @@
+[http-download.opensuse.org-0f570502]
+name=security:privacy
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/security:/privacy/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

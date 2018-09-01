@@ -1,0 +1,7 @@
+[http-download.opensuse.org-6e90d48e]
+name=devel:languages:go
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/devel:/languages:/go/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

@@ -1,0 +1,8 @@
+[science-unstable-15.0]
+name=science:unstable-15.0
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/science:/unstable/openSUSE_Leap_15.0/
+path=/
+type=rpm-md
+keeppackages=0

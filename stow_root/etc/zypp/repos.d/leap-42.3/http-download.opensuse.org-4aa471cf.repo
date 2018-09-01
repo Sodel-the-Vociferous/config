@@ -1,0 +1,7 @@
+[http-download.opensuse.org-4aa471cf]
+name=home:StefanBruens:3dPrinting
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/repositories/home:/StefanBruens:/3dPrinting/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

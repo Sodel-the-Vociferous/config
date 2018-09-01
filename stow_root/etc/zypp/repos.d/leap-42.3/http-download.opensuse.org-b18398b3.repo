@@ -1,0 +1,7 @@
+[http-download.opensuse.org-b18398b3]
+name=mozilla
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/mozilla/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

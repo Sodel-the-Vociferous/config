@@ -1,7 +1,0 @@
-[home:Sodel_the_V:branches:devel:tools]
-name=home:Sodel_the_V:branches:devel:tools
-enabled=0
-autorefresh=1
-baseurl=http://download.opensuse.org/repositories/home:/Sodel_the_V:/branches:/devel:/tools/openSUSE_13.2/
-type=rpm-md
-keeppackages=0

@@ -1,7 +1,0 @@
-[home:torhans]
-name=home:torhans
-enabled=1
-autorefresh=1
-baseurl=http://download.opensuse.org/repositories/home:/torhans/openSUSE_13.2/
-type=rpm-md
-keeppackages=0

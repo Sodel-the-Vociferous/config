@@ -1,0 +1,7 @@
+[http-download.opensuse.org-69215646]
+name=Virtualization
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/Virtualization/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

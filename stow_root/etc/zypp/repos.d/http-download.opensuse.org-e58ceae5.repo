@@ -1,0 +1,7 @@
+[http-download.opensuse.org-e58ceae5]
+name=hardware
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/hardware/openSUSE_Factory-z/
+type=rpm-md
+keeppackages=0

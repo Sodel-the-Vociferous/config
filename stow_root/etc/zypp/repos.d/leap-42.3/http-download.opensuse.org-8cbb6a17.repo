@@ -1,0 +1,7 @@
+[http-download.opensuse.org-8cbb6a17]
+name=home:ecsos
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

@@ -1,0 +1,7 @@
+[http-download.opensuse.org-4de7759e]
+name=hardware
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/hardware/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

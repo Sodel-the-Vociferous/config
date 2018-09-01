@@ -1,0 +1,7 @@
+[http-download.opensuse.org-38fae955]
+name=home:frispete:42.3
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/frispete:/42.3/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

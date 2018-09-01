@@ -1,0 +1,7 @@
+[http-download.opensuse.org-93e822d1]
+name=devel:languages:python
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

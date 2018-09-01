@@ -1,0 +1,7 @@
+[http-download.opensuse.org-75012355]
+name=openSUSE:Tools
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/openSUSE:/Tools/openSUSE_15.0/
+type=rpm-md
+keeppackages=0

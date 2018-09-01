@@ -1,7 +1,0 @@
-[Documentation:Tools]
-name=Documentation:Tools
-enabled=1
-autorefresh=1
-baseurl=http://download.opensuse.org/repositories/Documentation:/Tools/openSUSE_13.1/
-type=rpm-md
-keeppackages=0

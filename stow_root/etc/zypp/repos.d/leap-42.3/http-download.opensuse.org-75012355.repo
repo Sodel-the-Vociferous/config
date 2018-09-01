@@ -1,0 +1,7 @@
+[http-download.opensuse.org-75012355]
+name=openSUSE:Tools
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/openSUSE:/Tools/openSUSE_42.3/
+type=rpm-md
+keeppackages=0

@@ -1,0 +1,7 @@
+[http-download.opensuse.org-4a9102b0]
+name=home:derselbst
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/home:/derselbst/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

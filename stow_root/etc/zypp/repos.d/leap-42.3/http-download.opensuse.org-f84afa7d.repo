@@ -1,0 +1,7 @@
+[http-download.opensuse.org-f84afa7d]
+name=editors
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/editors/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

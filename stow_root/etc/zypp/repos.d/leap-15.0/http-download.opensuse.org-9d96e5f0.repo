@@ -1,0 +1,7 @@
+[http-download.opensuse.org-9d96e5f0]
+name=devel:languages:rust
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/devel:/languages:/rust/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

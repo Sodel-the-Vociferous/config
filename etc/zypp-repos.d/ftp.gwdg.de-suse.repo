@@ -1,8 +1,0 @@
-[ftp.gwdg.de-suse]
-name=Packman Repository
-enabled=1
-autorefresh=1
-baseurl=http://ftp.fau.de/packman/suse/openSUSE_13.2/
-path=/
-type=rpm-md
-keeppackages=0

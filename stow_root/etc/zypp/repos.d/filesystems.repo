@@ -1,0 +1,10 @@
+[filesystems]
+name=Filesystem tools and FUSE-related packages (openSUSE_Tumbleweed)
+enabled=1
+autorefresh=0
+baseurl=http://download.opensuse.org/repositories/filesystems/openSUSE_Tumbleweed/
+type=rpm-md
+priority=100
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/filesystems/openSUSE_Tumbleweed/repodata/repomd.xml.key
+keeppackages=0

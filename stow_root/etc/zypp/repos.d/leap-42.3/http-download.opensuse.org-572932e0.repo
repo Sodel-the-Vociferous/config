@@ -1,0 +1,7 @@
+[http-download.opensuse.org-572932e0]
+name=multimedia:apps
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/multimedia:/apps/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

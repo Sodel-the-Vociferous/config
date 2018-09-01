@@ -1,0 +1,7 @@
+[http-download.opensuse.org-d3389c82]
+name=Education
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/Education/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

@@ -1,0 +1,7 @@
+[http-download.opensuse.org-eef0fcf4]
+name=science
+enabled=0
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/science/openSUSE_Leap_15.0/
+type=rpm-md
+keeppackages=0

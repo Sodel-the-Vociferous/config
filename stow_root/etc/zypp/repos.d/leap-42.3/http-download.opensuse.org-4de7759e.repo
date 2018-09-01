@@ -1,0 +1,7 @@
+[http-download.opensuse.org-4de7759e]
+name=hardware
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/hardware/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

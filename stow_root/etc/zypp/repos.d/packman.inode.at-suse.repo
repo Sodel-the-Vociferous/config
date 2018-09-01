@@ -1,0 +1,7 @@
+[packman.inode.at-suse]
+name=Packman Repository
+enabled=1
+autorefresh=1
+baseurl=http://packman.inode.at/suse/openSUSE_Tumbleweed
+type=rpm-md
+keeppackages=0

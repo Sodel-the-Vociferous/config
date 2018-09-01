@@ -1,0 +1,7 @@
+[http-download.opensuse.org-68160e31]
+name=home:Heinervdm:cura
+enabled=0
+autorefresh=0
+baseurl=http://download.opensuse.org/repositories/home:/Heinervdm:/cura/openSUSE_Leap_42.3/
+type=rpm-md
+keeppackages=0

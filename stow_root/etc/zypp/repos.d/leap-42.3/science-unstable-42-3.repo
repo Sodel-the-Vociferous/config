@@ -1,0 +1,8 @@
+[science-unstable-42-3]
+name=science:unstable-42-3
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/science:/unstable/openSUSE_Leap_42.3/
+path=/
+type=rpm-md
+keeppackages=0

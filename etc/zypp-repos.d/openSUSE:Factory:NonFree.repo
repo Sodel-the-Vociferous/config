@@ -1,7 +1,0 @@
-[openSUSE:Factory:NonFree]
-name=openSUSE:Factory:NonFree
-enabled=0
-autorefresh=1
-baseurl=http://download.opensuse.org/repositories/openSUSE:/Factory:/NonFree/standard/
-type=NONE
-keeppackages=0

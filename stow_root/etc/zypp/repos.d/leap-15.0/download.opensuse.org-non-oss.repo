@@ -1,0 +1,8 @@
+[download.opensuse.org-non-oss]
+name=Main Repository (NON-OSS)
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/distribution/leap/15.0/repo/non-oss/
+path=/
+type=rpm-md
+keeppackages=0

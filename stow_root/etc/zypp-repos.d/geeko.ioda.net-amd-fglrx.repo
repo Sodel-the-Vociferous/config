@@ -1,8 +1,0 @@
-[geeko.ioda.net-amd-fglrx]
-name=AMD/ATI Graphics Drivers
-enabled=1
-autorefresh=1
-baseurl=http://geeko.ioda.net/mirror/amd-fglrx/openSUSE_13.2/
-path=/
-type=rpm-md
-keeppackages=0

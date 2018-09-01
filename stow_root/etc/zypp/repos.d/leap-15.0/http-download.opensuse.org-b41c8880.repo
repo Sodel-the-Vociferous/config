@@ -1,0 +1,7 @@
+[http-download.opensuse.org-b41c8880]
+name=openSUSE:Leap:15.0:Update
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/update/leap/15.0/oss/
+type=rpm-md
+keeppackages=0
