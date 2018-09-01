@@ -84,6 +84,17 @@ ensure_symlink ~/config/screenrc ~/.screenrc
 ensure_symlink ~/config/moc/config ~/.moc/config
 ensure_symlink ~/config/zdoom.ini ~/.config/zdoom/zdoom.ini
 
+## SystemD Services Config
+ensure_symlink ~/config/systemd-services/emacs.service ~/.config/systemd/user/emacs.service
+ensure_symlink ~/config/systemd-services/dirmngr.service ~/.config/systemd/user/dirmngr.service
+ensure_symlink ~/config/systemd-services/dirmngr.socket ~/.config/systemd/user/dirmngr.socket
+ensure_symlink ~/config/systemd-services/gpg-agent-browser.socket ~/.config/systemd/user/gpg-agent-browser.socket
+ensure_symlink ~/config/systemd-services/gpg-agent-extra.socket ~/.config/systemd/user/gpg-agent-extra.socket
+ensure_symlink ~/config/systemd-services/gpg-agent-ssh.socket ~/.config/systemd/user/gpg-agent-ssh.socket
+ensure_symlink ~/config/systemd-services/gpg-agent.service ~/.config/systemd/user/gpg-agent.service
+ensure_symlink ~/config/systemd-services/gpg-agent.socket ~/.config/systemd/user/gpg-agent.socket
+ensure_symlink ~/config/systemd-services/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
+
 (which kbuildsycoca4 || which update-desktop-database) &&
     ensure_symlink \
         ~/config/applications/org-protocol.desktop \
