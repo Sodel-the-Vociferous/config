@@ -65,7 +65,7 @@ ensure_symlink ~/config/globalrc ~/.globalrc
 ensure_symlink ~/config/pylintrc.conf ~/.pylintrc
 ensure_symlink ~/config/sbclrc.lisp ~/.sbclrc
 
-## PG Config
+## GPG Config
 
 ensure_symlink ~/config/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ensure_symlink ~/config/gpg.conf ~/.gnupg/gpg.conf
