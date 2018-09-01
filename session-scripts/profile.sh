@@ -83,8 +83,8 @@ XDG_RUNTIME_DIR="/run/user/$(id -u)"
     eval $(dbus-launch --sh-syntax --autolaunch $(cat /etc/machine-id))
 
 # Use keychain as a GPG and SSH agent.
-eval $(keychain --inherit local-once --quiet --eval 2>/dev/null)
-
+SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/S.ssh-agent"
+export SSH_AUTH_SOCK
 
 # Workaround multiple gvfsds bug, screwing up mounts in
 # /run/user/$UID/gvfs
