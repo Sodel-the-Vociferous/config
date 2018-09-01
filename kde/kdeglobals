@@ -1,5 +1,5 @@
 [$Version]
-update_info=fonts_global.upd:Fonts_Global
+update_info=fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,filepicker.upd:filepicker-remove-old-previews-entry
 
 [ColorEffects:Disabled]
 Color=56,56,56
@@ -193,16 +193,17 @@ Breadcrumb Navigation=false
 Decoration position=0
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
-Previews=false
+Previews[$d]
 Show Bookmarks=true
 Show Full Path=false
+Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
 Sort by=Type
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=329
+Speedbar Width=332
 View Style=Simple
 listViewIconSize=0
 
