@@ -13,8 +13,8 @@ fi
 source $LIB_ES_PATH
 
 # Stow
-stow --verbose=1 --adopt -d ~/config/ -t $HOME stow_home
-stow --verbose=1 --adopt -d ~/config/ -t $HOME/.config stow_dotconfig
+stow --adopt -R -d ~/config/ -t $HOME stow_home
+stow --adopt -R -d ~/config/ -t $HOME/.config stow_dotconfig
 
 # Org-Protocol
 (which kbuildsycoca4 || which update-desktop-database) &&
