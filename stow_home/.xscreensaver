@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.37 for dralston on Sun Aug 26 21:04:05 2018.
+# Written by xscreensaver-demo 5.37 for dralston on Sat Sep  1 03:16:10 2018.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:03:00
+timeout:	0:07:00
 cycle:		0:10:00
 lock:		True
-lockTimeout:	0:01:00
+lockTimeout:	0:07:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -26,7 +26,7 @@ ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
 dpmsEnabled:	True
 dpmsQuickOff:	False
-dpmsStandby:	0:04:00
+dpmsStandby:	0:08:00
 dpmsSuspend:	0:00:00
 dpmsOff:	0:00:00
 grabDesktopImages:  False
