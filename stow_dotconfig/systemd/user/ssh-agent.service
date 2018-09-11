@@ -2,8 +2,11 @@
 Description=SSH key agent
 
 [Service]
+PermissionsStartOnly=true
 Environment=SSH_AUTH_SOCK=%t/ssh-agent/S.ssh-agent
-ExecStart=/usr/bin/ssh-agent -Da $SSH_AUTH_SOCK
+RuntimeDirectory=ssh-agent
+RuntimeDirectoryMode=0700
+ExecStart=/usr/bin/ssh-agent -da $SSH_AUTH_SOCK
 
 [Install]
 WantedBy=default.target
