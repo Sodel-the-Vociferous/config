@@ -1,5 +1,5 @@
 # set to yes if you want Conky to be forked in the background
-background yes
+background no
 
 # X font when Xft is disabled, you can pick one with program xfontsel
 #font 5x7
