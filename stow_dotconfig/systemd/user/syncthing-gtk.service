@@ -1,0 +1,8 @@
+[Unit]
+Description=syncthing-gtk
+Documentation=man:syncthing-gtk(1)
+
+[Service]
+ExecStartPre=/usr/bin/sleep 2
+ExecStart=/usr/bin/syncthing-gtk
+Restart=on-failure
