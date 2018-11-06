@@ -22,6 +22,9 @@ XDG_VIDEOS_DIR="$HOME/vid"
 XAUTHORITY=$HOME/.Xauthority
 export XAUTHORITY
 
+QT_LOGGING_RULES='*=false'
+export QT_LOGGING_RULES
+
 # Editors
 EDITOR=emacsclient
 export EDITOR
