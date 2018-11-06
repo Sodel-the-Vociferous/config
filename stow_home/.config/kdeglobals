@@ -145,7 +145,7 @@ Size=32
 
 [DirSelect Dialog]
 DirSelectDialog Size=640,480
-History Items[$e]=file:$HOME/lit/LMH/Planning Drawings - DWG/Drawings 21-Mar-07,file:///mnt/big-ext/dralston/lit/LMH/Planning Drawings - DWG,file:$HOME/prj/webdev/org-capture-extension,file:$HOME/music/modern/boards-of-canada
+History Items[$e]=file:$HOME/music/modern/soundtracks/jurassic-park2-the-lost-world,file:$HOME/lit/LMH/Planning Drawings - DWG/Drawings 21-Mar-07,file:///mnt/big-ext/dralston/lit/LMH/Planning Drawings - DWG,file:$HOME/prj/webdev/org-capture-extension,file:$HOME/music/modern/boards-of-canada
 
 [Directories]
 dir_pixmap=/usr/share/pixmaps
