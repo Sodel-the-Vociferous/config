@@ -1,10 +1,10 @@
 [Emulators]
-name=Emulators (openSUSE_Tumbleweed)
+name=Emulators (openSUSE_Leap_15.0)
 enabled=1
-autorefresh=0
-baseurl=http://download.opensuse.org/repositories/Emulators/openSUSE_Tumbleweed/
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/Emulators/openSUSE_Leap_15.0/
 type=rpm-md
 priority=100
 gpgcheck=1
-gpgkey=http://download.opensuse.org/repositories/Emulators/openSUSE_Tumbleweed/repodata/repomd.xml.key
+gpgkey=http://download.opensuse.org/repositories/Emulators/openSUSE_Leap_15.0/repodata/repomd.xml.key
 keeppackages=0

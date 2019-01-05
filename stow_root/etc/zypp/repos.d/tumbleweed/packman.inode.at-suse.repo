@@ -2,7 +2,6 @@
 name=Packman Repository
 enabled=1
 autorefresh=1
-baseurl=http://packman.inode.at/suse/openSUSE_Leap_15.0
+baseurl=http://packman.inode.at/suse/openSUSE_Tumbleweed
 type=rpm-md
-priority=100
 keeppackages=0

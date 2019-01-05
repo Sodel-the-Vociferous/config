@@ -1,0 +1,10 @@
+[security_privacy]
+name=Crypto applications and utilities (openSUSE_Tumbleweed)
+enabled=1
+autorefresh=0
+baseurl=http://download.opensuse.org/repositories/security:/privacy/openSUSE_Tumbleweed/
+type=rpm-md
+priority=100
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/security:/privacy/openSUSE_Tumbleweed/repodata/repomd.xml.key
+keeppackages=0

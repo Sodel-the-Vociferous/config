@@ -2,6 +2,6 @@
 name=repo-non-oss
 enabled=1
 autorefresh=1
-baseurl=http://download.opensuse.org/distribution/leap/15.0/repo/non-oss/
+baseurl=http://download.opensuse.org/tumbleweed/repo/non-oss
 type=rpm-md
 keeppackages=0

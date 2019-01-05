@@ -2,6 +2,6 @@
 name=repo-update
 enabled=1
 autorefresh=1
-baseurl=http://download.opensuse.org/update/leap/15.0/oss/
+baseurl=http://download.opensuse.org/update/tumbleweed/
 type=rpm-md
 keeppackages=0

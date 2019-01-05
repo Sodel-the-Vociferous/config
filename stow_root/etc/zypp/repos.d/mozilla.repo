@@ -2,6 +2,6 @@
 name=mozilla
 enabled=1
 autorefresh=1
-baseurl=http://download.opensuse.org/repositories/mozilla/openSUSE_Tumbleweed/
+baseurl=http://download.opensuse.org/repositories/mozilla/openSUSE_Leap_15.0/
 type=rpm-md
 keeppackages=0
