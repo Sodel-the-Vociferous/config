@@ -32,5 +32,5 @@ alias xwwii='cd ~/.wine/drive_c/Program\ Files/EA\ GAMES/Battlefield\ 1942/; win
 alias bf2='cd ~/.wine/drive_c/Program\ Files/EA\ GAMES/Battlefield\ 2/; wine BF2.exe'
 alias fh2='cd ~/.wine/drive_c/Program\ Files/EA\ GAMES/Battlefield\ 2/; wine FH2.exe'
 alias stbc='cd ~/.wine/drive_c/Program\ Files/Activision/Bridge\ Commander; wine stbc.exe'
-alias chwinedir='cd ~/.wine/drive_c/'
+alias cdwine='cd ~/.wine/drive_c/'
 alias dwarf='cd ~/games/dwarf/;./df'
