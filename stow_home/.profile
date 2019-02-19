@@ -30,8 +30,11 @@ EDITOR=emacsclient
 export EDITOR
 VISUAL=$EDITOR
 export VISUAL
-ALTERNATE_EDITOR=
-export ALTERNATE_EDITOR
+
+# # This variable, if left unset, will cause emacsclient to spawn an emacs
+# # server if one is not running.
+# ALTERNATE_EDITOR=
+# export ALTERNATE_EDITOR
 
 EMACS_TOOLKIT=x11
 export EMACS_TOOLKIT
