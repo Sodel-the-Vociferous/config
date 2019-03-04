@@ -1,6 +1,6 @@
 [Unit]
-Description=Xbindkeys
-Documentation=man:xbindkeys(1)
+Description=Conky
+Documentation=man:conky(1)
 
 [Service]
 ExecStartPre=/usr/bin/sleep 2

@@ -23,6 +23,7 @@ WALLPAPER_FILENAME=~/config/wallpaper
 
 # X keybindings
 systemctl --user start conky &
+systemctl --user start caffeine &
 systemctl --user start redshift-gtk &
 systemctl --user start syncthing-gtk &
 systemctl --user start xbindkeys &

@@ -3,5 +3,6 @@ Description=Xbindkeys
 Documentation=man:xbindkeys(1)
 
 [Service]
+ExecStartPre=/usr/bin/sleep 2
 ExecStart=/usr/bin/xbindkeys -n
 Restart=on-failure
