@@ -27,7 +27,6 @@ ffmpeg
 filezilla
 findutils
 flac
-flameshot
 flex
 fortune
 fuse-exfat
@@ -78,7 +77,6 @@ ntp
 numlockx
 openal-soft
 p7zip
-pandoc
 patch
 pax-utils
 pdftk
@@ -137,3 +135,7 @@ vorbis-tools
 wine
 youtube-dl
 zsnes
+libpng-devel
+glibc2-devel
+libpoppler-devel
+libpoppler-glib-devel
