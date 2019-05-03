@@ -112,7 +112,7 @@ DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
 HighlightWindows=true
-LayoutName=compact
+LayoutName=org.kde.breeze.desktop
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -164,3 +164,7 @@ ShadeHoverInterval=250
 SnapOnlyWhenOverlapping=false
 TitlebarDoubleClickCommand=Maximize
 WindowSnapZone=10
+
+[org.kde.kdecoration2]
+library=org.kde.breeze
+theme=
