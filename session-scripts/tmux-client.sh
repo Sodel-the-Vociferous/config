@@ -27,7 +27,14 @@ then
     NEW_WINDOW=true ||
     unset NEW_WINDOW
 
-    tmux -2 new-session -A -s TMUX_MASTER -c "$(pwd)" \; detach
+    if [[ $(which systemd-run) ]]
+    then
+        # tmux -2 new-session -A -s TMUX_MASTER -c "$(pwd)" \; detach
+        # systemd-run --service-type=forking --user tmux -2 new-session -A -s TMUX_MASTER -c "$(pwd)" ";" detach >/dev/null
+        systemd-run --user --service-type=forking --unit=tmux tmux -2 new-session -A -s TMUX_MASTER -c "$(pwd)" -d >/dev/null
+    else
+        tmux -2 new-session -A -s TMUX_MASTER -c "$(pwd)" \; detach
+    fi
 
     exec tmux -2 \
         new-session -t TMUX_MASTER \; \
