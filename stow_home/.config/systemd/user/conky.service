@@ -1,8 +1,0 @@
-[Unit]
-Description=Conky
-Documentation=man:conky(1)
-
-[Service]
-ExecStartPre=/usr/bin/sleep 2
-ExecStart=/usr/bin/conky
-Restart=on-failure

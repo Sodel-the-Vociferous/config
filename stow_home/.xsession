@@ -22,11 +22,6 @@ WALLPAPER_FILENAME=~/config/wallpaper
 #             PalmMinWidth=10
 
 # X keybindings
-systemctl --user start conky &
-systemctl --user start caffeine &
-systemctl --user start redshift-gtk &
-systemctl --user start syncthing-gtk &
-systemctl --user start xbindkeys &
 setxkbmap -option ctrl:nocaps
 
 # Workaround gdm's buggered up placement of .Xauthority

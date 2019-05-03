@@ -1,8 +1,0 @@
-[Unit]
-Description=Caffeine (Keep Awake When In Fullscreen)
-Documentation=man:caffeine(1)
-
-[Service]
-ExecStartPre=/usr/bin/sleep 2
-ExecStart=/usr/bin/caffeine
-Restart=on-failure

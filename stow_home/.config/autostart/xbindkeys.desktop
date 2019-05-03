@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_CA]=
+Comment=
+Exec=xbindkeys
+GenericName[en_CA]=
+GenericName=
+Icon=system-run
+MimeType=
+Name[en_CA]=Xbindkeys
+Name=Xbindkeys
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=none
+X-KDE-SubstituteUID=false
+X-KDE-Username=
