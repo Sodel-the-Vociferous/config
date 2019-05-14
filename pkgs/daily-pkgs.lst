@@ -24,6 +24,7 @@ flash-player
 gcc
 gcc-c++
 git
+git-crypt
 gitk
 global
 gnome-system-monitor
