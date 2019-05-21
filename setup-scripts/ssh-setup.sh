@@ -12,3 +12,5 @@ xargs -d '\n' sudo perl -p -i \
     -e 's/^(\s*ChallengeResponseAuthentication\s+)yes$/\1 no/gi' \
     "/etc/ssh/sshd_config"
 
+systemctl enable sshd.service
+

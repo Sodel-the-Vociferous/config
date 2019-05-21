@@ -14,6 +14,7 @@ dejavu-fonts
 deluge
 denemo
 di
+dmidecode
 dnsutils
 dosfstools
 duperemove
@@ -58,6 +59,7 @@ links
 llvm
 llvm-clang
 lmms
+lshw
 lsof
 make
 mercurial

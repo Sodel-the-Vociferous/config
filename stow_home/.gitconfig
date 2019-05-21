@@ -28,5 +28,6 @@
         enabled = true
 [diff]
 	indentHeuristic = true
+# 	ignoreSubmodules = all
 [magit]
 	hideCampaign = true
