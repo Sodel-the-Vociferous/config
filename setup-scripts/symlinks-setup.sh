@@ -13,7 +13,8 @@ fi
 source $LIB_ES_PATH
 
 # Stow
-stow --adopt -R -d ~/config/ -t $HOME stow_home
+stow -R -d ~/config/ -t $HOME stow_home
+stow --adopt -d ~/config/ -t $HOME stow_home
 # Copying redshift.conf is a workaround. Redshift can't seem to follow symlinks
 # to its config file.
 cp --remove-destination -ad ~/config/redshift.conf ~/.config/
