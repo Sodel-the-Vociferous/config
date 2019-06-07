@@ -1,0 +1,26 @@
+[General]
+defaultOpenAction=Open
+
+[MainWindow]
+Height 1080=480
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAOzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+Width 1920=640
+Window-Maximized 1080x1920=true
+splitterSizes=426,213
+
+[Open-with settings]
+CompletionMode=1
+History=ok
+
+[Recent Files]
+File1[$e]=$HOME/Downloads/tgp03v3p_unit9_printables_preschool.zip
+Name1[$e]=tgp03v3p_unit9_printables_preschool.zip
+
+[Viewer]
+Height 1080=430
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAOzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1920=386
+Window-Maximized 1080x1920=true

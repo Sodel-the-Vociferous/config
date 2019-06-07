@@ -1,0 +1,106 @@
+[1]
+Description=Window settings for systemsettings
+clientmachine=localhost
+clientmachinematch=0
+size=676,673
+sizerule=4
+title=Choose Application \xe2\x80\x94 System Settings
+titlematch=1
+types=32
+wmclass=systemsettings5 systemsettings
+wmclasscomplete=true
+wmclassmatch=1
+
+[2]
+Description=Application settings for wine
+clientmachine=mccarthy
+clientmachinematch=0
+noborder=true
+noborderrule=2
+wmclass=endlesslegend.exe wine
+wmclasscomplete=true
+wmclassmatch=1
+
+[3]
+Description=Application settings for kcmshell5
+clientmachine=localhost
+clientmachinematch=0
+size=1082,741
+sizerule=4
+wmclass=kcmshell5
+wmclasscomplete=false
+wmclassmatch=1
+
+[4]
+Description=Application settings for emacs
+clientmachine=mccarthy
+clientmachinematch=0
+strictgeometry=false
+strictgeometryrule=2
+wmclass=emacs-gtk emacs
+wmclasscomplete=true
+wmclassmatch=1
+
+[5]
+Description=Xfce4-terminal: Open On Top & Actually Maximize
+clientmachine=mccarthy
+clientmachinematch=0
+fsplevel=0
+fsplevelrule=2
+strictgeometry=false
+strictgeometryrule=2
+title=Terminal
+titlematch=0
+wmclass=xfce4-terminal xfce4-terminal
+wmclasscomplete=true
+wmclassmatch=1
+
+[6]
+Description=Emacs: Actually Maximize
+clientmachine=mccarthy
+clientmachinematch=0
+strictgeometry=false
+strictgeometryrule=2
+title=emacs@mccarthy
+titlematch=0
+wmclass=emacs emacs
+wmclasscomplete=true
+wmclassmatch=1
+
+[Directories]
+dir_pixmap[$d]
+
+[General]
+BrowserApplication[$d]
+count=6
+desktopFont[$d]
+fixed[$d]
+font[$d]
+menuFont[$d]
+shadeSortColumn[$d]
+smallestReadableFont[$d]
+taskbarFont[$d]
+toolBarFont[$d]
+
+[Icons]
+Theme[$d]
+
+[KDE]
+ChangeCursor[$d]
+LookAndFeelPackage[$d]
+contrast[$d]
+
+[KDE URL Restrictions]
+rule_1[$d]
+rule_count[$d]
+
+[KFileDialog Settings]
+Breadcrumb Navigation[$d]
+
+[Paths]
+Trash[$d]
+
+[PreviewSettings]
+camera[$d]
+file[$d]
+fonts[$d]

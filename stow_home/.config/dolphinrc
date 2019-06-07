@@ -1,0 +1,60 @@
+[CompactMode]
+FontWeight=50
+
+[Desktop Entry]
+DefaultProfile=
+
+[DetailsMode]
+FontWeight=50
+
+[Favorite Profiles]
+Favorites=
+
+[FileDialogSize]
+Height 1080=480
+Width 1920=640
+
+[General]
+EditableUrl=true
+FilterBar=true
+ModifiedStartupSettings=true
+ShowSpaceInfo=false
+Version=200
+ViewPropsTimestamp=2015,2,14,19,25,30
+
+[IconsMode]
+FontWeight=50
+IconSize=48
+
+[KPropertiesDialog]
+Height 1024=514
+Height 1080=483
+Width 1280=636
+Width 1920=578
+
+[MainWindow]
+Height 1024=987
+Height 1080=1013
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAFMAAADrvwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAABGAAACegAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAABHAAADrgAAAFoBAAADAAAAAQAAALgAAAOu/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAEcAAAOuAAAACgEAAAMAAAADAAAHgAAAAYf8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAHgAAAAAoBAAADAAAGMwAAA64AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1280=1280
+Width 1920=1920
+Window-Maximized 1024x1280=true
+Window-Maximized 1080x1920=true
+
+[Open-with settings]
+CompletionMode=5
+History=emacsclient,FreeCAD,emacsclient -c
+
+[PreviewSettings]
+Plugins=directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,svgthumbnail,textthumbnail,ffmpegthumbs
+
+[SettingsDialog]
+Height 1024=518
+Height 1080=532
+Width 1280=777
+Width 1920=772
+
+[ViewPropertiesDialog]
+Height 1024=532
+Width 1280=485
