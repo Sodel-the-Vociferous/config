@@ -3,11 +3,11 @@ defaultOpenAction=Open
 
 [MainWindow]
 Height 1080=480
-State=AAAA/wAAAAD9AAAAAAAAB4AAAAOzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 StatusBar=Disabled
 ToolBarsMovable=Disabled
 Width 1920=640
-Window-Maximized 1080x1920=true
+Window-Maximized 1080x1920=false
 splitterSizes=426,213
 
 [Open-with settings]
@@ -15,8 +15,8 @@ CompletionMode=1
 History=ok
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/tgp03v3p_unit9_printables_preschool.zip
-Name1[$e]=tgp03v3p_unit9_printables_preschool.zip
+File1[$e]=$HOME/games/LWFa3a.tar
+Name1[$e]=LWFa3a.tar
 
 [Viewer]
 Height 1080=430
