@@ -28,6 +28,7 @@
         enabled = true
 [diff]
 	indentHeuristic = true
+	algorithm = histogram
 # 	ignoreSubmodules = all
 [magit]
 	hideCampaign = true
